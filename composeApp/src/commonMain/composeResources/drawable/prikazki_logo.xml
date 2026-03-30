@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Prikazki — logo mark only (circular icon + equalizer bars)
+    Original viewBox: 0 0 985.5 253
+    Cropped to the icon region: x=788.5, y=0, width=197, height=253
+    All path coordinates are offset by -788.5 on the X axis.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="197dp"
+        android:height="253dp"
+        android:viewportWidth="197"
+        android:viewportHeight="253">
+
+    <!-- Equalizer bar - left tall (st0 #A2291D) -->
+    <path
+            android:fillColor="#A2291D"
+            android:fillType="evenOdd"
+            android:pathData="M98.2,131.9c5.7,0 10.3,4.6 10.3,10.4v100.4c0,5.7 -4.6,10.4 -10.3,10.4c-5.7,0 -10.2,-4.6 -10.2,-10.4V142.3C88,136.6 92.5,131.9 98.2,131.9z"/>
+
+    <!-- Equalizer bar - right tall (st0 #A2291D) -->
+    <path
+            android:fillColor="#A2291D"
+            android:fillType="evenOdd"
+            android:pathData="M130.5,101.9c5.7,0 10.2,4.6 10.2,10.3v100.4c0,5.7 -4.6,10.4 -10.2,10.4c-5.7,0 -10.3,-4.6 -10.3,-10.4V112.3C120.2,106.6 124.8,101.9 130.5,101.9z"/>
+
+    <!-- Equalizer bar - far left (st0 #A2291D) -->
+    <path
+            android:fillColor="#A2291D"
+            android:fillType="evenOdd"
+            android:pathData="M42.4,89.5c5.7,0 10.3,4.6 10.3,10.3v100.4c0,5.7 -4.6,10.4 -10.3,10.4c-5.7,0 -10.2,-4.6 -10.2,-10.4V99.9C32.1,94.1 36.7,89.5 42.4,89.5z"/>
+
+    <!-- Outer shield/drop shape (st0 #A2291D) -->
+    <path
+            android:fillColor="#A2291D"
+            android:fillType="evenOdd"
+            android:pathData="M0,91.6C0,37.2 44.1,0 98.5,0c54.4,0 98.5,44.1 98.5,98.5S152.9,197 98.5,197C44.1,197 0,146 0,91.6z"/>
+
+    <!-- White ring (st1 #FFFFFF) -->
+    <path
+            android:fillColor="#FFFFFF"
+            android:fillType="evenOdd"
+            android:pathData="M18.5,98.2c0,-44.1 35.9,-79.9 80.1,-79.9c44.2,0 80.1,35.8 80.1,79.9c0,44.1 -35.8,79.9 -80.1,79.9C54.3,178.1 18.5,142.3 18.5,98.2z"/>
+
+    <!-- Red circle background (st0 circle, cx=887 cy=98.5 r=72.1, offset -788.5) -->
+    <path
+            android:fillColor="#A2291D"
+            android:fillType="evenOdd"
+            android:pathData="M98.5,26.4A72.1,72.1 0,1 1,98.5 170.6A72.1,72.1 0,1 1,98.5 26.4z"/>
+
+    <!-- Orange pie slice (st2 #F7941D) -->
+    <path
+            android:fillColor="#F7941D"
+            android:fillType="evenOdd"
+            android:pathData="M31.6,126.6c10.3,24.5 33.6,42.1 61.3,44.2c-5.8,-17.2 -14,-40.7 -14,-40.7H68L31.6,126.6z"/>
+
+    <!-- Purple pie slice (st3 #6C679F) -->
+    <path
+            android:fillColor="#6C679F"
+            android:fillType="evenOdd"
+            android:pathData="M26,98.5c0,5.8 0.7,11.4 2,16.8l35.9,-24.1l-1.6,-5.2l0.5,-8.3c0,0 -6.3,-16.9 -12.5,-33.5C35.4,57.6 26,76.9 26,98.5z"/>
+
+    <!-- Dark blue pie slice (st4 #2D389D) -->
+    <path
+            android:fillColor="#2D389D"
+            android:fillType="evenOdd"
+            android:pathData="M136.4,36.6c-11,-6.8 -24,-10.6 -37.8,-10.6c-13.6,0 -26.4,3.8 -37.3,10.3L97.5,65.1L136.4,36.6z"/>
+
+    <!-- Dark teal pie slice (st5 #253D51) -->
+    <path
+            android:fillColor="#253D51"
+            android:fillType="evenOdd"
+            android:pathData="M169.4,114.3c1.1,-5.1 1.7,-10.4 1.7,-15.8c0,-21.2 -9.1,-40.2 -23.5,-53.5l-16.4,41.3L169.4,114.3z"/>
+
+    <!-- Teal pie slice (st6 #297D85) -->
+    <path
+            android:fillColor="#297D85"
+            android:fillType="evenOdd"
+            android:pathData="M102.2,171c27.9,-1.4 51.6,-18.5 62.5,-42.6l-43.9,-1.3l-3.1,10.4l-5.2,0.5L102.2,171z"/>
+
+    <!-- White star/compass mark (st1 #FFFFFF) -->
+    <path
+            android:fillColor="#FFFFFF"
+            android:fillType="evenOdd"
+            android:pathData="M98.4,156.6l-4.2,-12.9l0,0l-0.4,-1.2l-11.2,-34.4l-12.7,1.2l28.4,87.5l20.3,-63.1H105.3L98.4,156.6z
+M72.7,129.9l-4,-12.4l-22.2,-0.2l42.3,-30.3l-5.1,-11.8l-78.1,55L72.7,129.9z
+M62.5,85.1l10.8,-7l-9.7,-26.4l44.7,32.8l9.5,-8.4L39.9,19.2L62.5,85.1z
+M103.1,60.8l10.5,7.6L134.1,52l-8,20.5L115.5,104.4l11,6.4l31.3,-91.4L103.1,60.8z
+M137.1,90.7l-4,12.4l20.3,14.2H99.4l-2.1,12.9h95.1L137.1,90.7z"/>
+
+</vector>

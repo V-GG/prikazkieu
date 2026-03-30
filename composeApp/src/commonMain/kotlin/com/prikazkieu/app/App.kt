@@ -1,4 +1,4 @@
-package com.prikazkieu.prikazkieu
+package com.prikazkieu.app
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding

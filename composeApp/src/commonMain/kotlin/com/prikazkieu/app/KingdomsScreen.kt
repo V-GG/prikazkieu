@@ -1,4 +1,4 @@
-package com.prikazkieu.prikazkieu
+package com.prikazkieu.app
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -7,11 +7,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 
 @Composable
-fun HomeScreen() {
+fun KingdomsScreen() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        Text(text = "Приказки")
+        Text(text = "Царства")
     }
 }

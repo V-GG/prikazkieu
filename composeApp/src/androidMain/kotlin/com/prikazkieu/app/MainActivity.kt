@@ -1,4 +1,4 @@
-package com.prikazkieu.prikazkieu
+package com.prikazkieu.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

@@ -1,4 +1,4 @@
-package com.prikazkieu.prikazkieu
+package com.prikazkieu.app
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

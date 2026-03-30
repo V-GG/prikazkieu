@@ -52,11 +52,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.prikazkieu.prikazkieu"
+    namespace = "com.prikazkieu.app"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.prikazkieu.prikazkieu"
+        applicationId = "com.prikazkieu.app"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1

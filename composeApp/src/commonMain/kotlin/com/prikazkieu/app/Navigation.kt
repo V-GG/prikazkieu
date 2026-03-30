@@ -1,4 +1,4 @@
-package com.prikazkieu.prikazkieu
+package com.prikazkieu.app
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

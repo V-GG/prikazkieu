@@ -1,4 +1,4 @@
-package com.prikazkieu.app
+package com.prikazkieu.app.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

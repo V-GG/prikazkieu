@@ -1,9 +1,13 @@
-package com.prikazkieu.app
+package com.prikazkieu.app.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.prikazkieu.app.screen.AuthorsScreen
+import com.prikazkieu.app.screen.HomeScreen
+import com.prikazkieu.app.screen.KingdomsScreen
+import com.prikazkieu.app.screen.LibraryScreen
 import kotlinx.serialization.Serializable
 
 @Serializable

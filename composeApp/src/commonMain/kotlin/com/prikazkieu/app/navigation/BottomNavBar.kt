@@ -1,4 +1,4 @@
-package com.prikazkieu.app
+package com.prikazkieu.app.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*

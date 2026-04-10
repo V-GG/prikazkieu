@@ -1,12 +1,15 @@
 package com.prikazkieu.app
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
+import com.prikazkieu.app.navigation.*
 
 @Composable
 @Preview
@@ -19,7 +22,14 @@ fun App() {
         topBar = { TopNavBar() },
         bottomBar = { BottomNavBar(selectedItem) { selectedItem = it } }
     ) { paddingValues ->
-        Box(modifier = Modifier.padding(paddingValues)) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(
+                    top = 110.dp, // TODO: this needs to be resolved
+                    bottom = paddingValues.calculateBottomPadding()
+                )
+        ) {
             Navigation(navController)
 
             when (selectedItem) {

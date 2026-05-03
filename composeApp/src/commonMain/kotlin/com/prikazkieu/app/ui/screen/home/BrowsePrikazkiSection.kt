@@ -1,4 +1,4 @@
-package com.prikazkieu.app.screen.home
+package com.prikazkieu.app.ui.screen.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -29,7 +29,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.prikazkieu.app.customComponent.WavesDivider
+import com.prikazkieu.app.ui.components.WavesDivider
 import org.jetbrains.compose.resources.painterResource
 import prikazkieu.composeapp.generated.resources.Res
 import prikazkieu.composeapp.generated.resources.jaba_pisatel
@@ -64,6 +64,7 @@ fun BrowsePrikazkiSection() {
             Spacer(modifier = Modifier.height(48.dp))
 
             AuthorRow()
+
             KingdomRow()
         }
     }

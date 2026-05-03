@@ -1,6 +1,5 @@
-package com.prikazkieu.app.screen.home
+package com.prikazkieu.app.ui.screen.home
 
-import NumberBadge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -17,7 +16,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.prikazkieu.app.customComponent.WavesDivider
+import com.prikazkieu.app.ui.components.NumberBadge
+import com.prikazkieu.app.ui.components.WavesDivider
 import org.jetbrains.compose.resources.painterResource
 import prikazkieu.composeapp.generated.resources.Res
 import prikazkieu.composeapp.generated.resources.ornamental_title_big_red
@@ -51,7 +51,7 @@ fun FooterSection() {
                 text = "Политически приказки",
                 fontWeight = FontWeight.Bold,
                 fontSize = 24.sp,
-                color = Color(0xFF8A8A82),         // muted olive-gray from your image
+                color = Color(0xFF8A8A82),
                 letterSpacing = 0.5.sp,
                 style = TextStyle(
                     fontSynthesis = FontSynthesis.None

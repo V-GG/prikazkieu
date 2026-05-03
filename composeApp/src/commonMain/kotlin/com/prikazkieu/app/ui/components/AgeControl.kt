@@ -1,4 +1,4 @@
-package com.prikazkieu.app.customComponent
+package com.prikazkieu.app.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -29,13 +29,10 @@ fun AgeControl() {
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // 4 cells in a row
         Row(modifier = Modifier.weight(1f)) {
-            // Empty cells
             RangeCell(modifier = Modifier.weight(1f))
             RangeCell(modifier = Modifier.weight(1f))
 
-            // Center cell with label
             RangeCell(modifier = Modifier.weight(1f)) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
@@ -54,7 +51,6 @@ fun AgeControl() {
                 }
             }
 
-            // Empty cell
             RangeCell(modifier = Modifier.weight(1f))
         }
     }

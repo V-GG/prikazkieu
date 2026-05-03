@@ -1,4 +1,4 @@
-package com.prikazkieu.app.screen.home
+package com.prikazkieu.app.ui.screen.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -19,7 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.prikazkieu.app.customComponent.AgeControl
+import com.prikazkieu.app.ui.components.AgeControl
 
 @Composable
 fun HeroSection() {

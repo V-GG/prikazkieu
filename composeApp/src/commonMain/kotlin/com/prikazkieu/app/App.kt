@@ -9,18 +9,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
-import com.prikazkieu.app.navigation.*
+import com.prikazkieu.app.ui.navigation.*
 
 @Composable
 @Preview
 fun App() {
     var selectedItem by remember { mutableStateOf(0) }
-    // Creates the NavController
     val navController = rememberNavController()
 
     Scaffold(
         topBar = { TopNavBar() },
-        bottomBar = { BottomNavBar(selectedItem) { selectedItem = it } }
+        bottomBar = {
+            BottomNavBar(selectedItem) { newItem ->
+                selectedItem = newItem
+                when (newItem) {
+                    BottomNavItem.Type.HOME.ordinal -> navController.navigate(HomeRoute)
+                    BottomNavItem.Type.KINGDOMS.ordinal -> navController.navigate(KingdomsRoute)
+                    BottomNavItem.Type.LIBRARY.ordinal -> navController.navigate(LibraryRoute)
+                    BottomNavItem.Type.AUTHORS.ordinal -> navController.navigate(AuthorsRoute)
+                }
+            }
+        }
     ) { paddingValues ->
         Column(
             modifier = Modifier
@@ -31,13 +40,6 @@ fun App() {
                 )
         ) {
             Navigation(navController)
-
-            when (selectedItem) {
-                BottomNavItem.Type.HOME.ordinal -> navController.navigate(HomeScreen)
-                BottomNavItem.Type.KINGDOMS.ordinal -> navController.navigate(KingdomsScreen)
-                BottomNavItem.Type.LIBRARY.ordinal -> navController.navigate(LibraryScreen)
-                BottomNavItem.Type.AUTHORS.ordinal -> navController.navigate(AuthorsScreen)
-            }
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.prikazkieu.app.screen.home
+package com.prikazkieu.app.ui.screen.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box

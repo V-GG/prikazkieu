@@ -1,4 +1,4 @@
-package com.prikazkieu.app.navigation
+package com.prikazkieu.app.ui.navigation
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.input.TextFieldState
@@ -22,7 +22,6 @@ fun TopNavBar() {
             .fillMaxWidth()
             .windowInsetsPadding(WindowInsets.safeDrawing)
     ) {
-        // Inner Row has the fixed height
         Row(
             modifier = Modifier
                 .fillMaxWidth()

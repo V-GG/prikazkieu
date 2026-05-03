@@ -1,4 +1,4 @@
-package com.prikazkieu.app.screen
+package com.prikazkieu.app.ui.screen.library
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -7,11 +7,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 
 @Composable
-fun AuthorsScreen() {
+fun LibraryScreen() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        Text(text = "Автори")
+        Text(text = "Библиотека")
     }
 }

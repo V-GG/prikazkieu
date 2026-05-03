@@ -1,4 +1,4 @@
-package com.prikazkieu.app.customComponent
+package com.prikazkieu.app.ui.components
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,7 +15,7 @@ fun WavesDivider(
     wave1Color: Color,
     wave2Color: Color,
     wave3Color: Color,
-    inverted: Boolean = false  // ← new parameter
+    inverted: Boolean = false
 ) {
     Canvas(
         modifier = modifier

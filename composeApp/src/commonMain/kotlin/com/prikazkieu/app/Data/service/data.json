@@ -1,0 +1,420 @@
+{
+  "data" : [
+    {
+      "author": "Ханс Кристиан Андерсен",
+      "title": "Коледното дърво",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/04/illustration_Andersen_8.jpg",
+      "readTimeMinutes": 14,
+      "ageGroup": 9,
+      "url": "/prikazka/kolednoto-darvo-ili-elata/"
+    },
+    {
+      "author": "Ханс Кристиан Андерсен",
+      "title": "Свинарят",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/04/illustration_Andersen_9.jpg",
+      "readTimeMinutes": 7,
+      "ageGroup": 5,
+      "url": "/prikazka/svinaryat/"
+    },
+    {
+      "author": "Ханс Кристиан Андерсен",
+      "title": "Снежната царица",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/04/illustration_Andersen_7a.jpg",
+      "readTimeMinutes": 51,
+      "ageGroup": 17,
+      "url": "/prikazka/snejnata-carica/"
+    },
+    {
+      "author": "Мартин Илиев",
+      "title": "Вече съм голям",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/03/illustration_man_40_AI.jpg",
+      "readTimeMinutes": 1,
+      "ageGroup": 3,
+      "url": "/prikazka/veche-sam-golyam/"
+    },
+    {
+      "author": "",
+      "title": "Легенда за Анаи",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/03/illustration_Brazil_5.jpg",
+      "readTimeMinutes": 1,
+      "ageGroup": 9,
+      "url": "/prikazka/legenda-za-anai-ili-cvetat-na-koralovoto-darvo/"
+    },
+    {
+      "author": "",
+      "title": "Ръката на покойницата",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/03/illustration_Brazil_6.jpg",
+      "readTimeMinutes": 11,
+      "ageGroup": 17,
+      "url": "/prikazka/rakata-na-pokoynicata/"
+    },
+    {
+      "author": "",
+      "title": "Дон Лео и доня Елена",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/03/illustration_Brazil_4.jpg",
+      "readTimeMinutes": 5,
+      "ageGroup": 9,
+      "url": "/prikazka/don-leo-i-donya-elena/"
+    },
+    {
+      "author": "",
+      "title": "Пан Котаран",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/04/illustration_Ukraina_19.jpg",
+      "readTimeMinutes": 4,
+      "ageGroup": 5,
+      "url": "/prikazka/pan-kotaran/"
+    },
+    {
+      "author": "",
+      "title": "Олена и златната ябълка",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/02/illustration_Ukraina_18.jpg",
+      "readTimeMinutes": 11,
+      "ageGroup": 5,
+      "url": "/prikazka/olena-i-zlatnata-yabalka/"
+    },
+    {
+      "author": "",
+      "title": "Първият гаучо",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/02/illustration_Brazil_2.jpg",
+      "readTimeMinutes": 4,
+      "ageGroup": 17,
+      "url": "/prikazka/parviyat-gaucho/"
+    },
+    {
+      "author": "",
+      "title": "Легенда за Манака",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/02/Illustration_Brazil_3.jpg",
+      "readTimeMinutes": 2,
+      "ageGroup": 9,
+      "url": "/prikazka/legenda-za-manaka/"
+    },
+    {
+      "author": "",
+      "title": "Трите въпроса",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/02/illustration_TriteVaprosa.jpg",
+      "readTimeMinutes": 5,
+      "ageGroup": 9,
+      "url": "/prikazka/trite-vaprosa-po-prikazkata-na-l-n-tolstoy/"
+    },
+    {
+      "author": "",
+      "title": "Как се появила луната",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/01/illustration_things32.jpg",
+      "readTimeMinutes": 2,
+      "ageGroup": 5,
+      "url": "/prikazka/kak-se-poyavila-lunata/"
+    },
+    {
+      "author": "",
+      "title": "Лисича сватба",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/02/illustration_thing_45.jpg",
+      "readTimeMinutes": 2,
+      "ageGroup": 5,
+      "url": "/prikazka/lisicha-svatba/"
+    },
+    {
+      "author": "",
+      "title": "Вълчо и Лиса коледари",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_17.jpg",
+      "readTimeMinutes": 2,
+      "ageGroup": 3,
+      "url": "/prikazka/valcho-i-lisa-koledari-valcha-pesen/"
+    },
+    {
+      "author": "",
+      "title": "Майстор Иванко",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/02/illustration_Ukraina_16.jpg",
+      "readTimeMinutes": 5,
+      "ageGroup": 17,
+      "url": "/prikazka/maystor-ivanko/"
+    },
+    {
+      "author": "Елса Бесков",
+      "title": "Рожденият ден на Кафявата леля",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Beskow_1.jpg",
+      "readTimeMinutes": 13,
+      "ageGroup": 5,
+      "url": "/prikazka/rojdeniyat-den-na-kafyavata-nbsp-lelya/"
+    },
+    {
+      "author": "",
+      "title": "Петелът, който намерил жълтички",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_15.jpg",
+      "readTimeMinutes": 2,
+      "ageGroup": 5,
+      "url": "/prikazka/petelat-koyto-nameril-jaltichki/"
+    },
+    {
+      "author": "",
+      "title": "Куцото патенце",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_13.jpg",
+      "readTimeMinutes": 3,
+      "ageGroup": 5,
+      "url": "/prikazka/kucoto-patence/"
+    },
+    {
+      "author": "",
+      "title": "Кокошката със златните яйца",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_12.jpg",
+      "readTimeMinutes": 3,
+      "ageGroup": 5,
+      "url": "/prikazka/kokoshkata-sas-zlatnite-yayca/"
+    },
+    {
+      "author": "",
+      "title": "Тримата братя",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_10.jpg",
+      "readTimeMinutes": 6,
+      "ageGroup": 9,
+      "url": "/prikazka/trimata-bratya/"
+    },
+    {
+      "author": "",
+      "title": "Найден Иван",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/reg_Ukraina_1.jpg",
+      "readTimeMinutes": 12,
+      "ageGroup": 5,
+      "url": "/prikazka/nayden-ivan/"
+    },
+    {
+      "author": "",
+      "title": "Знахарят",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_11.jpg",
+      "readTimeMinutes": 5,
+      "ageGroup": 9,
+      "url": "/prikazka/znaharyat/"
+    },
+    {
+      "author": "",
+      "title": "Когато дядо ходил на училище",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/reg_Ukraina_3.jpg",
+      "readTimeMinutes": 2,
+      "ageGroup": 9,
+      "url": "/prikazka/kogato-dyado-hodil-na-uchilishte/"
+    },
+    {
+      "author": "",
+      "title": "Заешка сланинка",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_9.jpg",
+      "readTimeMinutes": 2,
+      "ageGroup": 9,
+      "url": "/prikazka/zaeshka-slaninka/"
+    },
+    {
+      "author": "",
+      "title": "Правда и кривда",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_7.jpg",
+      "readTimeMinutes": 9,
+      "ageGroup": 9,
+      "url": "/prikazka/pravda-i-krivda-2/"
+    },
+    {
+      "author": "",
+      "title": "Как беднякът обядвал с надутия пан",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2021/02/region_folkmotive_2.jpg",
+      "readTimeMinutes": 3,
+      "ageGroup": 9,
+      "url": "/prikazka/kak-bednyakat-obyadval-s-nadutiya-pan/"
+    },
+    {
+      "author": "",
+      "title": "Кирило Кожумяка",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_6.jpg",
+      "readTimeMinutes": 5,
+      "ageGroup": 9,
+      "url": "/prikazka/kirilo-kojumyaka/"
+    },
+    {
+      "author": "",
+      "title": "Злини ненаситни",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_5.jpg",
+      "readTimeMinutes": 7,
+      "ageGroup": 9,
+      "url": "/prikazka/zlini-nenasitni/"
+    },
+    {
+      "author": "",
+      "title": "Приказка за кучето Шарко",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_4.jpg",
+      "readTimeMinutes": 3,
+      "ageGroup": 5,
+      "url": "/prikazka/prikazka-za-kucheto-sharko/"
+    },
+    {
+      "author": "",
+      "title": "Брадатко",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_3.jpg",
+      "readTimeMinutes": 2,
+      "ageGroup": 5,
+      "url": "/prikazka/bradatko/"
+    },
+    {
+      "author": "",
+      "title": "Царкинята змия",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_2.jpg",
+      "readTimeMinutes": 5,
+      "ageGroup": 5,
+      "url": "/prikazka/carkinyata-zmiya/"
+    },
+    {
+      "author": "Братя Грим",
+      "title": "Дяволът с трите златни косъма",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/12/illustration_grimm_13.jpg",
+      "readTimeMinutes": 12,
+      "ageGroup": 5,
+      "url": "/prikazka/dyavolat-s-trite-zlatni-kosama/"
+    },
+    {
+      "author": "",
+      "title": "Летящият кораб",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/12/llustrations_Ukraina_1.jpg",
+      "readTimeMinutes": 13,
+      "ageGroup": 5,
+      "url": "/prikazka/letyashtiyat-korab/"
+    },
+    {
+      "author": "",
+      "title": "Момчето и цигулката",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/12/illustration_Brazil_1.jpg",
+      "readTimeMinutes": 5,
+      "ageGroup": 5,
+      "url": "/prikazka/momcheto-i-cigulkata/"
+    },
+    {
+      "author": "",
+      "title": "Приказка за милосърдието",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/11/illustration_animal_6.jpg",
+      "readTimeMinutes": 5,
+      "ageGroup": 5,
+      "url": "/prikazka/prikazka-za-milosardieto/"
+    },
+    {
+      "author": "",
+      "title": "Малката катеричка",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/12/illustration_animal_146a.jpg",
+      "readTimeMinutes": 14,
+      "ageGroup": 5,
+      "url": "/prikazka/malkata-katerichka/"
+    },
+    {
+      "author": "Български Народни Приказки",
+      "title": "В яда си зло не прави",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/11/illustration_reg_BG.jpg",
+      "readTimeMinutes": 8,
+      "ageGroup": 17,
+      "url": "/prikazka/v-yada-si-zlo-ne-pravi/"
+    },
+    {
+      "author": "Български Народни Приказки",
+      "title": "Скопосната невеста",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/08/illustration_bg_100.jpg",
+      "readTimeMinutes": 3,
+      "ageGroup": 9,
+      "url": "/prikazka/skoposnata-nevesta/"
+    },
+    {
+      "author": "Елин Пелин",
+      "title": "Пролетна картина",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2021/12/illustration_bg_66.jpg",
+      "readTimeMinutes": 1,
+      "ageGroup": 9,
+      "url": "/prikazka/proletna-kartina/"
+    },
+    {
+      "author": "Български Народни Приказки",
+      "title": "Един за друг",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2022/01/illustration_region_4.jpg",
+      "readTimeMinutes": 1,
+      "ageGroup": 5,
+      "url": "/prikazka/edin-za-drug-2/"
+    },
+    {
+      "author": "Български Народни Приказки",
+      "title": "Посмали, манго!",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2019/08/dropbig_O_3.jpg",
+      "readTimeMinutes": 1,
+      "ageGroup": 9,
+      "url": "/prikazka/posmali-mango-2/"
+    },
+    {
+      "author": "Мартин Илиев",
+      "title": "Най-прочутият готвач",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_animal_5.jpg",
+      "readTimeMinutes": 1,
+      "ageGroup": 3,
+      "url": "/prikazka/nay-prochutiyat-gotvach/"
+    },
+    {
+      "author": "Мартин Илиев",
+      "title": "Най-добре си е на плажа",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_man_49a.jpg",
+      "readTimeMinutes": 1,
+      "ageGroup": 5,
+      "url": "/prikazka/nay-dobre-si-e-na-plaja/"
+    },
+    {
+      "author": "Мартин Илиев",
+      "title": "Кой какво обича",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_thing_3.jpg",
+      "readTimeMinutes": 1,
+      "ageGroup": 3,
+      "url": "/prikazka/koy-kakvo-obicha/"
+    },
+    {
+      "author": "Елса Бесков",
+      "title": "Коледните приключения на Петер и Лота",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_EB_Jul.jpg",
+      "readTimeMinutes": 16,
+      "ageGroup": 5,
+      "url": "/prikazka/kolednite-priklyucheniya-na-peter-i-lota/"
+    },
+    {
+      "author": "Български Народни Приказки",
+      "title": "Вярната невеста",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/11/illustration_bg_4.jpg",
+      "readTimeMinutes": 2,
+      "ageGroup": 17,
+      "url": "/prikazka/vyarnata-nevesta/"
+    },
+    {
+      "author": "Мартин Илиев",
+      "title": "Новото колело",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_animal_4.jpg",
+      "readTimeMinutes": 1,
+      "ageGroup": 3,
+      "url": "/prikazka/novoto-kolelo/"
+    },
+    {
+      "author": "Елса Бесков",
+      "title": "Децата от Солбака",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_EB_Salbacka_1.jpg",
+      "readTimeMinutes": 1,
+      "ageGroup": 3,
+      "url": "/prikazka/decata-ot-solbaka/"
+    },
+    {
+      "author": "Елса Бесков",
+      "title": "Жълъдко, Лешничка и малкият Пилерил",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_illustration_EB_0.jpg",
+      "readTimeMinutes": 13,
+      "ageGroup": 5,
+      "url": "/prikazka/jaladko-leshnichka-i-malkiya-pileril/"
+    },
+    {
+      "author": "Китайски Приказки",
+      "title": "Празната саксия",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_china_1.jpg",
+      "readTimeMinutes": 4,
+      "ageGroup": 5,
+      "url": "/prikazka/praznata-saksiya/"
+    },
+    {
+      "author": "Селма Лагерльоф",
+      "title": "Свирачът",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_artvee_1.jpg",
+      "readTimeMinutes": 13,
+      "ageGroup": 17,
+      "url": "/prikazka/svirachat/"
+    }
+  ]
+}

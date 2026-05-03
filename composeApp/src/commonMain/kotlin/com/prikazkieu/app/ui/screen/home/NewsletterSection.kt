@@ -1,4 +1,4 @@
-package com.prikazkieu.app.screen.home
+package com.prikazkieu.app.ui.screen.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -25,7 +25,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.prikazkieu.app.customComponent.WavesDivider
+import com.prikazkieu.app.ui.components.WavesDivider
 
 @Composable
 fun NewsletterSection() {
@@ -60,7 +60,6 @@ fun NewsletterSection() {
 @Composable
 private fun NewsletterTitle() {
     Box(modifier = Modifier.fillMaxWidth()) {
-        // Watermark
         Text(
             text = "ПРИКАЗКА",
             style = TextStyle(
@@ -71,7 +70,6 @@ private fun NewsletterTitle() {
             modifier = Modifier.align(Alignment.Center)
         )
 
-        // Italic label
         Text(
             text = "по пощата в сряда",
             style = TextStyle(

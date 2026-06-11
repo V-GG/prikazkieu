@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.prikazkieu.app.ui.components.AlbumStoriesSection
 import com.prikazkieu.app.ui.components.NumberBadge
 import com.prikazkieu.app.ui.components.WavesDivider
 import org.jetbrains.compose.resources.painterResource
@@ -62,7 +63,13 @@ fun FooterSection() {
 
             NumberBadge(number = 42)
 
+            Spacer(modifier = Modifier.size(24.dp))
+
+            AlbumStoriesSection(album = "Политически приказки")
+
             Spacer(modifier = Modifier.size(32.dp))
+
+
         }
     }
 }

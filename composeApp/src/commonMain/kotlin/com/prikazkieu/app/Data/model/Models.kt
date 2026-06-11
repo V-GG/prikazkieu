@@ -8,6 +8,7 @@ data class Story(
     val url: String,
     val kingdom: Kingdom?,
     val author: Author?,
+    val album: Album?
 )
 
 data class Kingdom(
@@ -20,6 +21,11 @@ data class Author(
     val image: String?,
     val lived: String?,
     val origin: String?,
+)
+
+data class Album(
+    val name: String,
+    val image: String?,
 )
 
 data class Filter(val type: Filter.Type) {

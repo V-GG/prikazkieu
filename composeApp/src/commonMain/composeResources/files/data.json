@@ -406,7 +406,11 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_china_1.jpg",
       "readTimeMinutes": 4,
       "ageGroup": 5,
-      "url": "/prikazka/praznata-saksiya/"
+      "url": "/prikazka/praznata-saksiya/",
+      "album": {
+        "name" : "Политически приказки",
+        "image" : "https://prikazki.eu/wp-content/uploads/2023/04/illustration_collection_politics_1.png"
+      }
     },
     {
       "author": "Селма Лагерльоф",
@@ -415,6 +419,42 @@
       "readTimeMinutes": 13,
       "ageGroup": 17,
       "url": "/prikazka/svirachat/"
+    },
+    {
+      "author": "Едуар Лабуле",
+      "title": "ЛИЦЕМЕРИЕТО И ИСТИНАТА",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2021/07/illustration_Es_3.jpg",
+      "readTimeMinutes": 4,
+      "ageGroup": 17,
+      "url": "/prikazka/licemerieto-i-istinata/",
+      "album": {
+        "name" : "Политически приказки",
+        "image" : "https://prikazki.eu/wp-content/uploads/2023/04/illustration_collection_politics_1.png"
+      }
+    },
+    {
+      "author": "Индийски Народни Приказки",
+      "title": "БИВШАТА МИШКА",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/07/illustration_india_28.jpg",
+      "readTimeMinutes": 2,
+      "ageGroup": 5,
+      "url": "/prikazka/bivshata-mishka/",
+      "album": {
+        "name" : "Политически приказки",
+        "image" : "https://prikazki.eu/wp-content/uploads/2023/04/illustration_collection_politics_1.png"
+      }
+    },
+    {
+      "author": "Цанко Церковски",
+      "title": "ЗА СЕЛОТО",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2024/07/illustration_DetskiJivot_4.jpg",
+      "readTimeMinutes": 2,
+      "ageGroup": 17,
+      "url": "/prikazka/za-seloto/",
+      "album": {
+        "name" : "Политически приказки",
+        "image" : "https://prikazki.eu/wp-content/uploads/2023/04/illustration_collection_politics_1.png"
+      }
     }
   ]
 }

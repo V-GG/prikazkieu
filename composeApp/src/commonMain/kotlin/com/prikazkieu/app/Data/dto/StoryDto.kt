@@ -1,6 +1,5 @@
 package com.prikazkieu.app.data.dto
 
-import com.prikazkieu.app.data.model.Album
 import kotlinx.serialization.Serializable
 
 @Serializable

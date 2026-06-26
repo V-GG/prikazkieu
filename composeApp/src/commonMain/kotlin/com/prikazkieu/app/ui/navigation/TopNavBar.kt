@@ -3,6 +3,7 @@ package com.prikazkieu.app.ui.navigation
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Article
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.CollectionsBookmark
@@ -16,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TopNavBar() {
+fun TopNavBar(state: NavBarState = NavBarState(), onBack: () -> Unit = {}) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -30,34 +31,29 @@ fun TopNavBar() {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
-            OutlinedTextField(
-                state = TextFieldState(),
-                modifier = Modifier.weight(1f).height(48.dp),
-                leadingIcon = {
-                    Icon(
-                        imageVector = Icons.Default.Search,
-                        contentDescription = "Search"
-                    )
-                },
-                trailingIcon = {
-                    Icon(
-                        imageVector = Icons.Default.Clear,
-                        contentDescription = "Clear"
-                    )
+            if (state.showBack) {
+                IconButton(onClick = onBack) {
+                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                 }
-            )
-            IconButton(onClick = { }) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.Article,
-                    contentDescription = "Blog"
-                )
             }
 
-            IconButton(onClick = { }) {
-                Icon(
-                    imageVector = Icons.Default.CollectionsBookmark,
-                    contentDescription = "Collection"
+            if (state.showSearch) {
+                OutlinedTextField(
+                    state = TextFieldState(),
+                    modifier = Modifier.weight(1f).height(48.dp),
+                    leadingIcon = {
+                        Icon(Icons.Default.Search, contentDescription = "Search")
+                    },
+                    trailingIcon = {
+                        Icon(Icons.Default.Clear, contentDescription = "Clear")
+                    }
                 )
+                IconButton(onClick = { }) {
+                    Icon(Icons.AutoMirrored.Filled.Article, contentDescription = "Blog")
+                }
+                IconButton(onClick = { }) {
+                    Icon(Icons.Default.CollectionsBookmark, contentDescription = "Collection")
+                }
             }
         }
     }

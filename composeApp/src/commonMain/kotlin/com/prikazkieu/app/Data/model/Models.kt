@@ -28,6 +28,3 @@ data class Album(
     val image: String?,
 )
 
-data class Filter(val type: Filter.Type) {
-    enum class Type { Magic, Common, Mythic, Animals, Songs, Riddle, Curious }
-}

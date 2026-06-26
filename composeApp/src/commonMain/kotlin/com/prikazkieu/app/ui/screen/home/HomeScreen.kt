@@ -10,12 +10,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import com.prikazkieu.app.data.model.Story
 import org.jetbrains.compose.resources.painterResource
 import prikazkieu.composeapp.generated.resources.Res
 import prikazkieu.composeapp.generated.resources.night_sky
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(onStoryClick: (Story) -> Unit = {}) {
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = painterResource(Res.drawable.night_sky),
@@ -33,7 +34,7 @@ fun HomeScreen() {
             HeroSection()
             BrowsePrikazkiSection()
             NewsletterSection()
-            FooterSection()
+            FooterSection(onStoryClick = onStoryClick)
         }
     }
 }

@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.prikazkieu.app.data.model.Story
 import com.prikazkieu.app.ui.components.AlbumStoriesSection
 import com.prikazkieu.app.ui.components.NumberBadge
 import com.prikazkieu.app.ui.components.WavesDivider
@@ -24,7 +25,7 @@ import prikazkieu.composeapp.generated.resources.Res
 import prikazkieu.composeapp.generated.resources.ornamental_title_big_red
 
 @Composable
-fun FooterSection() {
+fun FooterSection(onStoryClick: (Story) -> Unit = {}) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -65,7 +66,7 @@ fun FooterSection() {
 
             Spacer(modifier = Modifier.size(24.dp))
 
-            AlbumStoriesSection(album = "Политически приказки")
+            AlbumStoriesSection(album = "Политически приказки", onStoryClick = onStoryClick)
 
             Spacer(modifier = Modifier.size(32.dp))
 

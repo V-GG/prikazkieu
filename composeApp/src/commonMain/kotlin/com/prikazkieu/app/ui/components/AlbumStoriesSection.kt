@@ -20,11 +20,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.prikazkieu.app.data.model.Story
 import com.prikazkieu.app.ui.viewmodel.AlbumStoriesViewModel
 
 @Composable
 fun AlbumStoriesSection(
     album: String,
+    onStoryClick: (Story) -> Unit = {},
     modifier: Modifier = Modifier,
     viewModel: AlbumStoriesViewModel = remember { AlbumStoriesViewModel() }
 ) {
@@ -50,7 +52,7 @@ fun AlbumStoriesSection(
                 items(s.stories) { story ->
                     StoryCard(
                         story = story,
-                        onClick = {},
+                        onClick = onStoryClick,
                         modifier = Modifier.width(300.dp).fillMaxHeight()
                     )
                 }

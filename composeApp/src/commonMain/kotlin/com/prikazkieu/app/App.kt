@@ -1,5 +1,10 @@
 package com.prikazkieu.app
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -13,6 +18,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.prikazkieu.app.ui.navigation.*
+import com.prikazkieu.app.ui.screen.search.SearchScreen
 
 @Composable
 @Preview
@@ -21,6 +27,8 @@ fun App() {
     val currentEntry by navController.currentBackStackEntryAsState()
     val currentDest = currentEntry?.destination
     val navBarState = NavRegistry.resolve(currentDest)
+
+    var showSearch by remember { mutableStateOf(false) }
 
     val selectedItem = when {
         currentDest?.hasRoute<HomeRoute>() == true -> BottomNavItem.Type.HOME.ordinal
@@ -36,36 +44,55 @@ fun App() {
         restoreState = true
     }
 
-    Scaffold(
-        topBar = {
-            TopNavBar(
-                state = navBarState,
-                onBack = { navController.popBackStack() },
-                onBlogClick = { navController.navigate(AllStoriesRoute) }
-            )
-        },
-        bottomBar = {
-            if (navBarState.showBottomBar) {
-                BottomNavBar(selectedItem) { newItem ->
-                    when (newItem) {
-                        BottomNavItem.Type.HOME.ordinal -> navController.navigate(HomeRoute, tabNavOptions)
-                        BottomNavItem.Type.KINGDOMS.ordinal -> navController.navigate(KingdomsRoute, tabNavOptions)
-                        BottomNavItem.Type.LIBRARY.ordinal -> navController.navigate(LibraryRoute, tabNavOptions)
-                        BottomNavItem.Type.AUTHORS.ordinal -> navController.navigate(AuthorsRoute, tabNavOptions)
+    Box(modifier = Modifier.fillMaxSize()) {
+        Scaffold(
+            topBar = {
+                if (navBarState.showTopBar) {
+                    TopNavBar(
+                        state = navBarState,
+                        onBack = { navController.popBackStack() },
+                        onBlogClick = { navController.navigate(AllStoriesRoute) },
+                        onSearchClick = { showSearch = true }
+                    )
+                }
+            },
+            bottomBar = {
+                if (navBarState.showBottomBar) {
+                    BottomNavBar(selectedItem) { newItem ->
+                        when (newItem) {
+                            BottomNavItem.Type.HOME.ordinal -> navController.navigate(HomeRoute, tabNavOptions)
+                            BottomNavItem.Type.KINGDOMS.ordinal -> navController.navigate(KingdomsRoute, tabNavOptions)
+                            BottomNavItem.Type.LIBRARY.ordinal -> navController.navigate(LibraryRoute, tabNavOptions)
+                            BottomNavItem.Type.AUTHORS.ordinal -> navController.navigate(AuthorsRoute, tabNavOptions)
+                        }
                     }
                 }
             }
+        ) { paddingValues ->
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(
+                        top = if (navBarState.showTopBar) 110.dp else 0.dp,
+                        bottom = paddingValues.calculateBottomPadding()
+                    )
+            ) {
+                Navigation(navController)
+            }
         }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(
-                    top = 110.dp,
-                    bottom = paddingValues.calculateBottomPadding()
-                )
+
+        AnimatedVisibility(
+            visible = showSearch,
+            enter = fadeIn(animationSpec = tween(300)),
+            exit = fadeOut(animationSpec = tween(300))
         ) {
-            Navigation(navController)
+            SearchScreen(
+                onClose = { showSearch = false },
+                onStoryClick = { story ->
+                    showSearch = false
+                    navController.navigate(StoryRoute("$BASE_URL${story.url}"))
+                }
+            )
         }
     }
 }

@@ -20,7 +20,7 @@ import kotlinx.serialization.Serializable
 @Serializable object AllStoriesRoute : ITopBackSearchNavScreen
 @Serializable data class StoryRoute(val url: String) : ITopBackNavScreen, INoBottomNavScreen
 
-private const val BASE_URL = "https://prikazki.eu"
+internal const val BASE_URL = "https://prikazki.eu"
 
 @Composable
 fun Navigation(navController: NavHostController) {
@@ -35,7 +35,7 @@ fun Navigation(navController: NavHostController) {
                 navController.navigate(StoryRoute("$BASE_URL${story.url}"))
             })
         }
-        composable<KingdomsRoute> { KingdomsScreen() }
+composable<KingdomsRoute> { KingdomsScreen() }
         composable<LibraryRoute> {
             LibraryScreen(onStoryClick = { story ->
                 navController.navigate(StoryRoute("$BASE_URL${story.url}"))

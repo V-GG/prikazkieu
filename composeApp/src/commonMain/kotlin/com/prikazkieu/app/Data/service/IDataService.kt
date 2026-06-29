@@ -3,6 +3,7 @@ package com.prikazkieu.app.data.service
 import com.prikazkieu.app.data.model.Album
 import com.prikazkieu.app.data.model.Author
 import com.prikazkieu.app.data.model.Kingdom
+import com.prikazkieu.app.data.model.SearchResult
 import com.prikazkieu.app.data.model.Story
 
 interface IDataService {
@@ -19,6 +20,8 @@ interface IDataService {
     suspend fun getStoriesByKingdom(kingdom: String): List<Story>
 
     suspend fun getStoriesByAuthor(author: String): List<Story>
+
+    suspend fun search(query: String): List<SearchResult>
 
     suspend fun getStoriesPaged(page: Int, pageSize: Int): List<Story>
 

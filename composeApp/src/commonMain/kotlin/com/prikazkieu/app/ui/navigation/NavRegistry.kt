@@ -31,6 +31,7 @@ object NavRegistry {
             ?: emptySet()
 
         return NavBarState(
+            showTopBar = INoTopNavScreen::class !in caps,
             showBack = ITopBackNavScreen::class in caps || ITopBackSearchNavScreen::class in caps,
             showSearch = ITopBackNavScreen::class !in caps,
             showBottomBar = INoBottomNavScreen::class !in caps

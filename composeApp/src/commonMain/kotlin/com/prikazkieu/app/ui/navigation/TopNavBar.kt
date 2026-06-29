@@ -1,11 +1,11 @@
 package com.prikazkieu.app.ui.navigation
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Article
-import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.CollectionsBookmark
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
@@ -17,7 +17,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TopNavBar(state: NavBarState = NavBarState(), onBack: () -> Unit = {}, onBlogClick: () -> Unit = {}) {
+fun TopNavBar(
+    state: NavBarState = NavBarState(),
+    onBack: () -> Unit = {},
+    onBlogClick: () -> Unit = {},
+    onSearchClick: () -> Unit = {}
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -26,7 +31,7 @@ fun TopNavBar(state: NavBarState = NavBarState(), onBack: () -> Unit = {}, onBlo
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(48.dp)
+                .height(56.dp)
                 .padding(horizontal = 8.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(4.dp)
@@ -38,16 +43,16 @@ fun TopNavBar(state: NavBarState = NavBarState(), onBack: () -> Unit = {}, onBlo
             }
 
             if (state.showSearch) {
-                OutlinedTextField(
-                    state = TextFieldState(),
-                    modifier = Modifier.weight(1f).height(48.dp),
-                    leadingIcon = {
-                        Icon(Icons.Default.Search, contentDescription = "Search")
-                    },
-                    trailingIcon = {
-                        Icon(Icons.Default.Clear, contentDescription = "Clear")
-                    }
-                )
+                Box(modifier = Modifier.weight(1f)) {
+                    OutlinedTextField(
+                        state = TextFieldState(),
+                        modifier = Modifier.fillMaxWidth().height(56.dp),
+                        leadingIcon = {
+                            Icon(Icons.Default.Search, contentDescription = "Search")
+                        }
+                    )
+                    Box(modifier = Modifier.matchParentSize().clickable { onSearchClick() })
+                }
                 IconButton(onClick = onBlogClick) {
                     Icon(Icons.AutoMirrored.Filled.Article, contentDescription = "Blog")
                 }

@@ -4,6 +4,7 @@ import com.prikazkieu.app.data.dto.JsonStoryListDto
 import com.prikazkieu.app.data.model.Album
 import com.prikazkieu.app.data.model.Author
 import com.prikazkieu.app.data.model.Kingdom
+import com.prikazkieu.app.data.model.SearchResult
 import com.prikazkieu.app.data.model.Story
 import kotlinx.serialization.json.Json
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -57,6 +58,27 @@ class JsonDataService : IDataService {
         val allStories = getAllStories()
 
         return allStories.filter { it.author?.name == author }
+    }
+
+    override suspend fun search(query: String): List<SearchResult> {
+        val lower = query.lowercase()
+        val results = mutableListOf<SearchResult>()
+        val seenAuthors = mutableSetOf<String>()
+        val seenKingdoms = mutableSetOf<String>()
+
+        for (story in getAllStories()) {
+            if (story.title.lowercase().contains(lower) || story.album?.name?.lowercase()?.contains(lower) == true) {
+                results.add(SearchResult.StoryResult(story))
+            }
+            if (story.author != null && story.author.name.lowercase().contains(lower) && seenAuthors.add(story.author.name)) {
+                results.add(SearchResult.AuthorResult(story.author))
+            }
+            if (story.kingdom != null && story.kingdom.name.lowercase().contains(lower) && seenKingdoms.add(story.kingdom.name)) {
+                results.add(SearchResult.KingdomResult(story.kingdom))
+            }
+        }
+
+        return results
     }
 
     override suspend fun getStoriesPaged(page: Int, pageSize: Int): List<Story> {

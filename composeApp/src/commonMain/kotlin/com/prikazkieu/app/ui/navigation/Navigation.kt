@@ -9,6 +9,7 @@ import com.prikazkieu.app.ui.screen.authors.AuthorsScreen
 import com.prikazkieu.app.ui.screen.home.HomeScreen
 import com.prikazkieu.app.ui.screen.kingdoms.KingdomsScreen
 import com.prikazkieu.app.ui.screen.library.LibraryScreen
+import com.prikazkieu.app.ui.screen.stories.AllStoriesScreen
 import com.prikazkieu.app.ui.screen.story.StoryScreen
 import kotlinx.serialization.Serializable
 
@@ -16,6 +17,7 @@ import kotlinx.serialization.Serializable
 @Serializable object KingdomsRoute
 @Serializable object LibraryRoute
 @Serializable object AuthorsRoute
+@Serializable object AllStoriesRoute : ITopBackSearchNavScreen
 @Serializable data class StoryRoute(val url: String) : ITopBackNavScreen, INoBottomNavScreen
 
 private const val BASE_URL = "https://prikazki.eu"
@@ -28,8 +30,17 @@ fun Navigation(navController: NavHostController) {
                 navController.navigate(StoryRoute("$BASE_URL${story.url}"))
             })
         }
+        composable<AllStoriesRoute> {
+            AllStoriesScreen(onStoryClick = { story ->
+                navController.navigate(StoryRoute("$BASE_URL${story.url}"))
+            })
+        }
         composable<KingdomsRoute> { KingdomsScreen() }
-        composable<LibraryRoute> { LibraryScreen() }
+        composable<LibraryRoute> {
+            LibraryScreen(onStoryClick = { story ->
+                navController.navigate(StoryRoute("$BASE_URL${story.url}"))
+            })
+        }
         composable<AuthorsRoute> { AuthorsScreen() }
         composable<StoryRoute> { backStackEntry ->
             val route = backStackEntry.toRoute<StoryRoute>()

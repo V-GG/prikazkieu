@@ -1,17 +1,18 @@
 package com.prikazkieu.app.ui.screen.library
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import com.prikazkieu.app.data.model.Story
+import com.prikazkieu.app.ui.components.AllStoriesList
 
 @Composable
-fun LibraryScreen() {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        Text(text = "Библиотека")
-    }
+fun LibraryScreen(
+    onStoryClick: (Story) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    AllStoriesList(
+        onStoryClick = onStoryClick,
+        modifier = modifier.fillMaxSize()
+    )
 }

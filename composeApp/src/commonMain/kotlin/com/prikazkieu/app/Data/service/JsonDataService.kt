@@ -3,6 +3,7 @@ package com.prikazkieu.app.data.service
 import com.prikazkieu.app.data.dto.JsonStoryListDto
 import com.prikazkieu.app.data.model.Album
 import com.prikazkieu.app.data.model.Author
+import com.prikazkieu.app.data.model.Kingdom
 import com.prikazkieu.app.data.model.Story
 import kotlinx.serialization.json.Json
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -28,10 +29,55 @@ class JsonDataService : IDataService {
         }
     }
 
+    override suspend fun getAllAlbums(): List<Album> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getAllKingdoms(): List<Kingdom> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getAllAuthors(): List<Author> {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun getStoriesByAlbum(album: String): List<Story> {
         val allStories = getAllStories()
 
         return allStories.filter { it.album?.name == album }
+    }
+
+    override suspend fun getStoriesByKingdom(kingdom: String): List<Story> {
+        val allStories = getAllStories()
+
+        return allStories.filter { it.kingdom?.name == kingdom }
+    }
+
+    override suspend fun getStoriesByAuthor(author: String): List<Story> {
+        val allStories = getAllStories()
+
+        return allStories.filter { it.author?.name == author }
+    }
+
+    override suspend fun getStoriesPaged(page: Int, pageSize: Int): List<Story> {
+        val all = getAllStories()
+        val from = page * pageSize
+        if (from >= all.size) return emptyList()
+        return all.subList(from, minOf(from + pageSize, all.size))
+    }
+
+    override suspend fun getStoriesByAlbumPaged(albumName: String, page: Int, pageSize: Int): List<Story> {
+        val all = getStoriesByAlbum(albumName)
+        val from = page * pageSize
+        if (from >= all.size) return emptyList()
+        return all.subList(from, minOf(from + pageSize, all.size))
+    }
+
+    override suspend fun getStoriesByKingdomPaged(kingdomName: String, page: Int, pageSize: Int): List<Story> {
+        val all = getStoriesByKingdom(kingdomName)
+        val from = page * pageSize
+        if (from >= all.size) return emptyList()
+        return all.subList(from, minOf(from + pageSize, all.size))
     }
 
     override fun getStoryContent(url: String): String {

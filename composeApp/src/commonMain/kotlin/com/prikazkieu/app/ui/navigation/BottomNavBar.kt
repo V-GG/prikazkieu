@@ -12,7 +12,7 @@ fun BottomNavBar(selectedItem: Int, onItemSelected: (Int) -> Unit) {
         BottomNavItem("Приказки", Icons.Filled.Home, BottomNavItem.Type.HOME),
         BottomNavItem("Библиотека", Icons.Filled.Person, BottomNavItem.Type.LIBRARY),
         BottomNavItem("Автори", Icons.Filled.Favorite, BottomNavItem.Type.AUTHORS),
-        BottomNavItem("Царства", Icons.Filled.Search, BottomNavItem.Type.KINGDOMS),
+        BottomNavItem("Царства", Icons.Filled.Cake, BottomNavItem.Type.KINGDOMS),
     )
 
     NavigationBar {

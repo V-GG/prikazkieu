@@ -70,7 +70,6 @@ fun FooterSection(onStoryClick: (Story) -> Unit = {}) {
 
             Spacer(modifier = Modifier.size(32.dp))
 
-
         }
     }
 }

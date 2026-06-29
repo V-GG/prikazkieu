@@ -8,34 +8,50 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navOptions
 import com.prikazkieu.app.ui.navigation.*
 
 @Composable
 @Preview
 fun App() {
-    var selectedItem by remember { mutableStateOf(0) }
     val navController = rememberNavController()
-    val currentDestination by navController.currentBackStackEntryAsState()
-    val navBarState = NavRegistry.resolve(currentDestination?.destination)
+    val currentEntry by navController.currentBackStackEntryAsState()
+    val currentDest = currentEntry?.destination
+    val navBarState = NavRegistry.resolve(currentDest)
+
+    val selectedItem = when {
+        currentDest?.hasRoute<HomeRoute>() == true -> BottomNavItem.Type.HOME.ordinal
+        currentDest?.hasRoute<KingdomsRoute>() == true -> BottomNavItem.Type.KINGDOMS.ordinal
+        currentDest?.hasRoute<LibraryRoute>() == true -> BottomNavItem.Type.LIBRARY.ordinal
+        currentDest?.hasRoute<AuthorsRoute>() == true -> BottomNavItem.Type.AUTHORS.ordinal
+        else -> BottomNavItem.Type.HOME.ordinal
+    }
+
+    val tabNavOptions = navOptions {
+        popUpTo<HomeRoute> { saveState = true }
+        launchSingleTop = true
+        restoreState = true
+    }
 
     Scaffold(
         topBar = {
             TopNavBar(
                 state = navBarState,
-                onBack = { navController.popBackStack() }
+                onBack = { navController.popBackStack() },
+                onBlogClick = { navController.navigate(AllStoriesRoute) }
             )
         },
         bottomBar = {
             if (navBarState.showBottomBar) {
                 BottomNavBar(selectedItem) { newItem ->
-                    selectedItem = newItem
                     when (newItem) {
-                        BottomNavItem.Type.HOME.ordinal -> navController.navigate(HomeRoute)
-                        BottomNavItem.Type.KINGDOMS.ordinal -> navController.navigate(KingdomsRoute)
-                        BottomNavItem.Type.LIBRARY.ordinal -> navController.navigate(LibraryRoute)
-                        BottomNavItem.Type.AUTHORS.ordinal -> navController.navigate(AuthorsRoute)
+                        BottomNavItem.Type.HOME.ordinal -> navController.navigate(HomeRoute, tabNavOptions)
+                        BottomNavItem.Type.KINGDOMS.ordinal -> navController.navigate(KingdomsRoute, tabNavOptions)
+                        BottomNavItem.Type.LIBRARY.ordinal -> navController.navigate(LibraryRoute, tabNavOptions)
+                        BottomNavItem.Type.AUTHORS.ordinal -> navController.navigate(AuthorsRoute, tabNavOptions)
                     }
                 }
             }

@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TopNavBar(state: NavBarState = NavBarState(), onBack: () -> Unit = {}) {
+fun TopNavBar(state: NavBarState = NavBarState(), onBack: () -> Unit = {}, onBlogClick: () -> Unit = {}) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -48,7 +48,7 @@ fun TopNavBar(state: NavBarState = NavBarState(), onBack: () -> Unit = {}) {
                         Icon(Icons.Default.Clear, contentDescription = "Clear")
                     }
                 )
-                IconButton(onClick = { }) {
+                IconButton(onClick = onBlogClick) {
                     Icon(Icons.AutoMirrored.Filled.Article, contentDescription = "Blog")
                 }
                 IconButton(onClick = { }) {

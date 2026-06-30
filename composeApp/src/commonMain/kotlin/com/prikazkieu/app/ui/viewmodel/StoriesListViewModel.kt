@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 sealed interface StoriesQuery {
     data class ByAlbum(val albumName: String) : StoriesQuery
     data class ByKingdom(val kingdomName: String) : StoriesQuery
+    data class ByAuthor(val authorName: String) : StoriesQuery
     data object All : StoriesQuery
 }
 
@@ -27,6 +28,9 @@ class StoriesListViewModel private constructor(
 
         fun forKingdom(kingdomName: String, dataService: IDataService = JsonDataService()) =
             StoriesListViewModel(StoriesQuery.ByKingdom(kingdomName), dataService)
+
+        fun forAuthor(authorName: String, dataService: IDataService = JsonDataService()) =
+            StoriesListViewModel(StoriesQuery.ByAuthor(authorName), dataService)
 
         fun forAll(dataService: IDataService = JsonDataService()) =
             StoriesListViewModel(StoriesQuery.All, dataService)
@@ -91,6 +95,7 @@ class StoriesListViewModel private constructor(
     private suspend fun fetchPage(page: Int): List<Story> = when (query) {
         is StoriesQuery.ByAlbum -> dataService.getStoriesByAlbumPaged(query.albumName, page, pageSize)
         is StoriesQuery.ByKingdom -> dataService.getStoriesByKingdomPaged(query.kingdomName, page, pageSize)
+        is StoriesQuery.ByAuthor -> dataService.getStoriesByAuthorPaged(query.authorName, page, pageSize)
         is StoriesQuery.All -> dataService.getStoriesPaged(page, pageSize)
     }
 }

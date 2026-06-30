@@ -15,7 +15,7 @@ data class JsonStoryDto(
 
 @Serializable
 data class JsonStoryListDto(
-    val data: List<JsonStoryDto>
+    val stories: List<JsonStoryDto>
 )
 
 @Serializable

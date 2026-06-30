@@ -1,5 +1,6 @@
 package com.prikazkieu.app.ui.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -34,6 +35,7 @@ fun StoriesListSection(
         when (query) {
             is StoriesQuery.ByAlbum -> StoriesListViewModel.forAlbum(query.albumName)
             is StoriesQuery.ByKingdom -> StoriesListViewModel.forKingdom(query.kingdomName)
+            is StoriesQuery.ByAuthor -> StoriesListViewModel.forAuthor(query.authorName)
             is StoriesQuery.All -> StoriesListViewModel.forAll()
         }
     }
@@ -117,6 +119,17 @@ fun KingdomStoriesList(
     modifier: Modifier = Modifier
 ) = StoriesListSection(
     query = StoriesQuery.ByKingdom(kingdomName),
+    onStoryClick = onStoryClick,
+    modifier = modifier
+)
+
+@Composable
+fun AuthorStoriesList(
+    authorName: String,
+    onStoryClick: (Story) -> Unit,
+    modifier: Modifier = Modifier
+) = StoriesListSection(
+    query = StoriesQuery.ByAuthor(authorName),
     onStoryClick = onStoryClick,
     modifier = modifier
 )

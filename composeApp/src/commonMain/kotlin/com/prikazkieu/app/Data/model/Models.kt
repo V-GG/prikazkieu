@@ -21,6 +21,7 @@ data class Author(
     val image: String?,
     val lived: String?,
     val origin: String?,
+    val moreInfo: String? = null,
 )
 
 data class Album(

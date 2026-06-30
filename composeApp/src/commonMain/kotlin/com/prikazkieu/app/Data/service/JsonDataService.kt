@@ -1,5 +1,6 @@
 package com.prikazkieu.app.data.service
 
+import com.prikazkieu.app.data.dto.JsonAuthorListDto
 import com.prikazkieu.app.data.dto.JsonStoryListDto
 import com.prikazkieu.app.data.model.Album
 import com.prikazkieu.app.data.model.Author
@@ -11,11 +12,12 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 import prikazkieu.composeapp.generated.resources.Res
 
 class JsonDataService : IDataService {
+    private val json = Json { ignoreUnknownKeys = true }
     @OptIn(ExperimentalResourceApi::class)
     override suspend fun getAllStories(): List<Story> {
         val rawJson = Res.readBytes("files/data.json").decodeToString()
-        val dto = Json.decodeFromString<JsonStoryListDto>(rawJson)
-        return dto.data.map { story ->
+        val dto = json.decodeFromString<JsonStoryListDto>(rawJson)
+        return dto.stories.map { story ->
             Story(
                 title = story.title,
                 thumbnail = story.thumbnail,
@@ -38,26 +40,43 @@ class JsonDataService : IDataService {
         TODO("Not yet implemented")
     }
 
+    @OptIn(ExperimentalResourceApi::class)
     override suspend fun getAllAuthors(): List<Author> {
-        TODO("Not yet implemented")
+        val rawJson = Res.readBytes("files/data.json").decodeToString()
+        val dto = json.decodeFromString<JsonAuthorListDto>(rawJson)
+        return dto.authors.map { author ->
+            Author(
+                name = author.name,
+                image = author.image,
+                lived = author.lived,
+                origin = author.origin,
+                moreInfo = author.moreInfo
+            )
+        }
     }
 
     override suspend fun getStoriesByAlbum(album: String): List<Story> {
         val allStories = getAllStories()
 
-        return allStories.filter { it.album?.name == album }
+        return allStories.filter {
+            it.album?.name.equals(album, true) ?: false
+        }
     }
 
     override suspend fun getStoriesByKingdom(kingdom: String): List<Story> {
         val allStories = getAllStories()
 
-        return allStories.filter { it.kingdom?.name == kingdom }
+        return allStories.filter {
+            it.kingdom?.name.equals(kingdom, ignoreCase = true)
+        }
     }
 
     override suspend fun getStoriesByAuthor(author: String): List<Story> {
         val allStories = getAllStories()
 
-        return allStories.filter { it.author?.name == author }
+        return allStories.filter {
+            it.author?.name.equals(author, ignoreCase = true)
+        }
     }
 
     override suspend fun search(query: String): List<SearchResult> {
@@ -83,6 +102,13 @@ class JsonDataService : IDataService {
 
     override suspend fun getStoriesPaged(page: Int, pageSize: Int): List<Story> {
         val all = getAllStories()
+        val from = page * pageSize
+        if (from >= all.size) return emptyList()
+        return all.subList(from, minOf(from + pageSize, all.size))
+    }
+
+    override suspend fun getStoriesByAuthorPaged(authorName: String, page: Int, pageSize: Int): List<Story> {
+        val all = getStoriesByAuthor(authorName)
         val from = page * pageSize
         if (from >= all.size) return emptyList()
         return all.subList(from, minOf(from + pageSize, all.size))

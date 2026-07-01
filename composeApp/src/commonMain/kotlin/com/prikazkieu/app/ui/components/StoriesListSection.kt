@@ -66,7 +66,15 @@ fun StoriesListSection(
             }
         }
 
-        is StoriesListViewModel.State.Success -> {
+        is StoriesListViewModel.State.Success -> if (s.stories.isEmpty()) {
+            Box(modifier = modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                Text(
+                    text = "Няма намерени приказки",
+                    color = Color(0xFF4A90D9),
+                    fontSize = 18.sp
+                )
+            }
+        } else {
             LazyColumn(
                 state = listState,
                 contentPadding = PaddingValues(12.dp),

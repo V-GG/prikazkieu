@@ -8,6 +8,7 @@ import androidx.navigation.toRoute
 import com.prikazkieu.app.ui.screen.authors.AuthorStoriesScreen
 import com.prikazkieu.app.ui.screen.authors.AuthorsScreen
 import com.prikazkieu.app.ui.screen.home.HomeScreen
+import com.prikazkieu.app.ui.screen.kingdoms.KingdomStoriesScreen
 import com.prikazkieu.app.ui.screen.kingdoms.KingdomsScreen
 import com.prikazkieu.app.ui.screen.library.LibraryScreen
 import com.prikazkieu.app.ui.screen.stories.AllStoriesScreen
@@ -20,6 +21,7 @@ import kotlinx.serialization.Serializable
 @Serializable object AuthorsRoute
 @Serializable object AllStoriesRoute : ITopBackSearchNavScreen
 @Serializable data class AuthorStoriesRoute(val authorName: String) : ITopBackNavScreen
+@Serializable data class KingdomStoriesRoute(val kingdomName: String) : ITopBackNavScreen
 @Serializable data class StoryRoute(val url: String) : ITopBackNavScreen, INoBottomNavScreen
 
 internal const val BASE_URL = "https://prikazki.eu"
@@ -37,7 +39,12 @@ fun Navigation(navController: NavHostController) {
                 navController.navigate(StoryRoute("$BASE_URL${story.url}"))
             })
         }
-composable<KingdomsRoute> { KingdomsScreen() }
+        composable<KingdomsRoute> {
+            KingdomsScreen(
+                onKingdomClick = { kingdom -> navController.navigate(KingdomStoriesRoute(kingdom.name)) },
+                onInfoClick = { url -> navController.navigate(StoryRoute(url)) }
+            )
+        }
         composable<LibraryRoute> {
             LibraryScreen(onStoryClick = { story ->
                 navController.navigate(StoryRoute("$BASE_URL${story.url}"))
@@ -53,6 +60,13 @@ composable<KingdomsRoute> { KingdomsScreen() }
             val route = backStackEntry.toRoute<AuthorStoriesRoute>()
             AuthorStoriesScreen(
                 authorName = route.authorName,
+                onStoryClick = { story -> navController.navigate(StoryRoute("$BASE_URL${story.url}")) }
+            )
+        }
+        composable<KingdomStoriesRoute> { backStackEntry ->
+            val route = backStackEntry.toRoute<KingdomStoriesRoute>()
+            KingdomStoriesScreen(
+                kingdomName = route.kingdomName,
                 onStoryClick = { story -> navController.navigate(StoryRoute("$BASE_URL${story.url}")) }
             )
         }

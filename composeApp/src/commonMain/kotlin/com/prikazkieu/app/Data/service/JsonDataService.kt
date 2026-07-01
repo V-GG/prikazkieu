@@ -1,6 +1,7 @@
 package com.prikazkieu.app.data.service
 
 import com.prikazkieu.app.data.dto.JsonAuthorListDto
+import com.prikazkieu.app.data.dto.JsonKingdomListDto
 import com.prikazkieu.app.data.dto.JsonStoryListDto
 import com.prikazkieu.app.data.model.Album
 import com.prikazkieu.app.data.model.Author
@@ -13,6 +14,7 @@ import prikazkieu.composeapp.generated.resources.Res
 
 class JsonDataService : IDataService {
     private val json = Json { ignoreUnknownKeys = true }
+
     @OptIn(ExperimentalResourceApi::class)
     override suspend fun getAllStories(): List<Story> {
         val rawJson = Res.readBytes("files/data.json").decodeToString()
@@ -24,10 +26,9 @@ class JsonDataService : IDataService {
                 readTimeMinutes = story.readTimeMinutes,
                 ageGroup = story.ageGroup,
                 url = story.url,
-                author = story.author.ifEmpty { null }
-                    ?.let { Author(name = it, image = null, lived = null, origin = null) },
-                kingdom = null,
-                album = story.album?.let { Album(name = it.name, image = it.image) }
+                author = story.author.ifEmpty { null },
+                kingdom = story.kingdom,
+                album = story.album
             )
         }
     }
@@ -36,8 +37,18 @@ class JsonDataService : IDataService {
         TODO("Not yet implemented")
     }
 
+    @OptIn(ExperimentalResourceApi::class)
     override suspend fun getAllKingdoms(): List<Kingdom> {
-        TODO("Not yet implemented")
+        val rawJson = Res.readBytes("files/data.json").decodeToString()
+        val dto = json.decodeFromString<JsonKingdomListDto>(rawJson)
+        return dto.kingdoms.map { kingdom ->
+            Kingdom(
+                name = kingdom.name,
+                image = kingdom.image,
+                moreInfo = kingdom.moreInfo,
+                storyCount = kingdom.storyCount.toIntOrNull() ?: 0
+            )
+        }
     }
 
     @OptIn(ExperimentalResourceApi::class)
@@ -56,44 +67,42 @@ class JsonDataService : IDataService {
     }
 
     override suspend fun getStoriesByAlbum(album: String): List<Story> {
-        val allStories = getAllStories()
-
-        return allStories.filter {
-            it.album?.name.equals(album, true) ?: false
+        return getAllStories().filter {
+            it.album?.equals(album, ignoreCase = true) == true
         }
     }
 
     override suspend fun getStoriesByKingdom(kingdom: String): List<Story> {
-        val allStories = getAllStories()
-
-        return allStories.filter {
-            it.kingdom?.name.equals(kingdom, ignoreCase = true)
+        return getAllStories().filter {
+            it.kingdom?.equals(kingdom, ignoreCase = true) == true
         }
     }
 
     override suspend fun getStoriesByAuthor(author: String): List<Story> {
-        val allStories = getAllStories()
-
-        return allStories.filter {
-            it.author?.name.equals(author, ignoreCase = true)
+        return getAllStories().filter {
+            it.author?.equals(author, ignoreCase = true) == true
         }
     }
 
     override suspend fun search(query: String): List<SearchResult> {
         val lower = query.lowercase()
         val results = mutableListOf<SearchResult>()
-        val seenAuthors = mutableSetOf<String>()
-        val seenKingdoms = mutableSetOf<String>()
 
         for (story in getAllStories()) {
-            if (story.title.lowercase().contains(lower) || story.album?.name?.lowercase()?.contains(lower) == true) {
+            if (story.title.lowercase().contains(lower)) {
                 results.add(SearchResult.StoryResult(story))
             }
-            if (story.author != null && story.author.name.lowercase().contains(lower) && seenAuthors.add(story.author.name)) {
-                results.add(SearchResult.AuthorResult(story.author))
+        }
+
+        for (author in getAllAuthors()) {
+            if (author.name.lowercase().contains(lower)) {
+                results.add(SearchResult.AuthorResult(author))
             }
-            if (story.kingdom != null && story.kingdom.name.lowercase().contains(lower) && seenKingdoms.add(story.kingdom.name)) {
-                results.add(SearchResult.KingdomResult(story.kingdom))
+        }
+
+        for (kingdom in getAllKingdoms()) {
+            if (kingdom.name.lowercase().contains(lower)) {
+                results.add(SearchResult.KingdomResult(kingdom))
             }
         }
 
@@ -123,6 +132,13 @@ class JsonDataService : IDataService {
 
     override suspend fun getStoriesByKingdomPaged(kingdomName: String, page: Int, pageSize: Int): List<Story> {
         val all = getStoriesByKingdom(kingdomName)
+        val from = page * pageSize
+        if (from >= all.size) return emptyList()
+        return all.subList(from, minOf(from + pageSize, all.size))
+    }
+
+    override suspend fun getKingdomsPaged(page: Int, pageSize: Int): List<Kingdom> {
+        val all = getAllKingdoms()
         val from = page * pageSize
         if (from >= all.size) return emptyList()
         return all.subList(from, minOf(from + pageSize, all.size))

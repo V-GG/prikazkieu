@@ -10,9 +10,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 fun BottomNavBar(selectedItem: Int, onItemSelected: (Int) -> Unit) {
     val items = listOf(
         BottomNavItem("Приказки", Icons.Filled.Home, BottomNavItem.Type.HOME),
-        BottomNavItem("Библиотека", Icons.Filled.Person, BottomNavItem.Type.LIBRARY),
-        BottomNavItem("Автори", Icons.Filled.Favorite, BottomNavItem.Type.AUTHORS),
-        BottomNavItem("Царства", Icons.Filled.Cake, BottomNavItem.Type.KINGDOMS),
+        BottomNavItem("Библиотека", Icons.Filled.Book, BottomNavItem.Type.LIBRARY),
+        BottomNavItem("Автори", Icons.Filled.Person, BottomNavItem.Type.AUTHORS),
+        BottomNavItem("Царства", Icons.Filled.Castle, BottomNavItem.Type.KINGDOMS),
     )
 
     NavigationBar {

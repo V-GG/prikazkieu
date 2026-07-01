@@ -6,13 +6,15 @@ data class Story(
     val readTimeMinutes: Int,
     val ageGroup: Int,
     val url: String,
-    val kingdom: Kingdom?,
-    val author: Author?,
-    val album: Album?
+    val kingdom: String?,
+    val author: String?,
+    val album: String?
 )
 
 data class Kingdom(
     val name: String,
+    val image: String?,
+    val moreInfo: String? = null,
     val storyCount: Int,
 )
 

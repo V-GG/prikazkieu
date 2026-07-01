@@ -51,7 +51,7 @@ fun App() {
                     TopNavBar(
                         state = navBarState,
                         onBack = { navController.popBackStack() },
-                        onBlogClick = { navController.navigate(AllStoriesRoute) },
+                        onBlogClick = { navController.navigate(StoryRoute("$BASE_URL/blog/")) },
                         onSearchClick = { showSearch = true }
                     )
                 }
@@ -91,6 +91,18 @@ fun App() {
                 onStoryClick = { story ->
                     showSearch = false
                     navController.navigate(StoryRoute("$BASE_URL${story.url}"))
+                },
+                onAuthorClick = { authorName ->
+                    showSearch = false
+                    navController.navigate(AuthorStoriesRoute(authorName))
+                },
+                onKingdomClick = { kingdom ->
+                    showSearch = false
+                    navController.navigate(KingdomStoriesRoute(kingdom.name))
+                },
+                onInfoClick = { url ->
+                    showSearch = false
+                    navController.navigate(StoryRoute(url))
                 }
             )
         }

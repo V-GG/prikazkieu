@@ -7,6 +7,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Article
 import androidx.compose.material.icons.filled.CollectionsBookmark
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -14,6 +15,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -57,7 +59,7 @@ fun TopNavBar(
                     Icon(Icons.AutoMirrored.Filled.Article, contentDescription = "Blog")
                 }
                 IconButton(onClick = { }) {
-                    Icon(Icons.Default.CollectionsBookmark, contentDescription = "Collection")
+                    Icon(Icons.Filled.Favorite, contentDescription = "Blog", tint = Color.Red)
                 }
             }
         }

@@ -302,7 +302,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/11/illustration_reg_BG.jpg",
       "readTimeMinutes": 8,
       "ageGroup": 17,
-      "url": "/prikazka/v-yada-si-zlo-ne-pravi/"
+      "url": "/prikazka/v-yada-si-zlo-ne-pravi/",
+      "kingdom" : "България"
     },
     {
       "author": "Български Народни Приказки",
@@ -310,7 +311,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/08/illustration_bg_100.jpg",
       "readTimeMinutes": 3,
       "ageGroup": 9,
-      "url": "/prikazka/skoposnata-nevesta/"
+      "url": "/prikazka/skoposnata-nevesta/",
+      "kingdom" : "България"
     },
     {
       "author": "Елин Пелин",
@@ -318,7 +320,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2021/12/illustration_bg_66.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 9,
-      "url": "/prikazka/proletna-kartina/"
+      "url": "/prikazka/proletna-kartina/",
+      "kingdom" : "България"
     },
     {
       "author": "Български Народни Приказки",
@@ -326,7 +329,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2022/01/illustration_region_4.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 5,
-      "url": "/prikazka/edin-za-drug-2/"
+      "url": "/prikazka/edin-za-drug-2/",
+      "kingdom" : "България"
     },
     {
       "author": "Български Народни Приказки",
@@ -342,7 +346,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_animal_5.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 3,
-      "url": "/prikazka/nay-prochutiyat-gotvach/"
+      "url": "/prikazka/nay-prochutiyat-gotvach/",
+      "kingdom" : "България"
     },
     {
       "author": "Мартин Илиев",
@@ -350,7 +355,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_man_49a.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 5,
-      "url": "/prikazka/nay-dobre-si-e-na-plaja/"
+      "url": "/prikazka/nay-dobre-si-e-na-plaja/",
+      "kingdom" : "България"
     },
     {
       "author": "Мартин Илиев",
@@ -358,7 +364,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_thing_3.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 3,
-      "url": "/prikazka/koy-kakvo-obicha/"
+      "url": "/prikazka/koy-kakvo-obicha/",
+      "kingdom" : "България"
     },
     {
       "author": "Елса Бесков",
@@ -382,7 +389,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_animal_4.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 3,
-      "url": "/prikazka/novoto-kolelo/"
+      "url": "/prikazka/novoto-kolelo/",
+      "kingdom" : "България"
     },
     {
       "author": "Елса Бесков",
@@ -407,10 +415,7 @@
       "readTimeMinutes": 4,
       "ageGroup": 5,
       "url": "/prikazka/praznata-saksiya/",
-      "album": {
-        "name" : "Политически приказки",
-        "image" : "https://prikazki.eu/wp-content/uploads/2023/04/illustration_collection_politics_1.png"
-      }
+      "album": "Политически приказки"
     },
     {
       "author": "Селма Лагерльоф",
@@ -427,10 +432,7 @@
       "readTimeMinutes": 4,
       "ageGroup": 17,
       "url": "/prikazka/licemerieto-i-istinata/",
-      "album": {
-        "name" : "Политически приказки",
-        "image" : "https://prikazki.eu/wp-content/uploads/2023/04/illustration_collection_politics_1.png"
-      }
+      "album": "Политически приказки"
     },
     {
       "author": "Индийски Народни Приказки",
@@ -439,10 +441,7 @@
       "readTimeMinutes": 2,
       "ageGroup": 5,
       "url": "/prikazka/bivshata-mishka/",
-      "album": {
-        "name" : "Политически приказки",
-        "image" : "https://prikazki.eu/wp-content/uploads/2023/04/illustration_collection_politics_1.png"
-      }
+      "album": "Политически приказки"
     },
     {
       "author": "Цанко Церковски",
@@ -451,10 +450,7 @@
       "readTimeMinutes": 2,
       "ageGroup": 17,
       "url": "/prikazka/za-seloto/",
-      "album": {
-        "name" : "Политически приказки",
-        "image" : "https://prikazki.eu/wp-content/uploads/2023/04/illustration_collection_politics_1.png"
-      }
+      "album": "Политически приказки"
     }
   ],
   "authors" : [
@@ -625,6 +621,68 @@
       "origin": "Дания",
       "image": "https://prikazki.eu/wp-content/uploads/2024/05/authir_HCAndersen.jpg",
       "moreInfo": ""
+    }
+  ],
+  "kingdoms" : [
+    {
+      "name": "Австралия",
+      "storyCount": "11",
+      "image": "https://prikazki.eu/wp-content/uploads/2020/01/Kingdom_AU.png",
+      "moreInfo": "https://prikazki.eu/region/avstraliya/"
+    },
+    {
+      "name": "Африка",
+      "storyCount": "9",
+      "image": "https://prikazki.eu/wp-content/uploads/2020/01/Kingdom_Afr-1.png",
+      "moreInfo": "https://prikazki.eu/region/afrika/"
+    },
+    {
+      "name": "Белгия",
+      "storyCount": "20",
+      "image": "https://prikazki.eu/wp-content/uploads/2020/01/Kingdom_Be2.png",
+      "moreInfo": "https://prikazki.eu/region/belgiya/"
+    },
+    {
+      "name": "България",
+      "storyCount": "99",
+      "image": "https://prikazki.eu/wp-content/uploads/2019/08/Kingdom_BG.png",
+      "moreInfo": "https://prikazki.eu/region/balgariya/"
+    },
+    {
+      "name": "Британия",
+      "storyCount": "50",
+      "image": "https://prikazki.eu/wp-content/uploads/2019/08/Kingdom_Gb.png",
+      "moreInfo": "https://prikazki.eu/region/velikobritaniya/"
+    },
+    {
+      "name": "Древен Египет",
+      "storyCount": "5",
+      "image": "https://prikazki.eu/wp-content/uploads/2020/01/Kingdom_Eg.png",
+      "moreInfo": "https://prikazki.eu/region/dreven-egipet/"
+    },
+    {
+      "name": "Нидерландия",
+      "storyCount": "17",
+      "image": "https://prikazki.eu/wp-content/uploads/2019/12/Kingdom_Nl.png",
+      "moreInfo": "https://prikazki.eu/region/netherlands/"
+    },
+    {
+      "name": "Норвегия",
+      "storyCount": "23",
+      "image": "https://prikazki.eu/wp-content/uploads/2021/04/region_No_1.png",
+      "moreInfo": "https://prikazki.eu/region/norway/"
+    },
+    {
+      "name": "Русия",
+      "storyCount": "33",
+      "image": "https://prikazki.eu/wp-content/uploads/2019/08/Kingdom_Ru.png",
+      "moreInfo": "https://prikazki.eu/region/rusiya/"
+    },
+    {
+      "name": "Япония",
+      "storyCount": "59",
+      "image": "https://prikazki.eu/wp-content/uploads/2021/04/region_Japan.png",
+      "moreInfo": "https://prikazki.eu/region/japon/"
     }
   ]
 }

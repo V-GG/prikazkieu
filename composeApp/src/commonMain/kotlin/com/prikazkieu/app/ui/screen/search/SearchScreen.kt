@@ -18,8 +18,11 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.clickable
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -31,6 +34,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -44,8 +48,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.prikazkieu.app.data.model.Kingdom
 import com.prikazkieu.app.data.model.SearchResult
 import com.prikazkieu.app.data.model.Story
+import com.prikazkieu.app.ui.components.AuthorCard
+import com.prikazkieu.app.ui.components.KingdomCard
 import com.prikazkieu.app.ui.components.StoryCard
 import com.prikazkieu.app.ui.viewmodel.SearchViewModel
 
@@ -53,14 +60,27 @@ import com.prikazkieu.app.ui.viewmodel.SearchViewModel
 fun SearchScreen(
     onClose: () -> Unit,
     onStoryClick: (Story) -> Unit,
+    onAuthorClick: (String) -> Unit,
+    onKingdomClick: (Kingdom) -> Unit,
+    onInfoClick: (String) -> Unit,
     viewModel: SearchViewModel = remember { SearchViewModel() }
 ) {
     val state by viewModel.state.collectAsState()
     var text by remember { mutableStateOf("") }
     val focusRequester = remember { FocusRequester() }
+    val expandedSections = remember { mutableStateMapOf<String, Boolean>() }
 
     LaunchedEffect(Unit) {
         focusRequester.requestFocus()
+    }
+
+    LaunchedEffect(state) {
+        if (state is SearchViewModel.State.Results) {
+            val sections = (state as SearchViewModel.State.Results).sections
+            val multiSection = sections.size > 1
+            expandedSections.clear()
+            sections.forEach { expandedSections[it.title] = !multiSection }
+        }
     }
 
     Column(
@@ -134,33 +154,53 @@ fun SearchScreen(
                             verticalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
                             s.sections.forEach { section ->
+                                val isExpanded = expandedSections[section.title] ?: true
                                 item(key = section.title) {
-                                    Text(
-                                        text = section.title,
-                                        fontSize = 20.sp,
-                                        fontWeight = FontWeight.Bold,
-                                        fontFamily = FontFamily.Serif,
-                                        color = Color(0xFFA52A2A),
-                                        modifier = Modifier.padding(vertical = 8.dp)
-                                    )
+                                    Row(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .clickable {
+                                                expandedSections[section.title] = !isExpanded
+                                            }
+                                            .padding(vertical = 8.dp),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.SpaceBetween
+                                    ) {
+                                        Text(
+                                            text = "${section.title} (${section.results.size})",
+                                            fontSize = 20.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            fontFamily = FontFamily.Serif,
+                                            color = Color(0xFFA52A2A)
+                                        )
+                                        Icon(
+                                            imageVector = if (isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
+                                            contentDescription = null,
+                                            tint = Color(0xFFA52A2A)
+                                        )
+                                    }
                                 }
-                                items(section.results, key = { resultKey(it) }) { result ->
-                                    when (result) {
-                                        is SearchResult.StoryResult -> StoryCard(
-                                            story = result.story,
-                                            onClick = onStoryClick,
-                                            modifier = Modifier.fillMaxWidth()
-                                        )
-                                        is SearchResult.AuthorResult -> Text(
-                                            text = result.author.name,
-                                            fontSize = 16.sp,
-                                            modifier = Modifier.padding(vertical = 4.dp)
-                                        )
-                                        is SearchResult.KingdomResult -> Text(
-                                            text = result.kingdom.name,
-                                            fontSize = 16.sp,
-                                            modifier = Modifier.padding(vertical = 4.dp)
-                                        )
+                                if (isExpanded) {
+                                    items(section.results, key = { resultKey(it) }) { result ->
+                                        when (result) {
+                                            is SearchResult.StoryResult -> StoryCard(
+                                                story = result.story,
+                                                onClick = onStoryClick,
+                                                modifier = Modifier.fillMaxWidth()
+                                            )
+                                            is SearchResult.AuthorResult -> AuthorCard(
+                                                author = result.author,
+                                                onInfoClick = onInfoClick,
+                                                onAuthorClick = onAuthorClick,
+                                                modifier = Modifier.fillMaxWidth()
+                                            )
+                                            is SearchResult.KingdomResult -> KingdomCard(
+                                                kingdom = result.kingdom,
+                                                onClick = onKingdomClick,
+                                                onInfoClick = onInfoClick,
+                                                modifier = Modifier.fillMaxWidth()
+                                            )
+                                        }
                                     }
                                 }
                             }

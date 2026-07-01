@@ -31,5 +31,7 @@ interface IDataService {
 
     suspend fun getStoriesByKingdomPaged(kingdomName: String, page: Int, pageSize: Int): List<Story>
 
+    suspend fun getKingdomsPaged(page: Int, pageSize: Int): List<Kingdom>
+
     fun getStoryContent(url: String): String
 }

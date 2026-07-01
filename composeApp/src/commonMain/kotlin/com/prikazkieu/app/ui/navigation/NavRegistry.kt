@@ -26,6 +26,10 @@ object NavRegistry {
         Entry(
             matches = { it.hasRoute<AuthorStoriesRoute>() },
             capabilities = setOf(ITopBackNavScreen::class)
+        ),
+        Entry(
+            matches = { it.hasRoute<KingdomStoriesRoute>() },
+            capabilities = setOf(ITopBackNavScreen::class)
         )
     )
 

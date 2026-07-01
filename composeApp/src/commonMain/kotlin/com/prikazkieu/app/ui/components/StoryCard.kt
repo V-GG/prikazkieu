@@ -50,7 +50,7 @@ fun StoryCard(
         ) {
             story.author?.let {
                 Text(
-                    text = it.name,
+                    text = it,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.Serif,

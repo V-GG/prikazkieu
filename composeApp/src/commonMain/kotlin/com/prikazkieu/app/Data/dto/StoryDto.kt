@@ -10,16 +10,11 @@ data class JsonStoryDto(
     val readTimeMinutes: Int,
     val ageGroup: Int,
     val url: String,
-    val album: JsonAlbumDto? = null,
+    val album: String? = null,
+    val kingdom: String? = null,
 )
 
 @Serializable
 data class JsonStoryListDto(
     val stories: List<JsonStoryDto>
-)
-
-@Serializable
-data class JsonAlbumDto(
-    val name: String,
-    val image: String?
 )

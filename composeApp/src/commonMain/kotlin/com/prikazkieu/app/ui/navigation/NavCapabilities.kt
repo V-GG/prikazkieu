@@ -3,8 +3,13 @@ package com.prikazkieu.app.ui.navigation
 /** Replaces the search bar with a back arrow. */
 interface ITopBackNavScreen
 
+/** Adds a filter button alongside the search bar. */
+interface ITopFilterNavScreen
+
 /** Adds a back arrow alongside the search bar. */
-interface ITopBackSearchNavScreen
+interface ITopSearchNavScreen
+
+interface ITopDefaultToolsScreen
 
 /** Hides the top navigation bar entirely. */
 interface INoTopNavScreen

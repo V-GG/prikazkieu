@@ -15,21 +15,39 @@ object NavRegistry {
     )
 
     private val entries = listOf(
+        // Root / tab screens
         Entry(
-            matches = { it.hasRoute<StoryRoute>() },
-            capabilities = setOf(ITopBackNavScreen::class, INoBottomNavScreen::class)
+            matches = { it.hasRoute<HomeRoute>() },
+            capabilities = setOf(ITopSearchNavScreen::class, ITopDefaultToolsScreen::class)
         ),
         Entry(
+            matches = { it.hasRoute<KingdomsRoute>() },
+            capabilities = setOf(ITopSearchNavScreen::class, ITopDefaultToolsScreen::class)
+        ),
+        Entry(
+            matches = { it.hasRoute<LibraryRoute>() },
+            capabilities = setOf(ITopSearchNavScreen::class, ITopFilterNavScreen::class)
+        ),
+        Entry(
+            matches = { it.hasRoute<AuthorsRoute>() },
+            capabilities = setOf(ITopSearchNavScreen::class, ITopDefaultToolsScreen::class)
+        ),
+        // Sub-screens
+        Entry(
             matches = { it.hasRoute<AllStoriesRoute>() },
-            capabilities = setOf(ITopBackSearchNavScreen::class)
+            capabilities = setOf(ITopSearchNavScreen::class, ITopFilterNavScreen::class)
         ),
         Entry(
             matches = { it.hasRoute<AuthorStoriesRoute>() },
-            capabilities = setOf(ITopBackNavScreen::class)
+            capabilities = setOf(ITopBackNavScreen::class, ITopSearchNavScreen::class, ITopFilterNavScreen::class)
         ),
         Entry(
             matches = { it.hasRoute<KingdomStoriesRoute>() },
-            capabilities = setOf(ITopBackNavScreen::class)
+            capabilities = setOf(ITopBackNavScreen::class, ITopSearchNavScreen::class, ITopFilterNavScreen::class)
+        ),
+        Entry(
+            matches = { it.hasRoute<StoryRoute>() },
+            capabilities = setOf(ITopBackNavScreen::class, INoBottomNavScreen::class)
         )
     )
 
@@ -40,8 +58,10 @@ object NavRegistry {
 
         return NavBarState(
             showTopBar = INoTopNavScreen::class !in caps,
-            showBack = ITopBackNavScreen::class in caps || ITopBackSearchNavScreen::class in caps,
-            showSearch = ITopBackNavScreen::class !in caps,
+            showBack = ITopBackNavScreen::class in caps,
+            showSearch = ITopSearchNavScreen::class in caps,
+            showDefault = ITopDefaultToolsScreen::class in caps,
+            showFilter = ITopFilterNavScreen::class in caps,
             showBottomBar = INoBottomNavScreen::class !in caps
         )
     }

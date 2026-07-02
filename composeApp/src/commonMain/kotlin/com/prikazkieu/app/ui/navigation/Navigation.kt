@@ -15,13 +15,13 @@ import com.prikazkieu.app.ui.screen.stories.AllStoriesScreen
 import com.prikazkieu.app.ui.screen.story.StoryScreen
 import kotlinx.serialization.Serializable
 
-@Serializable object HomeRoute
-@Serializable object KingdomsRoute
-@Serializable object LibraryRoute
-@Serializable object AuthorsRoute
-@Serializable object AllStoriesRoute : ITopBackSearchNavScreen
-@Serializable data class AuthorStoriesRoute(val authorName: String) : ITopBackNavScreen
-@Serializable data class KingdomStoriesRoute(val kingdomName: String) : ITopBackNavScreen
+@Serializable object HomeRoute : ITopSearchNavScreen, ITopDefaultToolsScreen
+@Serializable object KingdomsRoute : ITopSearchNavScreen, ITopDefaultToolsScreen
+@Serializable object LibraryRoute : ITopSearchNavScreen, ITopFilterNavScreen
+@Serializable object AuthorsRoute : ITopSearchNavScreen, ITopDefaultToolsScreen
+@Serializable object AllStoriesRoute : ITopSearchNavScreen
+@Serializable data class AuthorStoriesRoute(val authorName: String) : ITopBackNavScreen, ITopFilterNavScreen
+@Serializable data class KingdomStoriesRoute(val kingdomName: String) : ITopBackNavScreen, ITopFilterNavScreen
 @Serializable data class StoryRoute(val url: String) : ITopBackNavScreen, INoBottomNavScreen
 
 internal const val BASE_URL = "https://prikazki.eu"

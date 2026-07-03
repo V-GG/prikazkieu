@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,10 +16,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
@@ -33,66 +34,69 @@ fun StoryCard(
     modifier: Modifier = Modifier,
     titleColor: Color = Color(0xFFA52A2A)
 ) {
-    val shape = RoundedCornerShape(16.dp)
     Surface(
         onClick = { onClick(story) },
-        shape = shape,
+        shape = RectangleShape,
         color = Color.White,
         shadowElevation = 4.dp,
         modifier = modifier
     ) {
-    Box(modifier = Modifier.fillMaxWidth()) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 8.dp, start = 56.dp, end = 56.dp)
-        ) {
-            story.author?.let {
+        Box(modifier = Modifier.fillMaxWidth()) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp, start = 40.dp, end = 8.dp, bottom = 8.dp)
+            ) {
+                story.author?.let {
+                    Text(
+                        text = it,
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold,
+                        fontFamily = FontFamily.Serif,
+                        color = Color.Black,
+                        textAlign = TextAlign.Center,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+
+                Spacer(Modifier.height(4.dp))
+
                 Text(
-                    text = it,
-                    fontSize = 18.sp,
+                    text = story.title,
+                    fontSize = 12.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.Serif,
-                    color = Color.Black,
-                    textAlign = TextAlign.Center
+                    color = titleColor,
+                    textAlign = TextAlign.Center,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
+                )
+
+                Spacer(Modifier.height(8.dp))
+
+                AsyncImage(
+                    model = story.thumbnail,
+                    contentDescription = story.title,
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(110.dp)
                 )
             }
 
-            Spacer(Modifier.height(8.dp))
-
-            Text(
-                text = story.title,
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Bold,
-                fontFamily = FontFamily.Serif,
-                color = titleColor,
-                textAlign = TextAlign.Center
-            )
-
-            Spacer(Modifier.height(16.dp))
-
-            AsyncImage(
-                model = story.thumbnail,
-                contentDescription = story.title,
-                contentScale = ContentScale.Fit,
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-            )
+                    .align(Alignment.CenterStart)
+                    .padding(start = 6.dp)
+            ) {
+                ReadTimeBadge(minutes = story.readTimeMinutes)
+                Spacer(Modifier.height(32.dp))
+                VerticalAgeLabel(text = "${story.ageGroup}+")
+            }
         }
-
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .align(Alignment.CenterStart)
-                .padding(start = 8.dp)
-        ) {
-            ReadTimeBadge(minutes = story.readTimeMinutes)
-            Spacer(Modifier.height(48.dp))
-            VerticalAgeLabel(text = "${story.ageGroup}+")
-        }
-    }
     }
 }
 
@@ -109,21 +113,21 @@ private fun ReadTimeBadge(
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
-                .size(44.dp)
+                .size(32.dp)
                 .border(width = 1.dp, color = accent, shape = CircleShape)
         ) {
             Text(
                 text = "<$minutes",
                 color = accent,
-                fontSize = 18.sp,
+                fontSize = 10.sp,
                 fontFamily = FontFamily.Serif
             )
         }
-        Spacer(Modifier.height(4.dp))
+        Spacer(Modifier.height(3.dp))
         Text(
             text = "мин",
             color = accent,
-            fontSize = 11.sp,
+            fontSize = 9.sp,
             fontWeight = FontWeight.Bold,
             letterSpacing = 1.sp
         )
@@ -139,7 +143,7 @@ private fun VerticalAgeLabel(
     Text(
         text = text,
         color = color,
-        fontSize = 16.sp,
+        fontSize = 11.sp,
         fontFamily = FontFamily.Serif,
         modifier = modifier.rotate(-90f)
     )

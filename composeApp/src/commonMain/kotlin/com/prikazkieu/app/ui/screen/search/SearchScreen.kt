@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
@@ -181,25 +182,46 @@ fun SearchScreen(
                                     }
                                 }
                                 if (isExpanded) {
-                                    items(section.results, key = { resultKey(it) }) { result ->
-                                        when (result) {
-                                            is SearchResult.StoryResult -> StoryCard(
-                                                story = result.story,
-                                                onClick = onStoryClick,
+                                    if (section.results.firstOrNull() is SearchResult.StoryResult) {
+                                        val pairs = section.results.chunked(2)
+                                        items(pairs, key = { "row_${resultKey(it.first())}" }) { pair ->
+                                            Row(
+                                                horizontalArrangement = Arrangement.spacedBy(12.dp),
                                                 modifier = Modifier.fillMaxWidth()
-                                            )
-                                            is SearchResult.AuthorResult -> AuthorCard(
-                                                author = result.author,
-                                                onInfoClick = onInfoClick,
-                                                onAuthorClick = onAuthorClick,
-                                                modifier = Modifier.fillMaxWidth()
-                                            )
-                                            is SearchResult.KingdomResult -> KingdomCard(
-                                                kingdom = result.kingdom,
-                                                onClick = onKingdomClick,
-                                                onInfoClick = onInfoClick,
-                                                modifier = Modifier.fillMaxWidth()
-                                            )
+                                            ) {
+                                                StoryCard(
+                                                    story = (pair[0] as SearchResult.StoryResult).story,
+                                                    onClick = onStoryClick,
+                                                    modifier = Modifier.weight(1f)
+                                                )
+                                                if (pair.size == 2) {
+                                                    StoryCard(
+                                                        story = (pair[1] as SearchResult.StoryResult).story,
+                                                        onClick = onStoryClick,
+                                                        modifier = Modifier.weight(1f)
+                                                    )
+                                                } else {
+                                                    Spacer(modifier = Modifier.weight(1f))
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        items(section.results, key = { resultKey(it) }) { result ->
+                                            when (result) {
+                                                is SearchResult.StoryResult -> {}
+                                                is SearchResult.AuthorResult -> AuthorCard(
+                                                    author = result.author,
+                                                    onInfoClick = onInfoClick,
+                                                    onAuthorClick = onAuthorClick,
+                                                    modifier = Modifier.fillMaxWidth()
+                                                )
+                                                is SearchResult.KingdomResult -> KingdomCard(
+                                                    kingdom = result.kingdom,
+                                                    onClick = onKingdomClick,
+                                                    onInfoClick = onInfoClick,
+                                                    modifier = Modifier.fillMaxWidth()
+                                                )
+                                            }
                                         }
                                     }
                                 }

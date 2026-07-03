@@ -9,11 +9,14 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -120,16 +123,29 @@ fun FilterSection(
             }
         }
 
-        // Sticky Apply button
+        // Sticky action buttons
         HorizontalDivider()
-        Button(
-            onClick = { onApply(localMask) },
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 12.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA52A2A))
+                .padding(horizontal = 16.dp, vertical = 12.dp)
         ) {
-            Text("Приложи", color = Color.White, fontFamily = FontFamily.Serif)
+            OutlinedButton(
+                onClick = { localMask = 0 },
+                modifier = Modifier.weight(1f),
+                border = BorderStroke(1.dp, Color(0xFFA52A2A)),
+                colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFFA52A2A))
+            ) {
+                Text("Изчисти", fontFamily = FontFamily.Serif)
+            }
+            Button(
+                onClick = { onApply(localMask) },
+                modifier = Modifier.weight(1f),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA52A2A))
+            ) {
+                Text("Приложи", color = Color.White, fontFamily = FontFamily.Serif)
+            }
         }
     }
 }

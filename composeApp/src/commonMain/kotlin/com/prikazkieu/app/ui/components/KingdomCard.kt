@@ -1,5 +1,6 @@
 package com.prikazkieu.app.ui.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
@@ -34,6 +36,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.prikazkieu.app.data.model.Kingdom
+import org.jetbrains.compose.resources.painterResource
+import prikazkieu.composeapp.generated.resources.Res
+import prikazkieu.composeapp.generated.resources.bgr_region
 
 @Composable
 fun KingdomCard(
@@ -110,6 +115,12 @@ fun KingdomCard(
                         .width(with(density) { countTextWidthPx.toDp() } + 24.dp)
                         .height(2.dp)
                         .background(Color(0xFFA52A2A))
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Image(
+                    painter = painterResource(Res.drawable.bgr_region),
+                    contentDescription = "BGR Region",
+                    modifier = Modifier.size(24.dp)
                 )
             }
         }

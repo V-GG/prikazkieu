@@ -1,14 +1,15 @@
 package com.prikazkieu.app.ui.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -45,12 +46,12 @@ fun StoriesListSection(
     }
 
     val state by viewModel.state.collectAsState()
-    val listState = rememberLazyListState()
+    val gridState = rememberLazyGridState()
 
     val nearEnd by remember {
         derivedStateOf {
-            val lastVisible = listState.layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: -1
-            val total = listState.layoutInfo.totalItemsCount
+            val lastVisible = gridState.layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: -1
+            val total = gridState.layoutInfo.totalItemsCount
             total > 0 && lastVisible >= total - 3
         }
     }
@@ -75,10 +76,12 @@ fun StoriesListSection(
                 )
             }
         } else {
-            LazyColumn(
-                state = listState,
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                state = gridState,
                 contentPadding = PaddingValues(12.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
                 modifier = modifier.fillMaxWidth()
             ) {
                 items(s.stories, key = { it.url }) { story ->
@@ -89,7 +92,7 @@ fun StoriesListSection(
                     )
                 }
                 if (s.isLoadingMore) {
-                    item {
+                    item(span = { GridItemSpan(maxLineSpan) }) {
                         Box(
                             modifier = Modifier.fillMaxWidth().padding(16.dp),
                             contentAlignment = Alignment.Center

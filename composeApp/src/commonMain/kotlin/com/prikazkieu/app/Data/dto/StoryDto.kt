@@ -10,6 +10,8 @@ data class JsonStoryDto(
     val readTimeMinutes: Int,
     val ageGroup: Int,
     val url: String,
+    val type: String,
+    val format: String,
     val album: String? = null,
     val kingdom: String? = null,
 )

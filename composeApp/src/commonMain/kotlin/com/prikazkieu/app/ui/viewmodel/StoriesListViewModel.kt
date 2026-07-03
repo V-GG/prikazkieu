@@ -53,6 +53,14 @@ class StoriesListViewModel private constructor(
     private val _state = MutableStateFlow<State>(State.Loading)
     val state: StateFlow<State> = _state.asStateFlow()
 
+    private val _filterMask = MutableStateFlow(0)
+    val filterMask: StateFlow<Int> = _filterMask.asStateFlow()
+
+    fun setFilterMask(mask: Int) {
+        _filterMask.value = mask
+        loadInitial()
+    }
+
     fun loadInitial() {
         currentPage = 0
         isLoadingMore = false
@@ -60,10 +68,7 @@ class StoriesListViewModel private constructor(
             _state.value = State.Loading
             try {
                 val stories = fetchPage(0)
-                _state.value = State.Success(
-                    stories = stories,
-                    hasMore = stories.size == pageSize
-                )
+                _state.value = State.Success(stories = stories, hasMore = stories.size == pageSize)
             } catch (e: Exception) {
                 _state.value = State.Error(e.message ?: "Unknown error")
             }
@@ -84,7 +89,7 @@ class StoriesListViewModel private constructor(
                     stories = currentState.stories + newStories,
                     hasMore = newStories.size == pageSize
                 )
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 _state.value = currentState.copy(isLoadingMore = false)
             } finally {
                 isLoadingMore = false
@@ -93,9 +98,9 @@ class StoriesListViewModel private constructor(
     }
 
     private suspend fun fetchPage(page: Int): List<Story> = when (query) {
-        is StoriesQuery.ByAlbum -> dataService.getStoriesByAlbumPaged(query.albumName, page, pageSize)
-        is StoriesQuery.ByKingdom -> dataService.getStoriesByKingdomPaged(query.kingdomName, page, pageSize)
-        is StoriesQuery.ByAuthor -> dataService.getStoriesByAuthorPaged(query.authorName, page, pageSize)
-        is StoriesQuery.All -> dataService.getStoriesPaged(page, pageSize)
+        is StoriesQuery.ByAlbum   -> dataService.getStoriesByAlbumPaged(query.albumName, page, pageSize, _filterMask.value)
+        is StoriesQuery.ByKingdom -> dataService.getStoriesByKingdomPaged(query.kingdomName, page, pageSize, _filterMask.value)
+        is StoriesQuery.ByAuthor  -> dataService.getStoriesByAuthorPaged(query.authorName, page, pageSize, _filterMask.value)
+        is StoriesQuery.All       -> dataService.getStoriesPaged(page, pageSize, _filterMask.value)
     }
 }

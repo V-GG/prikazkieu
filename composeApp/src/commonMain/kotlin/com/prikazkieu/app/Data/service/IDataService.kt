@@ -7,7 +7,7 @@ import com.prikazkieu.app.data.model.SearchResult
 import com.prikazkieu.app.data.model.Story
 
 interface IDataService {
-    suspend fun getAllStories(): List<Story>
+    suspend fun getAllStories(filterMask: Int = 0): List<Story>
 
     suspend fun getAllAlbums(): List<Album>
 
@@ -15,21 +15,21 @@ interface IDataService {
 
     suspend fun getAllAuthors(): List<Author>
 
-    suspend fun getStoriesByAlbum(album: String): List<Story>
+    suspend fun getStoriesByAlbum(album: String, filterMask: Int = 0): List<Story>
 
-    suspend fun getStoriesByKingdom(kingdom: String): List<Story>
+    suspend fun getStoriesByKingdom(kingdom: String, filterMask: Int = 0): List<Story>
 
-    suspend fun getStoriesByAuthor(author: String): List<Story>
+    suspend fun getStoriesByAuthor(author: String, filterMask: Int = 0): List<Story>
 
     suspend fun search(query: String): List<SearchResult>
 
-    suspend fun getStoriesPaged(page: Int, pageSize: Int): List<Story>
+    suspend fun getStoriesPaged(page: Int, pageSize: Int, filterMask: Int = 0): List<Story>
 
-    suspend fun getStoriesByAuthorPaged(authorName: String, page: Int, pageSize: Int): List<Story>
+    suspend fun getStoriesByAuthorPaged(authorName: String, page: Int, pageSize: Int, filterMask: Int = 0): List<Story>
 
-    suspend fun getStoriesByAlbumPaged(albumName: String, page: Int, pageSize: Int): List<Story>
+    suspend fun getStoriesByAlbumPaged(albumName: String, page: Int, pageSize: Int, filterMask: Int = 0): List<Story>
 
-    suspend fun getStoriesByKingdomPaged(kingdomName: String, page: Int, pageSize: Int): List<Story>
+    suspend fun getStoriesByKingdomPaged(kingdomName: String, page: Int, pageSize: Int, filterMask: Int = 0): List<Story>
 
     suspend fun getKingdomsPaged(page: Int, pageSize: Int): List<Kingdom>
 

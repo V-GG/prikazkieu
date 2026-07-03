@@ -6,6 +6,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/04/illustration_Andersen_8.jpg",
       "readTimeMinutes": 14,
       "ageGroup": 9,
+      "type" : "Вълшебни приказки",
+      "format" : "text",
       "url": "/prikazka/kolednoto-darvo-ili-elata/"
     },
     {
@@ -14,6 +16,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/04/illustration_Andersen_9.jpg",
       "readTimeMinutes": 7,
       "ageGroup": 5,
+      "type" : "Вълшебни приказки",
+      "format" : "text",
       "url": "/prikazka/svinaryat/"
     },
     {
@@ -22,6 +26,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/04/illustration_Andersen_7a.jpg",
       "readTimeMinutes": 51,
       "ageGroup": 17,
+      "type" : "Вълшебни приказки",
+      "format" : "text",
       "url": "/prikazka/snejnata-carica/"
     },
     {
@@ -30,6 +36,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/03/illustration_man_40_AI.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 3,
+      "type" : "Искам да знам",
+      "format" : "text",
       "url": "/prikazka/veche-sam-golyam/"
     },
     {
@@ -38,6 +46,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/03/illustration_Brazil_5.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 9,
+      "type" : "Вълшебни приказки",
+      "format" : "text",
       "url": "/prikazka/legenda-za-anai-ili-cvetat-na-koralovoto-darvo/"
     },
     {
@@ -46,6 +56,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/03/illustration_Brazil_6.jpg",
       "readTimeMinutes": 11,
       "ageGroup": 17,
+      "type" : "Стихове и Песни",
+      "format" : "text",
       "url": "/prikazka/rakata-na-pokoynicata/"
     },
     {
@@ -54,6 +66,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/03/illustration_Brazil_4.jpg",
       "readTimeMinutes": 5,
       "ageGroup": 9,
+      "type" : "Стихове и Песни",
+      "format" : "text",
       "url": "/prikazka/don-leo-i-donya-elena/"
     },
     {
@@ -62,6 +76,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/04/illustration_Ukraina_19.jpg",
       "readTimeMinutes": 4,
       "ageGroup": 5,
+      "type" : "Стихове и Песни",
+      "format" : "text",
       "url": "/prikazka/pan-kotaran/"
     },
     {
@@ -70,6 +86,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/02/illustration_Ukraina_18.jpg",
       "readTimeMinutes": 11,
       "ageGroup": 5,
+      "type" : "Гатанки и залъгванки",
+      "format" : "text",
       "url": "/prikazka/olena-i-zlatnata-yabalka/"
     },
     {
@@ -78,6 +96,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/02/illustration_Brazil_2.jpg",
       "readTimeMinutes": 4,
       "ageGroup": 17,
+      "type" : "Гатанки и залъгванки",
+      "format" : "text",
       "url": "/prikazka/parviyat-gaucho/"
     },
     {
@@ -86,6 +106,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/02/Illustration_Brazil_3.jpg",
       "readTimeMinutes": 2,
       "ageGroup": 9,
+      "type" : "Басни и Истории за животни",
+      "format" : "text",
       "url": "/prikazka/legenda-za-manaka/"
     },
     {
@@ -94,6 +116,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/02/illustration_TriteVaprosa.jpg",
       "readTimeMinutes": 5,
       "ageGroup": 9,
+      "type" : "Басни и Истории за животни",
+      "format" : "text",
       "url": "/prikazka/trite-vaprosa-po-prikazkata-na-l-n-tolstoy/"
     },
     {
@@ -102,6 +126,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/01/illustration_things32.jpg",
       "readTimeMinutes": 2,
       "ageGroup": 5,
+      "type" : "Басни и Истории за животни",
+      "format" : "text",
       "url": "/prikazka/kak-se-poyavila-lunata/"
     },
     {
@@ -110,6 +136,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/02/illustration_thing_45.jpg",
       "readTimeMinutes": 2,
       "ageGroup": 5,
+      "type" : "Басни и Истории за животни",
+      "format" : "text",
       "url": "/prikazka/lisicha-svatba/"
     },
     {
@@ -118,6 +146,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_17.jpg",
       "readTimeMinutes": 2,
       "ageGroup": 3,
+      "type" : "Басни и Истории за животни",
+      "format" : "text",
       "url": "/prikazka/valcho-i-lisa-koledari-valcha-pesen/"
     },
     {
@@ -126,6 +156,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/02/illustration_Ukraina_16.jpg",
       "readTimeMinutes": 5,
       "ageGroup": 17,
+      "type" : "Искам да знам",
+      "format" : "text",
       "url": "/prikazka/maystor-ivanko/"
     },
     {
@@ -134,6 +166,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Beskow_1.jpg",
       "readTimeMinutes": 13,
       "ageGroup": 5,
+      "type" : "Искам да знам",
+      "format" : "text",
       "url": "/prikazka/rojdeniyat-den-na-kafyavata-nbsp-lelya/"
     },
     {
@@ -142,6 +176,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_15.jpg",
       "readTimeMinutes": 2,
       "ageGroup": 5,
+      "type" : "Басни и Истории за животни",
+      "format" : "text",
       "url": "/prikazka/petelat-koyto-nameril-jaltichki/"
     },
     {
@@ -150,6 +186,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_13.jpg",
       "readTimeMinutes": 3,
       "ageGroup": 5,
+      "type" : "Басни и Истории за животни",
+      "format" : "text",
       "url": "/prikazka/kucoto-patence/"
     },
     {
@@ -158,6 +196,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_12.jpg",
       "readTimeMinutes": 3,
       "ageGroup": 5,
+      "type" : "Басни и Истории за животни",
+      "format" : "text",
       "url": "/prikazka/kokoshkata-sas-zlatnite-yayca/"
     },
     {
@@ -166,6 +206,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_10.jpg",
       "readTimeMinutes": 6,
       "ageGroup": 9,
+      "type" : "Митове и Легенди",
+      "format" : "text",
       "url": "/prikazka/trimata-bratya/"
     },
     {
@@ -174,6 +216,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/reg_Ukraina_1.jpg",
       "readTimeMinutes": 12,
       "ageGroup": 5,
+      "type" : "Митове и Легенди",
+      "format" : "text",
       "url": "/prikazka/nayden-ivan/"
     },
     {
@@ -182,6 +226,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_11.jpg",
       "readTimeMinutes": 5,
       "ageGroup": 9,
+      "type" : "Митове и Легенди",
+      "format" : "text",
       "url": "/prikazka/znaharyat/"
     },
     {
@@ -190,6 +236,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/reg_Ukraina_3.jpg",
       "readTimeMinutes": 2,
       "ageGroup": 9,
+      "type" : "Митове и Легенди",
+      "format" : "text",
       "url": "/prikazka/kogato-dyado-hodil-na-uchilishte/"
     },
     {
@@ -198,6 +246,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_9.jpg",
       "readTimeMinutes": 2,
       "ageGroup": 9,
+      "type" : "Басни и Истории за животни",
+      "format" : "text",
       "url": "/prikazka/zaeshka-slaninka/"
     },
     {
@@ -206,6 +256,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_7.jpg",
       "readTimeMinutes": 9,
       "ageGroup": 9,
+      "type" : "Битови приказки",
+      "format" : "text",
       "url": "/prikazka/pravda-i-krivda-2/"
     },
     {
@@ -214,6 +266,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2021/02/region_folkmotive_2.jpg",
       "readTimeMinutes": 3,
       "ageGroup": 9,
+      "type" : "Битови приказки",
+      "format" : "text",
       "url": "/prikazka/kak-bednyakat-obyadval-s-nadutiya-pan/"
     },
     {
@@ -222,6 +276,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_6.jpg",
       "readTimeMinutes": 5,
       "ageGroup": 9,
+      "type" : "Битови приказки",
+      "format" : "text",
       "url": "/prikazka/kirilo-kojumyaka/"
     },
     {
@@ -230,6 +286,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_5.jpg",
       "readTimeMinutes": 7,
       "ageGroup": 9,
+      "type" : "Битови приказки",
+      "format" : "text",
       "url": "/prikazka/zlini-nenasitni/"
     },
     {
@@ -238,6 +296,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_4.jpg",
       "readTimeMinutes": 3,
       "ageGroup": 5,
+      "type" : "Стихове и Песни",
+      "format" : "text",
       "url": "/prikazka/prikazka-za-kucheto-sharko/"
     },
     {
@@ -246,6 +306,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_3.jpg",
       "readTimeMinutes": 2,
       "ageGroup": 5,
+      "type" : "Стихове и Песни",
+      "format" : "text",
       "url": "/prikazka/bradatko/"
     },
     {
@@ -254,6 +316,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/01/illustration_Ukraina_2.jpg",
       "readTimeMinutes": 5,
       "ageGroup": 5,
+      "type" : "Гатанки и залъгванки",
+      "format" : "text",
       "url": "/prikazka/carkinyata-zmiya/"
     },
     {
@@ -262,6 +326,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/12/illustration_grimm_13.jpg",
       "readTimeMinutes": 12,
       "ageGroup": 5,
+      "type" : "Гатанки и залъгванки",
+      "format" : "text",
       "url": "/prikazka/dyavolat-s-trite-zlatni-kosama/"
     },
     {
@@ -270,6 +336,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/12/llustrations_Ukraina_1.jpg",
       "readTimeMinutes": 13,
       "ageGroup": 5,
+      "type" : "Гатанки и залъгванки",
+      "format" : "text",
       "url": "/prikazka/letyashtiyat-korab/"
     },
     {
@@ -278,6 +346,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/12/illustration_Brazil_1.jpg",
       "readTimeMinutes": 5,
       "ageGroup": 5,
+      "type" : "вълшебни приказки",
+      "format" : "text",
       "url": "/prikazka/momcheto-i-cigulkata/"
     },
     {
@@ -286,6 +356,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/11/illustration_animal_6.jpg",
       "readTimeMinutes": 5,
       "ageGroup": 5,
+      "type" : "вълшебни приказки",
+      "format" : "text",
       "url": "/prikazka/prikazka-za-milosardieto/"
     },
     {
@@ -294,6 +366,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/12/illustration_animal_146a.jpg",
       "readTimeMinutes": 14,
       "ageGroup": 5,
+      "type" : "вълшебни приказки",
+      "format" : "text",
       "url": "/prikazka/malkata-katerichka/"
     },
     {
@@ -302,6 +376,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/11/illustration_reg_BG.jpg",
       "readTimeMinutes": 8,
       "ageGroup": 17,
+      "type" : "вълшебни приказки",
+      "format" : "text",
       "url": "/prikazka/v-yada-si-zlo-ne-pravi/",
       "kingdom" : "България"
     },
@@ -311,6 +387,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/08/illustration_bg_100.jpg",
       "readTimeMinutes": 3,
       "ageGroup": 9,
+      "type" : "вълшебни приказки",
+      "format" : "text",
       "url": "/prikazka/skoposnata-nevesta/",
       "kingdom" : "България"
     },
@@ -320,6 +398,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2021/12/illustration_bg_66.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 9,
+      "type" : "Гатанки и залъгванки",
+      "format" : "text",
       "url": "/prikazka/proletna-kartina/",
       "kingdom" : "България"
     },
@@ -329,6 +409,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2022/01/illustration_region_4.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 5,
+      "type" : "Гатанки и залъгванки",
+      "format" : "text",
       "url": "/prikazka/edin-za-drug-2/",
       "kingdom" : "България"
     },
@@ -338,6 +420,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2019/08/dropbig_O_3.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 9,
+      "type" : "Гатанки и залъгванки",
+      "format" : "text",
       "url": "/prikazka/posmali-mango-2/"
     },
     {
@@ -346,6 +430,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_animal_5.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 3,
+      "type" : "Битови приказки",
+      "format" : "text",
       "url": "/prikazka/nay-prochutiyat-gotvach/",
       "kingdom" : "България"
     },
@@ -355,6 +441,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_man_49a.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 5,
+      "type" : "Битови приказки",
+      "format" : "text",
       "url": "/prikazka/nay-dobre-si-e-na-plaja/",
       "kingdom" : "България"
     },
@@ -364,6 +452,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_thing_3.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 3,
+      "type" : "Битови приказки",
+      "format" : "text",
       "url": "/prikazka/koy-kakvo-obicha/",
       "kingdom" : "България"
     },
@@ -373,6 +463,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_EB_Jul.jpg",
       "readTimeMinutes": 16,
       "ageGroup": 5,
+      "type" : "Битови приказки",
+      "format" : "text",
       "url": "/prikazka/kolednite-priklyucheniya-na-peter-i-lota/"
     },
     {
@@ -381,6 +473,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/11/illustration_bg_4.jpg",
       "readTimeMinutes": 2,
       "ageGroup": 17,
+      "type" : "Битови приказки",
+      "format" : "text",
       "url": "/prikazka/vyarnata-nevesta/"
     },
     {
@@ -389,6 +483,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_animal_4.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 3,
+      "type" : "Битови приказки",
+      "format" : "text",
       "url": "/prikazka/novoto-kolelo/",
       "kingdom" : "България"
     },
@@ -398,6 +494,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_EB_Salbacka_1.jpg",
       "readTimeMinutes": 1,
       "ageGroup": 3,
+      "type" : "Искам да знам",
+      "format" : "text",
       "url": "/prikazka/decata-ot-solbaka/"
     },
     {
@@ -406,6 +504,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_illustration_EB_0.jpg",
       "readTimeMinutes": 13,
       "ageGroup": 5,
+      "type" : "Искам да знам",
+      "format" : "text",
       "url": "/prikazka/jaladko-leshnichka-i-malkiya-pileril/"
     },
     {
@@ -414,6 +514,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_china_1.jpg",
       "readTimeMinutes": 4,
       "ageGroup": 5,
+      "type" : "Искам да знам",
+      "format" : "text",
       "url": "/prikazka/praznata-saksiya/",
       "album": "Политически приказки"
     },
@@ -423,6 +525,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2025/10/illustration_artvee_1.jpg",
       "readTimeMinutes": 13,
       "ageGroup": 17,
+      "type" : "Искам да знам",
+      "format" : "text",
       "url": "/prikazka/svirachat/"
     },
     {
@@ -431,6 +535,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2021/07/illustration_Es_3.jpg",
       "readTimeMinutes": 4,
       "ageGroup": 17,
+      "type" : "Искам да знам",
+      "format" : "text",
       "url": "/prikazka/licemerieto-i-istinata/",
       "album": "Политически приказки"
     },
@@ -440,6 +546,8 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/07/illustration_india_28.jpg",
       "readTimeMinutes": 2,
       "ageGroup": 5,
+      "type" : "Басни и Истории за животни",
+      "format" : "text",
       "url": "/prikazka/bivshata-mishka/",
       "album": "Политически приказки"
     },
@@ -449,8 +557,67 @@
       "thumbnail": "https://prikazki.eu/wp-content/uploads/2024/07/illustration_DetskiJivot_4.jpg",
       "readTimeMinutes": 2,
       "ageGroup": 17,
+      "type" : "Басни и Истории за животни",
+      "format" : "text",
       "url": "/prikazka/za-seloto/",
       "album": "Политически приказки"
+    },
+    {
+      "author": "Балкантон",
+      "title": "Копче за сън",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/06/illustration_bg_127.jpg",
+      "readTimeMinutes": 39,
+      "ageGroup": 5,
+      "type" : "Стихове и Песни",
+      "format" : "audio",
+      "url": "/prikazka/kopche-za-san-malka-detska-opera/",
+      "album": ""
+    },
+    {
+      "author": "Балкантон",
+      "title": "Патиланско царство",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/06/illustration_bg_126.jpg",
+      "readTimeMinutes": 42,
+      "ageGroup": 5,
+      "type" : "Битови приказки",
+      "format" : "audio",
+      "url": "/prikazka/patilansko-carstvo-audio-prikazka-po-ednoimennata-tvorba-na-ran-bosilek/",
+      "album": ""
+    },
+    {
+      "author": "Балкантон",
+      "title": "Патиланско царство",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2026/06/illustration_uk_31.jpg",
+      "readTimeMinutes": 45,
+      "ageGroup": 9,
+      "type" : "Вълшебни приказки",
+      "format" : "audio",
+      "url": "/prikazka/alisa-v-stranata-na-chudesata-audio-prikazka-po-tvorbata-na-luis-karol/",
+      "album": ""
+    },
+    {
+      "author": "Андре Еле",
+      "title": "КУТИЯТА С ИГРАЧКИ",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2023/04/illustration_fr_30.jpg",
+      "readTimeMinutes": 38,
+      "ageGroup": 9,
+      "type" : "Вълшебни приказки",
+      "format" : "video",
+      "url": "/prikazka/kutiyata-s-igrachki-prikazka-i-balet/",
+      "album": "",
+      "kingdom": "Франция"
+    },
+    {
+      "author": "Андре Еле",
+      "title": "ПЕПЕЛЯШКА",
+      "thumbnail": "https://prikazki.eu/wp-content/uploads/2021/02/illustration_Cinderella_opera_1.jpg",
+      "readTimeMinutes": 120,
+      "ageGroup": 9,
+      "type" : "Вълшебни приказки",
+      "format" : "video",
+      "url": "/prikazka/pepelyashka-opera/",
+      "album": "",
+      "kingdom": "Франция"
     }
   ],
   "authors" : [

@@ -29,6 +29,9 @@ fun App() {
     val navBarState = NavRegistry.resolve(currentDest)
 
     var showSearch by remember { mutableStateOf(false) }
+    var showFilterSheet by remember { mutableStateOf(false) }
+
+    LaunchedEffect(currentDest) { showFilterSheet = false }
 
     val selectedItem = when {
         currentDest?.hasRoute<HomeRoute>() == true -> BottomNavItem.Type.HOME.ordinal
@@ -52,7 +55,8 @@ fun App() {
                         state = navBarState,
                         onBack = { navController.popBackStack() },
                         onBlogClick = { navController.navigate(StoryRoute("$BASE_URL/blog/")) },
-                        onSearchClick = { showSearch = true }
+                        onSearchClick = { showSearch = true },
+                    onFilterClick = { showFilterSheet = true }
                     )
                 }
             },
@@ -77,7 +81,7 @@ fun App() {
                         bottom = paddingValues.calculateBottomPadding()
                     )
             ) {
-                Navigation(navController)
+                Navigation(navController, showFilterSheet, { showFilterSheet = false })
             }
         }
 

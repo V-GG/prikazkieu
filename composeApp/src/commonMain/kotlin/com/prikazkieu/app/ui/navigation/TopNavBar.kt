@@ -23,7 +23,8 @@ fun TopNavBar(
     state: NavBarState = NavBarState(),
     onBack: () -> Unit = {},
     onBlogClick: () -> Unit = {},
-    onSearchClick: () -> Unit = {}
+    onSearchClick: () -> Unit = {},
+    onFilterClick: () -> Unit = {}
 ) {
     Row(
         modifier = Modifier
@@ -67,7 +68,7 @@ fun TopNavBar(
             }
 
             if (state.showFilter) {
-                IconButton(onClick = { }) {
+                IconButton(onClick = onFilterClick) {
                     Icon(Icons.Filled.FilterList, contentDescription = "Filter")
                 }
             }

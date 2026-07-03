@@ -27,7 +27,11 @@ import kotlinx.serialization.Serializable
 internal const val BASE_URL = "https://prikazki.eu"
 
 @Composable
-fun Navigation(navController: NavHostController) {
+fun Navigation(
+    navController: NavHostController,
+    showFilterSheet: Boolean = false,
+    onFilterDismiss: () -> Unit = {}
+) {
     NavHost(navController = navController, startDestination = HomeRoute) {
         composable<HomeRoute> {
             HomeScreen(onStoryClick = { story ->
@@ -35,9 +39,11 @@ fun Navigation(navController: NavHostController) {
             })
         }
         composable<AllStoriesRoute> {
-            AllStoriesScreen(onStoryClick = { story ->
-                navController.navigate(StoryRoute("$BASE_URL${story.url}"))
-            })
+            AllStoriesScreen(
+                onStoryClick = { story -> navController.navigate(StoryRoute("$BASE_URL${story.url}")) },
+                showFilterSheet = showFilterSheet,
+                onFilterDismiss = onFilterDismiss
+            )
         }
         composable<KingdomsRoute> {
             KingdomsScreen(
@@ -46,9 +52,11 @@ fun Navigation(navController: NavHostController) {
             )
         }
         composable<LibraryRoute> {
-            LibraryScreen(onStoryClick = { story ->
-                navController.navigate(StoryRoute("$BASE_URL${story.url}"))
-            })
+            LibraryScreen(
+                onStoryClick = { story -> navController.navigate(StoryRoute("$BASE_URL${story.url}")) },
+                showFilterSheet = showFilterSheet,
+                onFilterDismiss = onFilterDismiss
+            )
         }
         composable<AuthorsRoute> {
             AuthorsScreen(
@@ -60,14 +68,18 @@ fun Navigation(navController: NavHostController) {
             val route = backStackEntry.toRoute<AuthorStoriesRoute>()
             AuthorStoriesScreen(
                 authorName = route.authorName,
-                onStoryClick = { story -> navController.navigate(StoryRoute("$BASE_URL${story.url}")) }
+                onStoryClick = { story -> navController.navigate(StoryRoute("$BASE_URL${story.url}")) },
+                showFilterSheet = showFilterSheet,
+                onFilterDismiss = onFilterDismiss
             )
         }
         composable<KingdomStoriesRoute> { backStackEntry ->
             val route = backStackEntry.toRoute<KingdomStoriesRoute>()
             KingdomStoriesScreen(
                 kingdomName = route.kingdomName,
-                onStoryClick = { story -> navController.navigate(StoryRoute("$BASE_URL${story.url}")) }
+                onStoryClick = { story -> navController.navigate(StoryRoute("$BASE_URL${story.url}")) },
+                showFilterSheet = showFilterSheet,
+                onFilterDismiss = onFilterDismiss
             )
         }
         composable<StoryRoute> { backStackEntry ->

@@ -23,6 +23,13 @@ class AuthorViewModel(
     private val _state = MutableStateFlow<State>(State.Loading)
     val state: StateFlow<State> = _state.asStateFlow()
 
+    private val _selectedLetter = MutableStateFlow<String?>(null)
+    val selectedLetter: StateFlow<String?> = _selectedLetter.asStateFlow()
+
+    fun selectLetter(letter: String?) {
+        _selectedLetter.value = letter
+    }
+
     fun loadAuthors() {
         viewModelScope.launch {
             _state.value = State.Loading

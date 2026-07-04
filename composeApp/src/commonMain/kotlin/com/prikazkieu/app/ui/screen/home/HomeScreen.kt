@@ -16,7 +16,10 @@ import prikazkieu.composeapp.generated.resources.Res
 import prikazkieu.composeapp.generated.resources.night_sky
 
 @Composable
-fun HomeScreen(onStoryClick: (Story) -> Unit = {}) {
+fun HomeScreen(
+    onStoryClick: (Story) -> Unit = {},
+    onAlbumClick: (String) -> Unit = {}
+) {
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = painterResource(Res.drawable.night_sky),
@@ -32,9 +35,8 @@ fun HomeScreen(onStoryClick: (Story) -> Unit = {}) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             HeroSection()
-            BrowsePrikazkiSection()
             NewsletterSection()
-            FooterSection(onStoryClick = onStoryClick)
+            BrowseAlbumSection(onAlbumClick = onAlbumClick)
         }
     }
 }

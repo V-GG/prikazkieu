@@ -1,5 +1,6 @@
 package com.prikazkieu.app.ui.navigation
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.input.TextFieldState
@@ -7,8 +8,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Article
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.FilterList
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -16,7 +17,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import org.jetbrains.compose.resources.painterResource
+import prikazkieu.composeapp.generated.resources.Res
+import prikazkieu.composeapp.generated.resources.prikazki_logo
 
 @Composable
 fun TopNavBar(
@@ -42,6 +47,17 @@ fun TopNavBar(
             if (state.showBack) {
                 IconButton(onClick = onBack) {
                     Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                }
+            }
+
+            if (state.showPrikazkiLogo) {
+                Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.CenterStart) {
+                    Image(
+                        painter = painterResource(Res.drawable.prikazki_logo),
+                        contentDescription = "Prikazki",
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier.height(36.dp)
+                    )
                 }
             }
 

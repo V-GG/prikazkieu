@@ -8,6 +8,7 @@
       "ageGroup": 9,
       "type" : "Вълшебни приказки",
       "format" : "text",
+      "album" : "Най-хубавите приказки за 2025 година",
       "url": "/prikazka/kolednoto-darvo-ili-elata/"
     },
     {
@@ -18,6 +19,7 @@
       "ageGroup": 5,
       "type" : "Вълшебни приказки",
       "format" : "text",
+      "album" : "Най-хубавите приказки за 2025 година",
       "url": "/prikazka/svinaryat/"
     },
     {
@@ -38,6 +40,7 @@
       "ageGroup": 3,
       "type" : "Искам да знам",
       "format" : "text",
+      "album" : "Най-хубавите приказки за 2025 година",
       "url": "/prikazka/veche-sam-golyam/"
     },
     {
@@ -48,6 +51,7 @@
       "ageGroup": 9,
       "type" : "Вълшебни приказки",
       "format" : "text",
+      "album" : "Най-хубавите приказки за 2025 година",
       "url": "/prikazka/legenda-za-anai-ili-cvetat-na-koralovoto-darvo/"
     },
     {
@@ -58,6 +62,7 @@
       "ageGroup": 17,
       "type" : "Стихове и Песни",
       "format" : "text",
+      "album" : "Музикални приказки",
       "url": "/prikazka/rakata-na-pokoynicata/"
     },
     {
@@ -68,6 +73,7 @@
       "ageGroup": 9,
       "type" : "Стихове и Песни",
       "format" : "text",
+      "album" : "Най-хубавите приказки за 2025 година",
       "url": "/prikazka/don-leo-i-donya-elena/"
     },
     {
@@ -77,6 +83,7 @@
       "readTimeMinutes": 4,
       "ageGroup": 5,
       "type" : "Стихове и Песни",
+      "album" : "Музикални приказки",
       "format" : "text",
       "url": "/prikazka/pan-kotaran/"
     },
@@ -87,6 +94,7 @@
       "readTimeMinutes": 11,
       "ageGroup": 5,
       "type" : "Гатанки и залъгванки",
+      "album" : "Музикални приказки",
       "format" : "text",
       "url": "/prikazka/olena-i-zlatnata-yabalka/"
     },
@@ -97,6 +105,7 @@
       "readTimeMinutes": 4,
       "ageGroup": 17,
       "type" : "Гатанки и залъгванки",
+      "album" : "Музикални приказки",
       "format" : "text",
       "url": "/prikazka/parviyat-gaucho/"
     },
@@ -107,6 +116,7 @@
       "readTimeMinutes": 2,
       "ageGroup": 9,
       "type" : "Басни и Истории за животни",
+      "album" : "Музикални приказки",
       "format" : "text",
       "url": "/prikazka/legenda-za-manaka/"
     },
@@ -277,6 +287,7 @@
       "readTimeMinutes": 5,
       "ageGroup": 9,
       "type" : "Битови приказки",
+      "album" : "Приказките на царица Флора",
       "format" : "text",
       "url": "/prikazka/kirilo-kojumyaka/"
     },
@@ -287,6 +298,7 @@
       "readTimeMinutes": 7,
       "ageGroup": 9,
       "type" : "Битови приказки",
+      "album" : "Приказките на царица Флора",
       "format" : "text",
       "url": "/prikazka/zlini-nenasitni/"
     },
@@ -297,6 +309,7 @@
       "readTimeMinutes": 3,
       "ageGroup": 5,
       "type" : "Стихове и Песни",
+      "album" : "Приказките на царица Флора",
       "format" : "text",
       "url": "/prikazka/prikazka-za-kucheto-sharko/"
     },
@@ -307,6 +320,7 @@
       "readTimeMinutes": 2,
       "ageGroup": 5,
       "type" : "Стихове и Песни",
+      "album" : "Приказките на царица Флора",
       "format" : "text",
       "url": "/prikazka/bradatko/"
     },
@@ -317,6 +331,7 @@
       "readTimeMinutes": 5,
       "ageGroup": 5,
       "type" : "Гатанки и залъгванки",
+      "album" : "Приказките на царица Флора",
       "format" : "text",
       "url": "/prikazka/carkinyata-zmiya/"
     },
@@ -327,6 +342,7 @@
       "readTimeMinutes": 12,
       "ageGroup": 5,
       "type" : "Гатанки и залъгванки",
+      "album" : "Приказките на царица Флора",
       "format" : "text",
       "url": "/prikazka/dyavolat-s-trite-zlatni-kosama/"
     },
@@ -421,6 +437,7 @@
       "readTimeMinutes": 1,
       "ageGroup": 9,
       "type" : "Гатанки и залъгванки",
+      "album" : "Коледни и новогодишни приказки",
       "format" : "text",
       "url": "/prikazka/posmali-mango-2/"
     },
@@ -431,6 +448,7 @@
       "readTimeMinutes": 1,
       "ageGroup": 3,
       "type" : "Битови приказки",
+      "album" : "Коледни и новогодишни приказки",
       "format" : "text",
       "url": "/prikazka/nay-prochutiyat-gotvach/",
       "kingdom" : "България"
@@ -442,6 +460,7 @@
       "readTimeMinutes": 1,
       "ageGroup": 5,
       "type" : "Битови приказки",
+      "album" : "Коледни и новогодишни приказки",
       "format" : "text",
       "url": "/prikazka/nay-dobre-si-e-na-plaja/",
       "kingdom" : "България"
@@ -453,6 +472,7 @@
       "readTimeMinutes": 1,
       "ageGroup": 3,
       "type" : "Битови приказки",
+      "album" : "Коледни и новогодишни приказки",
       "format" : "text",
       "url": "/prikazka/koy-kakvo-obicha/",
       "kingdom" : "България"
@@ -464,6 +484,7 @@
       "readTimeMinutes": 16,
       "ageGroup": 5,
       "type" : "Битови приказки",
+      "album" : "Коледни и новогодишни приказки",
       "format" : "text",
       "url": "/prikazka/kolednite-priklyucheniya-na-peter-i-lota/"
     },
@@ -474,6 +495,7 @@
       "readTimeMinutes": 2,
       "ageGroup": 17,
       "type" : "Битови приказки",
+      "album" : "Коледни и новогодишни приказки",
       "format" : "text",
       "url": "/prikazka/vyarnata-nevesta/"
     },
@@ -850,6 +872,38 @@
       "storyCount": "59",
       "image": "https://prikazki.eu/wp-content/uploads/2021/04/region_Japan.png",
       "moreInfo": "https://prikazki.eu/region/japon/"
+    }
+  ],
+  "albums" : [
+    {
+      "name": "Политически приказки",
+      "description": "Един от най-важните избори в нашия живот е изборът на морални и достойни управници, защото няма сполучил народ, оставил се да живее в лъжа и покорство на негодници. Та, ето и приказките, които ни припомнят тази уж простичка поука.",
+      "storyCount": "42",
+      "image": "https://prikazki.eu/wp-content/uploads/2023/04/illustration_collection_politics_1.png"
+    },
+    {
+      "name": "Най-хубавите приказки за 2025 година",
+      "description": "В последния ден на декември по традиция избираме дванайсетте най-хубави приказки, които публикувахме през 2025г.",
+      "storyCount": "15",
+      "image": "https://prikazki.eu/wp-content/uploads/2025/02/illustration_collections_sme6ki_2.png"
+    },
+    {
+      "name": "Коледни и новогодишни приказки",
+      "description": "Знайни и незнайни вълшебни приказки, които ще поръсват с магия всяка декемврийска нощ до края на годината!",
+      "storyCount": "23",
+      "image": "https://prikazki.eu/wp-content/uploads/2021/12/collection_Xmas.png"
+    },
+    {
+      "name": "Приказките на царица Флора",
+      "description": "Да прекрачим в царствоото на растенията. От чудния дар на петлистната детелина, по бобовите стъбла, израснали до небето, та чак до потайните порти на феите - вековечните глогове, царица Флора знае най-омайните приказки...",
+      "storyCount": "17",
+      "image": "https://prikazki.eu/wp-content/uploads/2023/04/illustration_collection_flora2.png"
+    },
+    {
+      "name": "Музикални приказки",
+      "description": "Насладете се на вълшебните приказки, вдъхновени от омаята на музиката и танца, на чудните истории за музиканти, менестрели и вълшебници.",
+      "storyCount": "90",
+      "image": "https://prikazki.eu/wp-content/uploads/2025/11/illustration_collection_music2.png"
     }
   ]
 }

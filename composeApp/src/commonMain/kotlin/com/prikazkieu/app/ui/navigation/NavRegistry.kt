@@ -18,7 +18,7 @@ object NavRegistry {
         // Root / tab screens
         Entry(
             matches = { it.hasRoute<HomeRoute>() },
-            capabilities = setOf(ITopSearchNavScreen::class, ITopDefaultToolsScreen::class)
+            capabilities = setOf(ITopPrikazkiLogoScreen::class, ITopDefaultToolsScreen::class)
         ),
         Entry(
             matches = { it.hasRoute<KingdomsRoute>() },
@@ -46,6 +46,10 @@ object NavRegistry {
             capabilities = setOf(ITopBackNavScreen::class, ITopSearchNavScreen::class, ITopFilterNavScreen::class)
         ),
         Entry(
+            matches = { it.hasRoute<AlbumStoriesRoute>() },
+            capabilities = setOf(ITopBackNavScreen::class, ITopFilterNavScreen::class)
+        ),
+        Entry(
             matches = { it.hasRoute<StoryRoute>() },
             capabilities = setOf(ITopBackNavScreen::class, INoBottomNavScreen::class)
         )
@@ -60,6 +64,7 @@ object NavRegistry {
             showTopBar = INoTopNavScreen::class !in caps,
             showBack = ITopBackNavScreen::class in caps,
             showSearch = ITopSearchNavScreen::class in caps,
+            showPrikazkiLogo = ITopPrikazkiLogoScreen::class in caps,
             showDefault = ITopDefaultToolsScreen::class in caps,
             showFilter = ITopFilterNavScreen::class in caps,
             showBottomBar = INoBottomNavScreen::class !in caps

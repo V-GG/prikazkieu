@@ -6,5 +6,6 @@ data class NavBarState(
     val showFilter: Boolean = false,
     val showDefault: Boolean = true,
     val showSearch: Boolean = true,
+    val showPrikazkiLogo: Boolean = false,
     val showBottomBar: Boolean = true
 )

@@ -1,5 +1,6 @@
 package com.prikazkieu.app.data.service
 
+import com.prikazkieu.app.data.dto.JsonAlbumListDto
 import com.prikazkieu.app.data.dto.JsonAuthorListDto
 import com.prikazkieu.app.data.dto.JsonKingdomListDto
 import com.prikazkieu.app.data.dto.JsonStoryListDto
@@ -37,8 +38,18 @@ class JsonDataService : IDataService {
         return applyFilterMask(stories, filterMask)
     }
 
+    @OptIn(ExperimentalResourceApi::class)
     override suspend fun getAllAlbums(): List<Album> {
-        TODO("Not yet implemented")
+        val rawJson = Res.readBytes("files/data.json").decodeToString()
+        val dto = json.decodeFromString<JsonAlbumListDto>(rawJson)
+        return dto.albums.map { album ->
+            Album(
+                name = album.name,
+                image = album.image,
+                description = album.description,
+                storyCount = album.storyCount.toIntOrNull() ?: 0
+            )
+        }
     }
 
     @OptIn(ExperimentalResourceApi::class)

@@ -1,5 +1,7 @@
 package com.prikazkieu.app.data.model
 
+import io.ktor.util.internal.OpDescriptor
+
 data class Story(
     val title: String,
     val thumbnail: String,
@@ -47,6 +49,8 @@ data class Author(
 data class Album(
     val name: String,
     val image: String?,
+    val description: String,
+    val storyCount: Int,
 )
 
 enum class Filter(val mask: Int) {

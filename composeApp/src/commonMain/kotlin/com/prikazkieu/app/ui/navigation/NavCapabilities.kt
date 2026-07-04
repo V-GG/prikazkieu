@@ -1,5 +1,8 @@
 package com.prikazkieu.app.ui.navigation
 
+/** Shows the Prikazki logo in place of the search bar. */
+interface ITopPrikazkiLogoScreen
+
 /** Replaces the search bar with a back arrow. */
 interface ITopBackNavScreen
 

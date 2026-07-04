@@ -11,6 +11,7 @@ import com.prikazkieu.app.ui.screen.home.HomeScreen
 import com.prikazkieu.app.ui.screen.kingdoms.KingdomStoriesScreen
 import com.prikazkieu.app.ui.screen.kingdoms.KingdomsScreen
 import com.prikazkieu.app.ui.screen.library.LibraryScreen
+import com.prikazkieu.app.ui.screen.stories.AlbumStoriesScreen
 import com.prikazkieu.app.ui.screen.stories.AllStoriesScreen
 import com.prikazkieu.app.ui.screen.story.StoryScreen
 import kotlinx.serialization.Serializable
@@ -20,6 +21,7 @@ import kotlinx.serialization.Serializable
 @Serializable object LibraryRoute : ITopSearchNavScreen, ITopFilterNavScreen
 @Serializable object AuthorsRoute : ITopSearchNavScreen, ITopDefaultToolsScreen
 @Serializable object AllStoriesRoute : ITopSearchNavScreen
+@Serializable data class AlbumStoriesRoute(val albumName: String) : ITopBackNavScreen, ITopFilterNavScreen
 @Serializable data class AuthorStoriesRoute(val authorName: String) : ITopBackNavScreen, ITopFilterNavScreen
 @Serializable data class KingdomStoriesRoute(val kingdomName: String) : ITopBackNavScreen, ITopFilterNavScreen
 @Serializable data class StoryRoute(val url: String) : ITopBackNavScreen, INoBottomNavScreen
@@ -34,9 +36,10 @@ fun Navigation(
 ) {
     NavHost(navController = navController, startDestination = HomeRoute) {
         composable<HomeRoute> {
-            HomeScreen(onStoryClick = { story ->
-                navController.navigate(StoryRoute("$BASE_URL${story.url}"))
-            })
+            HomeScreen(
+                onStoryClick = { story -> navController.navigate(StoryRoute("$BASE_URL${story.url}")) },
+                onAlbumClick = { albumName -> navController.navigate(AlbumStoriesRoute(albumName)) }
+            )
         }
         composable<AllStoriesRoute> {
             AllStoriesScreen(
@@ -77,6 +80,15 @@ fun Navigation(
             val route = backStackEntry.toRoute<KingdomStoriesRoute>()
             KingdomStoriesScreen(
                 kingdomName = route.kingdomName,
+                onStoryClick = { story -> navController.navigate(StoryRoute("$BASE_URL${story.url}")) },
+                showFilterSheet = showFilterSheet,
+                onFilterDismiss = onFilterDismiss
+            )
+        }
+        composable<AlbumStoriesRoute> { backStackEntry ->
+            val route = backStackEntry.toRoute<AlbumStoriesRoute>()
+            AlbumStoriesScreen(
+                albumName = route.albumName,
                 onStoryClick = { story -> navController.navigate(StoryRoute("$BASE_URL${story.url}")) },
                 showFilterSheet = showFilterSheet,
                 onFilterDismiss = onFilterDismiss

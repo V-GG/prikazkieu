@@ -45,28 +45,29 @@ fun AuthorCard(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 16.dp, end = 16.dp, top = 40.dp, bottom = 16.dp)
+                    .padding(start = 8.dp, end = 8.dp, top = 32.dp, bottom = 8.dp)
             ) {
                 Text(
                     text = author.name,
-                    fontSize = 20.sp,
+                    fontSize = 13.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.Serif,
                     color = Color(0xFFA52A2A),
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    maxLines = 2
                 )
 
                 author.lived?.let {
-                    Spacer(Modifier.height(6.dp))
+                    Spacer(Modifier.height(4.dp))
                     Text(
                         text = it,
-                        fontSize = 13.sp,
+                        fontSize = 10.sp,
                         color = Color.Black,
                         textAlign = TextAlign.Center
                     )
                 }
 
-                Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(8.dp))
 
                 AsyncImage(
                     model = author.image,
@@ -74,16 +75,17 @@ fun AuthorCard(
                     contentScale = ContentScale.Fit,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(200.dp)
+                        .height(110.dp)
                 )
 
                 author.origin?.let {
-                    Spacer(Modifier.height(12.dp))
+                    Spacer(Modifier.height(6.dp))
                     Text(
                         text = it,
-                        fontSize = 14.sp,
+                        fontSize = 10.sp,
                         color = Color.DarkGray,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
+                        maxLines = 1
                     )
                 }
             }

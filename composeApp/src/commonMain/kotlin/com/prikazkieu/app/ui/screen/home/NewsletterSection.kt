@@ -18,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.TextStyle
@@ -33,20 +34,26 @@ fun NewsletterSection() {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color(0xFFDFF0F5))
         ) {
             WavesDivider(
                 modifier = Modifier.fillMaxWidth(),
-                wave1Color = Color(0xFFB8DFF0),
-                wave2Color = Color(0xFF6BAEAD),
-                wave3Color = Color(0xFF3D8C8A)
+                wave1Color = Color(0xFF1B2E5E),
+                wave2Color = Color(0xFF2E6AAF),
+                wave3Color = Color(0xFFB8DFF0)
             )
         }
 
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color(0xFF3D8C8A)),
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            Color(0xFFB8DFF0),
+                            Color(0xFF3D8C8A),
+                        )
+                    )
+                ),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {

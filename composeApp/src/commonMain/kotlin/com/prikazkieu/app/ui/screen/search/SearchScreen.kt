@@ -205,22 +205,54 @@ fun SearchScreen(
                                                 }
                                             }
                                         }
-                                    } else {
-                                        items(section.results, key = { resultKey(it) }) { result ->
-                                            when (result) {
-                                                is SearchResult.StoryResult -> {}
-                                                is SearchResult.AuthorResult -> AuthorCard(
-                                                    author = result.author,
+                                    } else if (section.results.firstOrNull() is SearchResult.AuthorResult) {
+                                        val pairs = section.results.chunked(2)
+                                        items(pairs, key = { "row_${resultKey(it.first())}" }) { pair ->
+                                            Row(
+                                                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                                                modifier = Modifier.fillMaxWidth()
+                                            ) {
+                                                AuthorCard(
+                                                    author = (pair[0] as SearchResult.AuthorResult).author,
                                                     onInfoClick = onInfoClick,
                                                     onAuthorClick = onAuthorClick,
-                                                    modifier = Modifier.fillMaxWidth()
+                                                    modifier = Modifier.weight(1f)
                                                 )
-                                                is SearchResult.KingdomResult -> KingdomCard(
-                                                    kingdom = result.kingdom,
+                                                if (pair.size == 2) {
+                                                    AuthorCard(
+                                                        author = (pair[1] as SearchResult.AuthorResult).author,
+                                                        onInfoClick = onInfoClick,
+                                                        onAuthorClick = onAuthorClick,
+                                                        modifier = Modifier.weight(1f)
+                                                    )
+                                                } else {
+                                                    Spacer(modifier = Modifier.weight(1f))
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        val pairs = section.results.chunked(2)
+                                        items(pairs, key = { "row_${resultKey(it.first())}" }) { pair ->
+                                            Row(
+                                                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                                                modifier = Modifier.fillMaxWidth()
+                                            ) {
+                                                KingdomCard(
+                                                    kingdom = (pair[0] as SearchResult.KingdomResult).kingdom,
                                                     onClick = onKingdomClick,
                                                     onInfoClick = onInfoClick,
-                                                    modifier = Modifier.fillMaxWidth()
+                                                    modifier = Modifier.weight(1f)
                                                 )
+                                                if (pair.size == 2) {
+                                                    KingdomCard(
+                                                        kingdom = (pair[1] as SearchResult.KingdomResult).kingdom,
+                                                        onClick = onKingdomClick,
+                                                        onInfoClick = onInfoClick,
+                                                        modifier = Modifier.weight(1f)
+                                                    )
+                                                } else {
+                                                    Spacer(modifier = Modifier.weight(1f))
+                                                }
                                             }
                                         }
                                     }

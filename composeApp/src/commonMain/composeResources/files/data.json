@@ -644,13 +644,6 @@
   ],
   "authors" : [
     {
-      "name" : "КЛАРА ЩРЬОБЕ",
-      "lived" : "1887 – 1932",
-      "origin" : "Скандинавски или немски произход",
-      "image" : "https://prikazki.eu/wp-content/uploads/2021/11/author_ClaraStroede.jpg",
-      "moreInfo" : "https://prikazki.eu/avtor/klara-stroebe/"
-    },
-    {
       "name" : "КОНСТАНТИН ВЕЛИЧКОВ",
       "lived" : "1855 – 1907",
       "origin" : "България",
@@ -668,49 +661,49 @@
       "name": "АНДРЮ ЛАНГ",
       "lived": "1844 – 1912",
       "origin": "Шотландия",
-      "image": "https://prikazki.eu/wp-content/uploads/2021/11/author_AndrewLang.jpg",
+      "image": "https://prikazki.eu/wp-content/uploads/2019/09/author_AndrewLang_2.jpg",
       "moreInfo": "https://prikazki.eu/avtor/andryu-lang/"
     },
     {
       "name": "АННА ВАЛЕНБЕРГ",
       "lived": "1858 – 1933",
       "origin": "Швеция",
-      "image": "https://prikazki.eu/wp-content/uploads/2021/11/author_AnnaWahlenberg.jpg",
+      "image": "https://prikazki.eu/wp-content/uploads/2022/04/author_AnnaWahlenberg.jpg",
       "moreInfo": "https://prikazki.eu/avtor/anna-valenberg/"
     },
     {
       "name": "АСЕН РАЗЦВЕТНИКОВ",
       "lived": "1897 – 1951",
       "origin": "България",
-      "image": "https://prikazki.eu/wp-content/uploads/2021/11/author_AsenRazcvetnikov.jpg",
+      "image": "https://prikazki.eu/wp-content/uploads/2021/12/author_AsenRazcventikov_1.jpg",
       "moreInfo": "https://prikazki.eu/avtor/asen-razcvetnikov/"
     },
     {
       "name": "БРАТЯ ГРИМ",
       "lived": "1785 – 1863",
       "origin": "Германия",
-      "image": "https://prikazki.eu/wp-content/uploads/2021/11/author_BratyaGrim.jpg",
+      "image": "https://prikazki.eu/wp-content/uploads/2019/08/Author_BrothersGrimm_1.jpg",
       "moreInfo": "https://prikazki.eu/avtor/bratya-grim/"
     },
     {
       "name": "ГЕОРГИ РАЙЧЕВ",
       "lived": "1882 – 1947",
       "origin": "България",
-      "image": "https://prikazki.eu/wp-content/uploads/2021/11/author_GeorgiRaychev.jpg",
+      "image": "https://prikazki.eu/wp-content/uploads/2019/10/author_GRaichev_1.jpg",
       "moreInfo": "https://prikazki.eu/avtor/georgi-raychev/"
     },
     {
       "name": "ЕЛИН ПЕЛИН",
       "lived": "1877 – 1949",
       "origin": "България",
-      "image": "https://prikazki.eu/wp-content/uploads/2021/11/author_ElinPelin.jpg",
+      "image": "https://prikazki.eu/wp-content/uploads/2019/10/author_ElinPelin_1.jpg",
       "moreInfo": "https://prikazki.eu/avtor/elin-pelin/"
     },
     {
       "name": "ИЛИЯ БЛЪСКОВ",
       "lived": "1839 – 1913",
       "origin": "България",
-      "image": "https://prikazki.eu/wp-content/uploads/2021/11/author_IliaBlaskov.jpg",
+      "image": "https://prikazki.eu/wp-content/uploads/2021/10/author_IliaBlaskov.jpg",
       "moreInfo": "https://prikazki.eu/avtor/ilia-blaskov/"
     },
     {
@@ -721,31 +714,24 @@
       "moreInfo": "https://prikazki.eu/avtor/klara-stroebe/"
     },
     {
-      "name": "КОНСТАНТИН ВЕЛИЧКОВ",
-      "lived": "1855 – 1907",
-      "origin": "България",
-      "image": "https://prikazki.eu/wp-content/uploads/2020/04/author_KonstantinVelichkov.jpg",
-      "moreInfo": "https://prikazki.eu/avtor/konstantin-velichkov/"
-    },
-    {
       "name": "КОНСТАНТИН ПЕТКАНОВ",
       "lived": "1898 – 1968",
       "origin": "България",
-      "image": "https://prikazki.eu/wp-content/uploads/2021/11/author_KonstantinPetkanov.jpg",
+      "image": "https://prikazki.eu/wp-content/uploads/2021/02/author_KonstantinPetkanov.jpg",
       "moreInfo": "https://prikazki.eu/avtor/konstantin-petkanov/"
     },
     {
       "name": "ЛЕФКАДИО ХЪРН",
       "lived": "1850 – 1904",
       "origin": "Ирландия / Япония",
-      "image": "https://prikazki.eu/wp-content/uploads/2021/11/author_LafcadioHearn.jpg",
+      "image": "https://prikazki.eu/wp-content/uploads/2021/06/author_LafcadioHearns_1.jpg",
       "moreInfo": "https://prikazki.eu/avtor/lafcadio-hearn/"
     },
     {
       "name": "ПЕТКО Р. СЛАВЕЙКОВ",
       "lived": "1827 – 1895",
       "origin": "България",
-      "image": "https://prikazki.eu/wp-content/uploads/2021/11/author_PetkoSlaveykov.jpg",
+      "image": "https://prikazki.eu/wp-content/uploads/2019/08/author_SlaveikovPR_1.jpg",
       "moreInfo": "https://prikazki.eu/avtor/petko-r-slaveykov/"
     },
     {
@@ -766,7 +752,7 @@
       "name": "ШАРЛ ПЕРО",
       "lived": "1628 – 1703",
       "origin": "Франция",
-      "image": "https://prikazki.eu/wp-content/uploads/2021/11/author_CharlesPerrault.jpg",
+      "image": "https://prikazki.eu/wp-content/uploads/2019/08/author_CharlesPerrault.jpg",
       "moreInfo": "https://prikazki.eu/avtor/charles-perrault/"
     },
     {
@@ -787,7 +773,7 @@
       "name": "ИВАН ВАЗОВ",
       "lived": "1850 – 1921",
       "origin": "България",
-      "image": "https://prikazki.eu/wp-content/uploads/2021/11/author_IvanVazov.jpg",
+      "image": "https://prikazki.eu/wp-content/uploads/2019/08/author_VazovIvan_1.jpg",
       "moreInfo": "https://prikazki.eu/avtor/ivan-vazov/"
     },
     {

@@ -47,7 +47,7 @@ object NavRegistry {
         ),
         Entry(
             matches = { it.hasRoute<AlbumStoriesRoute>() },
-            capabilities = setOf(ITopBackNavScreen::class, ITopFilterNavScreen::class)
+            capabilities = setOf(ITopBackNavScreen::class, ITopSearchNavScreen::class, ITopFilterNavScreen::class)
         ),
         Entry(
             matches = { it.hasRoute<StoryRoute>() },

@@ -1,5 +1,6 @@
 package com.prikazkieu.app.ui.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,6 +27,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.prikazkieu.app.data.model.Story
+import org.jetbrains.compose.resources.painterResource
+import prikazkieu.composeapp.generated.resources.Res
+import prikazkieu.composeapp.generated.resources.ico_audio
+import prikazkieu.composeapp.generated.resources.ico_video
 
 @Composable
 fun StoryCard(
@@ -76,14 +81,30 @@ fun StoryCard(
 
                 Spacer(Modifier.height(8.dp))
 
-                AsyncImage(
-                    model = story.thumbnail,
-                    contentDescription = story.title,
-                    contentScale = ContentScale.Fit,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(110.dp)
-                )
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.fillMaxWidth().height(110.dp)
+                ) {
+                    AsyncImage(
+                        model = story.thumbnail,
+                        contentDescription = story.title,
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier.fillMaxWidth().height(110.dp)
+                    )
+                    when (story.format) {
+                        Story.Format.audio -> Image(
+                            painter = painterResource(Res.drawable.ico_audio),
+                            contentDescription = "Audio",
+                            modifier = Modifier.size(36.dp)
+                        )
+                        Story.Format.video -> Image(
+                            painter = painterResource(Res.drawable.ico_video),
+                            contentDescription = "Video",
+                            modifier = Modifier.size(36.dp)
+                        )
+                        else -> {}
+                    }
+                }
             }
 
             Column(

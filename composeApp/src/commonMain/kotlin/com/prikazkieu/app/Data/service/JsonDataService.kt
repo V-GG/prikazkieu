@@ -153,10 +153,6 @@ class JsonDataService : IDataService {
         return all.subList(from, minOf(from + pageSize, all.size))
     }
 
-    override fun getStoryContent(url: String): String {
-        TODO("Not yet implemented")
-    }
-
     // OR-within-group, AND-across-groups bitmask filtering
     private fun applyFilterMask(stories: List<Story>, filterMask: Int): List<Story> {
         if (filterMask == 0) return stories

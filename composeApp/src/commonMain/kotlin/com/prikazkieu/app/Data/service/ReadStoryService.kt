@@ -36,16 +36,21 @@ class ReadStoryService(
 
     override suspend fun getSuggestionBy(story: Story): List<StorySuggestion> {
         val results = mutableListOf<StorySuggestion>()
+        val seenUrls = mutableSetOf<String>()
 
         story.author?.let {
             for (result in dataService.getStoriesByAuthor(it)) {
-                results.add(StorySuggestion.AuthorSuggestion(result))
+                if (seenUrls.add(result.url)) {
+                    results.add(StorySuggestion.AuthorSuggestion(result))
+                }
             }
         }
 
         story.kingdom?.let {
             for (result in dataService.getStoriesByKingdom(it)) {
-                results.add(StorySuggestion.KingdomSuggestion(result))
+                if (seenUrls.add(result.url)) {
+                    results.add(StorySuggestion.KingdomSuggestion(result))
+                }
             }
         }
 

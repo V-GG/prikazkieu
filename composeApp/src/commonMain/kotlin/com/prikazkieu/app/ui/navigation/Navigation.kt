@@ -106,7 +106,11 @@ fun Navigation(
             typeMap = mapOf(typeOf<Story>() to StoryNavType)
         ) { backStackEntry ->
             val route = backStackEntry.toRoute<ReadStoryRoute>()
-            ReadStoryScreen(story = route.story, onBack = { navController.popBackStack() })
+            ReadStoryScreen(
+                story = route.story,
+                onBack = { navController.popBackStack() },
+                onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) }
+            )
         }
     }
 }

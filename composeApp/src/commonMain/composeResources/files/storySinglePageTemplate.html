@@ -251,6 +251,7 @@
       window.goToPage = goToPage;
       window.getCurrentPage = function () { return page; };
       window.getPageCount = function () { return total; };
+      window.isLastPage = function () { return page === total - 1; };
 
       // ------------------------------------------------------------------ boot
       measure();

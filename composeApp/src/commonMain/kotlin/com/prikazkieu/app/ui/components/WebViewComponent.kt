@@ -11,7 +11,9 @@ expect fun WebViewHtmlComponent(
     html: String,
     baseUrl: String? = null,
     modifier: Modifier = Modifier,
-    disableTextSelection: Boolean = false
+    disableTextSelection: Boolean = false,
+    onPageInfoChanged: ((currentPage: Int, totalPages: Int) -> Unit)? = null,
+    onReachedEnd: (() -> Unit)? = null
 )
 
 private const val DISABLE_SELECTION_CSS =

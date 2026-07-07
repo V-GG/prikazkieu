@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.prikazkieu.app.ui.navigation.*
 import com.prikazkieu.app.ui.screen.search.SearchScreen
+import com.prikazkieu.app.ui.screen.splash.SplashScreen
 
 @Composable
 @Preview
@@ -28,6 +29,7 @@ fun App() {
     val currentDest = currentEntry?.destination
     val navBarState = NavRegistry.resolve(currentDest)
 
+    var showSplash by remember { mutableStateOf(true) }
     var showSearch by remember { mutableStateOf(false) }
     var showFilterSheet by remember { mutableStateOf(false) }
 
@@ -109,6 +111,10 @@ fun App() {
                     navController.navigate(StoryRoute(url))
                 }
             )
+        }
+
+        if (showSplash) {
+            SplashScreen(onFinished = { showSplash = false })
         }
     }
 }

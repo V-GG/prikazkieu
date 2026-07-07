@@ -1,7 +1,8 @@
 package com.prikazkieu.app.data.model
 
-import io.ktor.util.internal.OpDescriptor
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Story(
     val title: String,
     val thumbnail: String,
@@ -14,6 +15,7 @@ data class Story(
     val author: String?,
     val album: String?
 ) {
+    @Serializable
     enum class Type(val displayName: String) {
         FAIRY_TALES("Вълшебни приказки"),
         FOLK_TALES("Битови приказки"),
@@ -24,6 +26,7 @@ data class Story(
         DID_YOU_KNOW("Искам да знам")
     }
 
+    @Serializable
     enum class Format(val displayName: String) {
         text("text"),
         audio("audio"),

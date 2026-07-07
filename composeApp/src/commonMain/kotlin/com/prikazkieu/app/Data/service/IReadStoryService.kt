@@ -8,7 +8,7 @@ interface IReadStoryService {
 
     val dataService: IDataService
 
-    suspend fun getStoryContentPaginated(url: String): List<HtmlPage>
+    suspend fun getContentFor(story: Story): HtmlPage
 
-    suspend fun getStorySuggestionBy(story: Story): List<StorySuggestion>
+    suspend fun getSuggestionBy(story: Story): List<StorySuggestion>
 }

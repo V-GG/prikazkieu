@@ -52,6 +52,10 @@ object NavRegistry {
         Entry(
             matches = { it.hasRoute<StoryRoute>() },
             capabilities = setOf(ITopBackNavScreen::class, INoBottomNavScreen::class)
+        ),
+        Entry(
+            matches = { it.hasRoute<ReadStoryRoute>() },
+            capabilities = setOf(ITopBackNavScreen::class, INoBottomNavScreen::class)
         )
     )
 

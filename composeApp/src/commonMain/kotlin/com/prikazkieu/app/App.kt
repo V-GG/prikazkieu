@@ -94,7 +94,7 @@ fun App() {
                 onClose = { showSearch = false },
                 onStoryClick = { story ->
                     showSearch = false
-                    navController.navigate(StoryRoute("$BASE_URL${story.url}"))
+                    navController.navigate(ReadStoryRoute(story))
                 },
                 onAuthorClick = { authorName ->
                     showSearch = false

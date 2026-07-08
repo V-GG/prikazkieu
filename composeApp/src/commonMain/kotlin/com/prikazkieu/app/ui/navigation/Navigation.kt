@@ -14,21 +14,23 @@ import com.prikazkieu.app.ui.screen.kingdoms.KingdomsScreen
 import com.prikazkieu.app.ui.screen.library.LibraryScreen
 import com.prikazkieu.app.ui.screen.stories.AlbumStoriesScreen
 import com.prikazkieu.app.ui.screen.stories.AllStoriesScreen
+import com.prikazkieu.app.ui.screen.stories.LatestStoriesScreen
 import com.prikazkieu.app.ui.screen.story.ReadStoryScreen
 import com.prikazkieu.app.ui.screen.story.StoryScreen
 import kotlinx.serialization.Serializable
 import kotlin.reflect.typeOf
 
 @Serializable object HomeRoute : ITopSearchNavScreen, ITopDefaultToolsScreen
-@Serializable object KingdomsRoute : ITopSearchNavScreen, ITopDefaultToolsScreen
+@Serializable object KingdomsRoute : ITopSearchNavScreen
 @Serializable object LibraryRoute : ITopSearchNavScreen, ITopFilterNavScreen
-@Serializable object AuthorsRoute : ITopSearchNavScreen, ITopDefaultToolsScreen
+@Serializable object AuthorsRoute : ITopSearchNavScreen
 @Serializable object AllStoriesRoute : ITopSearchNavScreen
 @Serializable data class AlbumStoriesRoute(val albumName: String) : ITopBackNavScreen, ITopFilterNavScreen
 @Serializable data class AuthorStoriesRoute(val authorName: String) : ITopBackNavScreen, ITopFilterNavScreen
 @Serializable data class KingdomStoriesRoute(val kingdomName: String) : ITopBackNavScreen, ITopFilterNavScreen
 @Serializable data class StoryRoute(val url: String) : ITopBackNavScreen, INoBottomNavScreen
 @Serializable data class ReadStoryRoute(val story: Story) : ITopBackNavScreen, INoBottomNavScreen
+@Serializable object LatestStoriesRoute : ITopBackNavScreen
 
 internal const val BASE_URL = "https://prikazki.eu"
 
@@ -109,6 +111,11 @@ fun Navigation(
             ReadStoryScreen(
                 story = route.story,
                 onBack = { navController.popBackStack() },
+                onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) }
+            )
+        }
+        composable<LatestStoriesRoute> {
+            LatestStoriesScreen(
                 onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) }
             )
         }

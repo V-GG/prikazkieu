@@ -58,7 +58,8 @@ fun App() {
                         onBack = { navController.popBackStack() },
                         onBlogClick = { navController.navigate(StoryRoute("$BASE_URL/blog/")) },
                         onSearchClick = { showSearch = true },
-                    onFilterClick = { showFilterSheet = true }
+                    onFilterClick = { showFilterSheet = true },
+                    onLatestClick = { navController.navigate(LatestStoriesRoute) }
                     )
                 }
             },

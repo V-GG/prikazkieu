@@ -32,7 +32,8 @@ class JsonDataService : IDataService {
                 format = Story.Format.entries.firstOrNull { it.displayName == story.format } ?: Story.Format.text,
                 author = story.author.ifEmpty { null },
                 kingdom = story.kingdom,
-                album = story.album
+                album = story.album,
+                isLatest = story.isLatest,
             )
         }
         return applyFilterMask(stories, filterMask)
@@ -151,6 +152,11 @@ class JsonDataService : IDataService {
         val from = page * pageSize
         if (from >= all.size) return emptyList()
         return all.subList(from, minOf(from + pageSize, all.size))
+    }
+
+    override suspend fun getLatestStories(): List<Story> {
+        val stories = getAllStories().filter { it.isLatest }
+        return stories
     }
 
     // OR-within-group, AND-across-groups bitmask filtering

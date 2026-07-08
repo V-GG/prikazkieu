@@ -9,7 +9,8 @@
       "type" : "Вълшебни приказки",
       "format" : "text",
       "album" : "Най-хубавите приказки за 2025 година",
-      "url": "/prikazka/kolednoto-darvo-ili-elata/"
+      "url": "/prikazka/kolednoto-darvo-ili-elata/",
+      "isLatest": true
     },
     {
       "author": "Ханс Кристиан Андерсен",
@@ -20,7 +21,8 @@
       "type" : "Вълшебни приказки",
       "format" : "text",
       "album" : "Най-хубавите приказки за 2025 година",
-      "url": "/prikazka/svinaryat/"
+      "url": "/prikazka/svinaryat/",
+      "isLatest": true
     },
     {
       "author": "Ханс Кристиан Андерсен",
@@ -30,7 +32,8 @@
       "ageGroup": 17,
       "type" : "Вълшебни приказки",
       "format" : "text",
-      "url": "/prikazka/snejnata-carica/"
+      "url": "/prikazka/snejnata-carica/",
+      "isLatest": true
     },
     {
       "author": "Мартин Илиев",
@@ -41,7 +44,8 @@
       "type" : "Искам да знам",
       "format" : "text",
       "album" : "Най-хубавите приказки за 2025 година",
-      "url": "/prikazka/veche-sam-golyam/"
+      "url": "/prikazka/veche-sam-golyam/",
+      "isLatest": true
     },
     {
       "author": "",
@@ -52,7 +56,8 @@
       "type" : "Вълшебни приказки",
       "format" : "text",
       "album" : "Най-хубавите приказки за 2025 година",
-      "url": "/prikazka/legenda-za-anai-ili-cvetat-na-koralovoto-darvo/"
+      "url": "/prikazka/legenda-za-anai-ili-cvetat-na-koralovoto-darvo/",
+      "isLatest": true
     },
     {
       "author": "",

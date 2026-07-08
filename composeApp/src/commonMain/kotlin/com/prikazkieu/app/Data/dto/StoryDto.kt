@@ -14,6 +14,7 @@ data class JsonStoryDto(
     val format: String,
     val album: String? = null,
     val kingdom: String? = null,
+    val isLatest: Boolean = false,
 )
 
 @Serializable

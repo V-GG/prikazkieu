@@ -30,8 +30,40 @@ fun AgeControl() {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Row(modifier = Modifier.weight(1f)) {
-            RangeCell(modifier = Modifier.weight(1f))
-            RangeCell(modifier = Modifier.weight(1f))
+            RangeCell(modifier = Modifier.weight(1f)) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(
+                        text = "2 мин",
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 18.sp,
+                        color = Color(0xFF2D3A4A)
+                    )
+                    Text(
+                        text = "ВРЕМЕ",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 11.sp,
+                        letterSpacing = 1.sp,
+                        color = Color(0xFF7A8A9A)
+                    )
+                }
+            }
+            RangeCell(modifier = Modifier.weight(1f)) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(
+                        text = "Аудио",
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 18.sp,
+                        color = Color(0xFF2D3A4A)
+                    )
+                    Text(
+                        text = "ФОРМАТ",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 11.sp,
+                        letterSpacing = 1.sp,
+                        color = Color(0xFF7A8A9A)
+                    )
+                }
+            }
 
             RangeCell(modifier = Modifier.weight(1f)) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -51,7 +83,23 @@ fun AgeControl() {
                 }
             }
 
-            RangeCell(modifier = Modifier.weight(1f))
+            RangeCell(modifier = Modifier.weight(1f)) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(
+                        text = "битова",
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 18.sp,
+                        color = Color(0xFF2D3A4A)
+                    )
+                    Text(
+                        text = "ВИД",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 11.sp,
+                        letterSpacing = 1.sp,
+                        color = Color(0xFF7A8A9A)
+                    )
+                }
+            }
         }
     }
 }

@@ -34,7 +34,7 @@ fun HomeScreen(
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            HeroSection()
+            HeroSection(onStoryClick = onStoryClick)
             NewsletterSection()
             BrowseAlbumSection(onAlbumClick = onAlbumClick)
         }

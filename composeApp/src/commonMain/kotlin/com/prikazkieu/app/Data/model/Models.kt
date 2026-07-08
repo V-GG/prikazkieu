@@ -13,7 +13,8 @@ data class Story(
     val format: Format,
     val kingdom: String?,
     val author: String?,
-    val album: String?
+    val album: String?,
+    val isLatest: Boolean,
 ) {
     @Serializable
     enum class Type(val displayName: String) {

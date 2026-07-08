@@ -117,7 +117,7 @@ private fun OrnamentalHeader(count: Int?) {
         )
 
         Text(
-            text = if (count != null) "$count колекции" else "колекции",
+            text = if (count != null) "$count най-нови колекции" else "колекции",
             style = TextStyle(
                 fontStyle = FontStyle.Italic,
                 fontWeight = FontWeight.Medium,

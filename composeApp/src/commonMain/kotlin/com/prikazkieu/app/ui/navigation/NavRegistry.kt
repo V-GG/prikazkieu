@@ -22,7 +22,7 @@ object NavRegistry {
         ),
         Entry(
             matches = { it.hasRoute<KingdomsRoute>() },
-            capabilities = setOf(ITopSearchNavScreen::class, ITopDefaultToolsScreen::class)
+            capabilities = setOf(ITopSearchNavScreen::class)
         ),
         Entry(
             matches = { it.hasRoute<LibraryRoute>() },
@@ -30,7 +30,7 @@ object NavRegistry {
         ),
         Entry(
             matches = { it.hasRoute<AuthorsRoute>() },
-            capabilities = setOf(ITopSearchNavScreen::class, ITopDefaultToolsScreen::class)
+            capabilities = setOf(ITopSearchNavScreen::class)
         ),
         // Sub-screens
         Entry(
@@ -56,6 +56,10 @@ object NavRegistry {
         Entry(
             matches = { it.hasRoute<ReadStoryRoute>() },
             capabilities = setOf(ITopBackNavScreen::class, INoBottomNavScreen::class)
+        ),
+        Entry(
+            matches = { it.hasRoute<LatestStoriesRoute>() },
+            capabilities = setOf(ITopBackNavScreen::class)
         )
     )
 

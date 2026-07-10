@@ -108,8 +108,12 @@
        rotate the whole clone in 3D around its trailing edge like a real
        page turning over. The real page underneath has already jumped to
        its new position, so it's revealed the instant the flap turns
-       edge-on and its backface disappears (backface-visibility: hidden). */
-    html.pgn-on body { perspective: 1600px; }
+       edge-on and its backface disappears (backface-visibility: hidden).
+       The perspective is applied per-element (via the flap's own transform,
+       set in JS) rather than on an ancestor — an ancestor with a non-none
+       perspective becomes the containing block for its position:fixed
+       descendants, which would hijack .entry-content's own fixed
+       positioning and blank the whole reader. */
 
     html.pgn-on #main article .entry-content.pgn-flap { z-index: 100000;
       background: #fdfbf6; box-shadow: 0 12px 34px rgba(43,38,32,0.4);
@@ -235,6 +239,7 @@
         var toAngle = direction === 'next' ? 110 : -110;
         anime({
           targets: flap,
+          perspective: 1600, // local to the flap's own transform — see stylesheet note above
           rotateY: [0, toAngle],
           duration: FLIP_MS,
           easing: 'easeInQuart',

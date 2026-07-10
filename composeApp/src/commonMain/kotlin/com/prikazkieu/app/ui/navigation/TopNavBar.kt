@@ -87,7 +87,7 @@ fun TopNavBar(
                 Box(modifier = Modifier.weight(1f)) {
                     OutlinedTextField(
                         state = TextFieldState(),
-                        modifier = Modifier.fillMaxWidth().height(56.dp),
+                        modifier = Modifier.fillMaxWidth().height(48.dp),
                         leadingIcon = {
                             Icon(Icons.Default.Search, contentDescription = "Search")
                         }

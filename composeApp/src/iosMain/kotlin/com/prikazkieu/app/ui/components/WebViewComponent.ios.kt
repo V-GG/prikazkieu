@@ -14,12 +14,13 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import platform.Foundation.NSNumber
 import platform.Foundation.NSURL
 import platform.Foundation.NSURLRequest
+import platform.UIKit.UIColor
 import platform.WebKit.WKWebView
 
 @Composable
 actual fun WebViewComponent(url: String, modifier: Modifier) {
     androidx.compose.ui.viewinterop.UIKitView(
-        factory = { WKWebView() },
+        factory = { WKWebView().apply { backgroundColor = UIColor.whiteColor; opaque = true } },
         update = { webView ->
             NSURL.URLWithString(url)?.let { webView.loadRequest(NSURLRequest(it)) }
         },
@@ -37,7 +38,7 @@ actual fun WebViewHtmlComponent(
     onReachedEnd: (() -> Unit)?
 ) {
     var loadedHtml by remember { mutableStateOf<String?>(null) }
-    val webView = remember { WKWebView() }
+    val webView = remember { WKWebView().apply { backgroundColor = UIColor.whiteColor; opaque = true } }
 
     if (onPageInfoChanged != null || onReachedEnd != null) {
         LaunchedEffect(webView) {

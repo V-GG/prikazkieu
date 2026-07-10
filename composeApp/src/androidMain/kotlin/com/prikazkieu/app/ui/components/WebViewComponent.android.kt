@@ -1,6 +1,7 @@
 package com.prikazkieu.app.ui.components
 
 import android.annotation.SuppressLint
+import android.graphics.Color as AndroidColor
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.runtime.Composable
@@ -25,6 +26,7 @@ actual fun WebViewComponent(url: String, modifier: Modifier) {
             WebView(context).apply {
                 webViewClient = WebViewClient()
                 settings.javaScriptEnabled = true
+                setBackgroundColor(AndroidColor.WHITE)
             }
         },
         update = { webView ->
@@ -50,6 +52,7 @@ actual fun WebViewHtmlComponent(
         WebView(context).apply {
             webViewClient = WebViewClient()
             settings.javaScriptEnabled = true
+            setBackgroundColor(AndroidColor.WHITE)
             if (disableTextSelection) {
                 isLongClickable = false
                 setOnLongClickListener { true }

@@ -102,6 +102,23 @@
       z-index: 99999; text-align: center; font: 12px/1 Georgia, serif;
       color: #8a7f6f; letter-spacing: 0.08em;
       -webkit-user-select: none; user-select: none; }
+
+    /* Page-turn flip. On nextPage/previousPage we clone the current
+       .entry-content, freeze the clone at the outgoing page's offset, and
+       rotate the whole clone in 3D around its trailing edge like a real
+       page turning over. The real page underneath has already jumped to
+       its new position, so it's revealed the instant the flap turns
+       edge-on and its backface disappears (backface-visibility: hidden). */
+    html.pgn-on body { perspective: 1600px; }
+
+    html.pgn-on #main article .entry-content.pgn-flap { z-index: 100000;
+      background: #fdfbf6; box-shadow: 0 12px 34px rgba(43,38,32,0.4);
+      backface-visibility: hidden; -webkit-backface-visibility: hidden;
+      will-change: transform; pointer-events: none; }
+    .pgn-flap.next { transform-origin: 0% 50%; }
+    .pgn-flap.prev { transform-origin: 100% 50%; }
+    .pgn-flap .pgn-shade { position: absolute; inset: 0; z-index: 2;
+      opacity: 0; background: rgba(20,16,10,0.45); }
 </style>
 
 <script id="reader-paginator">
@@ -184,8 +201,68 @@
         return moved;
       }
 
-      function nextPage() { return goToPage(page + 1); }
-      function previousPage() { return goToPage(page - 1); }
+      // Page flip: clone the current .entry-content, freeze the clone on the
+      // outgoing page, and rotate the clone in 3D around its trailing edge —
+      // a physical page turn, not a slide. The real flow underneath (see
+      // goToPage/render above) has already moved to the new page, so it's
+      // sitting there ready the moment the flap turns edge-on and vanishes
+      // (backface-visibility: hidden means nothing renders past ~90deg).
+      var FLIP_MS = 460;
+      var flipping = false;
+
+      function turnPage(direction, fromPage) {
+        if (flipping || typeof anime === 'undefined') return; // no anime.js — plain CSS slide still applies
+
+        var flap = entry.cloneNode(true);
+        flap.removeAttribute('id');
+        flap.classList.add('pgn-flap', direction);
+
+        var flapFlow = flap.querySelector('.container');
+        if (flapFlow) {
+          // Freeze the clone on the page it was showing before the turn —
+          // otherwise it would inherit the live --pgn-offset var and jump
+          // to the destination page along with the real flow.
+          flapFlow.style.transition = 'none';
+          flapFlow.style.transform = 'translate3d(' + (-fromPage * step) + 'px,0,0)';
+        }
+
+        var shade = document.createElement('div');
+        shade.className = 'pgn-shade';
+        flap.appendChild(shade);
+        article.appendChild(flap);
+
+        flipping = true;
+        var toAngle = direction === 'next' ? 110 : -110;
+        anime({
+          targets: flap,
+          rotateY: [0, toAngle],
+          duration: FLIP_MS,
+          easing: 'easeInQuart',
+          complete: function () {
+            flap.remove();
+            flipping = false;
+          }
+        });
+        anime({
+          targets: shade,
+          opacity: [0, 0.5],
+          duration: FLIP_MS * 0.6,
+          easing: 'easeInQuad'
+        });
+      }
+
+      function nextPage() {
+        var from = page;
+        var moved = goToPage(page + 1);
+        if (moved) turnPage('next', from);
+        return moved;
+      }
+      function previousPage() {
+        var from = page;
+        var moved = goToPage(page - 1);
+        if (moved) turnPage('prev', from);
+        return moved;
+      }
 
       // Re-measure while keeping the reader's place (rotation, late images).
       function relayout() {

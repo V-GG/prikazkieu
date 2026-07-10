@@ -66,12 +66,6 @@ fun TopNavBar(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
-            if (state.showClose) {
-                IconButton(onClick = onClose) {
-                    Icon(Icons.Filled.Close, contentDescription = "Close")
-                }
-            }
-
             if (state.showBack) {
                 IconButton(onClick = onBack) {
                     Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
@@ -134,6 +128,13 @@ fun TopNavBar(
             if (state.showFilter) {
                 IconButton(onClick = onFilterClick) {
                     Icon(Icons.Filled.FilterList, contentDescription = "Filter")
+                }
+            }
+
+            if (state.showClose) {
+                Spacer(modifier = Modifier.weight(1f))
+                IconButton(onClick = onClose) {
+                    Icon(Icons.Filled.Close, contentDescription = "Close")
                 }
             }
         }

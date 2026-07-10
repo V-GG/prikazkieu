@@ -9,6 +9,7 @@ import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Article
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.filled.NotificationImportant
@@ -39,6 +40,7 @@ import prikazkieu.composeapp.generated.resources.prikazki_logo
 fun TopNavBar(
     state: NavBarState = NavBarState(),
     onBack: () -> Unit = {},
+    onClose: () -> Unit = {},
     onBlogClick: () -> Unit = {},
     onSearchClick: () -> Unit = {},
     onFilterClick: () -> Unit = {},
@@ -64,6 +66,12 @@ fun TopNavBar(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
+            if (state.showClose) {
+                IconButton(onClick = onClose) {
+                    Icon(Icons.Filled.Close, contentDescription = "Close")
+                }
+            }
+
             if (state.showBack) {
                 IconButton(onClick = onBack) {
                     Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")

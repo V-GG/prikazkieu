@@ -1,6 +1,7 @@
 package com.prikazkieu.app.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -38,21 +39,26 @@ internal const val BASE_URL = "https://prikazki.eu"
 fun Navigation(
     navController: NavHostController,
     showFilterSheet: Boolean = false,
-    onFilterDismiss: () -> Unit = {}
+    onFilterDismiss: () -> Unit = {},
+    onReadingNavStateChanged: (showingSuggestions: Boolean, onDismissSuggestions: () -> Unit) -> Unit = { _, _ -> }
 ) {
     NavHost(navController = navController, startDestination = HomeRoute) {
         composable<HomeRoute> {
-            HomeScreen(
-                onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
-                onAlbumClick = { albumName -> navController.navigate(AlbumStoriesRoute(albumName)) }
-            )
+            CompositionLocalProvider(LocalNavAnimatedVisibilityScope provides this) {
+                HomeScreen(
+                    onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
+                    onAlbumClick = { albumName -> navController.navigate(AlbumStoriesRoute(albumName)) }
+                )
+            }
         }
         composable<AllStoriesRoute> {
-            AllStoriesScreen(
-                onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
-                showFilterSheet = showFilterSheet,
-                onFilterDismiss = onFilterDismiss
-            )
+            CompositionLocalProvider(LocalNavAnimatedVisibilityScope provides this) {
+                AllStoriesScreen(
+                    onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
+                    showFilterSheet = showFilterSheet,
+                    onFilterDismiss = onFilterDismiss
+                )
+            }
         }
         composable<KingdomsRoute> {
             KingdomsScreen(
@@ -61,11 +67,13 @@ fun Navigation(
             )
         }
         composable<LibraryRoute> {
-            LibraryScreen(
-                onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
-                showFilterSheet = showFilterSheet,
-                onFilterDismiss = onFilterDismiss
-            )
+            CompositionLocalProvider(LocalNavAnimatedVisibilityScope provides this) {
+                LibraryScreen(
+                    onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
+                    showFilterSheet = showFilterSheet,
+                    onFilterDismiss = onFilterDismiss
+                )
+            }
         }
         composable<AuthorsRoute> {
             AuthorsScreen(
@@ -75,30 +83,36 @@ fun Navigation(
         }
         composable<AuthorStoriesRoute> { backStackEntry ->
             val route = backStackEntry.toRoute<AuthorStoriesRoute>()
-            AuthorStoriesScreen(
-                authorName = route.authorName,
-                onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
-                showFilterSheet = showFilterSheet,
-                onFilterDismiss = onFilterDismiss
-            )
+            CompositionLocalProvider(LocalNavAnimatedVisibilityScope provides this) {
+                AuthorStoriesScreen(
+                    authorName = route.authorName,
+                    onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
+                    showFilterSheet = showFilterSheet,
+                    onFilterDismiss = onFilterDismiss
+                )
+            }
         }
         composable<KingdomStoriesRoute> { backStackEntry ->
             val route = backStackEntry.toRoute<KingdomStoriesRoute>()
-            KingdomStoriesScreen(
-                kingdomName = route.kingdomName,
-                onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
-                showFilterSheet = showFilterSheet,
-                onFilterDismiss = onFilterDismiss
-            )
+            CompositionLocalProvider(LocalNavAnimatedVisibilityScope provides this) {
+                KingdomStoriesScreen(
+                    kingdomName = route.kingdomName,
+                    onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
+                    showFilterSheet = showFilterSheet,
+                    onFilterDismiss = onFilterDismiss
+                )
+            }
         }
         composable<AlbumStoriesRoute> { backStackEntry ->
             val route = backStackEntry.toRoute<AlbumStoriesRoute>()
-            AlbumStoriesScreen(
-                albumName = route.albumName,
-                onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
-                showFilterSheet = showFilterSheet,
-                onFilterDismiss = onFilterDismiss
-            )
+            CompositionLocalProvider(LocalNavAnimatedVisibilityScope provides this) {
+                AlbumStoriesScreen(
+                    albumName = route.albumName,
+                    onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
+                    showFilterSheet = showFilterSheet,
+                    onFilterDismiss = onFilterDismiss
+                )
+            }
         }
         composable<StoryRoute> { backStackEntry ->
             val route = backStackEntry.toRoute<StoryRoute>()
@@ -108,16 +122,21 @@ fun Navigation(
             typeMap = mapOf(typeOf<Story>() to StoryNavType)
         ) { backStackEntry ->
             val route = backStackEntry.toRoute<ReadStoryRoute>()
-            ReadStoryScreen(
-                story = route.story,
-                onBack = { navController.popBackStack() },
-                onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) }
-            )
+            CompositionLocalProvider(LocalNavAnimatedVisibilityScope provides this) {
+                ReadStoryScreen(
+                    story = route.story,
+                    onBack = { navController.popBackStack() },
+                    onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) },
+                    onReadingNavStateChanged = onReadingNavStateChanged
+                )
+            }
         }
         composable<LatestStoriesRoute> {
-            LatestStoriesScreen(
-                onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) }
-            )
+            CompositionLocalProvider(LocalNavAnimatedVisibilityScope provides this) {
+                LatestStoriesScreen(
+                    onStoryClick = { story -> navController.navigate(ReadStoryRoute(story)) }
+                )
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.prikazkieu.app.ui.components
 
+import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -27,11 +28,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.prikazkieu.app.data.model.Story
+import com.prikazkieu.app.ui.navigation.LocalNavAnimatedVisibilityScope
+import com.prikazkieu.app.ui.navigation.LocalSharedTransitionScope
 import org.jetbrains.compose.resources.painterResource
 import prikazkieu.composeapp.generated.resources.Res
 import prikazkieu.composeapp.generated.resources.ico_audio
 import prikazkieu.composeapp.generated.resources.ico_video
 
+@OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 fun StoryCard(
     story: Story,
@@ -39,12 +43,26 @@ fun StoryCard(
     modifier: Modifier = Modifier,
     titleColor: Color = Color(0xFFA52A2A)
 ) {
+    val sharedTransitionScope = LocalSharedTransitionScope.current
+    val animatedVisibilityScope = LocalNavAnimatedVisibilityScope.current
+
+    val sharedModifier = if (sharedTransitionScope != null && animatedVisibilityScope != null) {
+        with(sharedTransitionScope) {
+            modifier.sharedBounds(
+                sharedContentState = rememberSharedContentState(key = "story-${story.url}"),
+                animatedVisibilityScope = animatedVisibilityScope
+            )
+        }
+    } else {
+        modifier
+    }
+
     Surface(
         onClick = { onClick(story) },
         shape = RectangleShape,
         color = Color.White,
         shadowElevation = 4.dp,
-        modifier = modifier
+        modifier = sharedModifier
     ) {
         Box(modifier = Modifier.fillMaxWidth()) {
             Column(

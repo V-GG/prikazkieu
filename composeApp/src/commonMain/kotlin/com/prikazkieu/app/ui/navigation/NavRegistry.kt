@@ -55,7 +55,7 @@ object NavRegistry {
         ),
         Entry(
             matches = { it.hasRoute<ReadStoryRoute>() },
-            capabilities = setOf(ITopBackNavScreen::class, INoBottomNavScreen::class)
+            capabilities = setOf(ITopCloseNavScreen::class, INoBottomNavScreen::class)
         ),
         Entry(
             matches = { it.hasRoute<LatestStoriesRoute>() },
@@ -71,6 +71,7 @@ object NavRegistry {
         return NavBarState(
             showTopBar = INoTopNavScreen::class !in caps,
             showBack = ITopBackNavScreen::class in caps,
+            showClose = ITopCloseNavScreen::class in caps,
             showSearch = ITopSearchNavScreen::class in caps,
             showPrikazkiLogo = ITopPrikazkiLogoScreen::class in caps,
             showDefault = ITopDefaultToolsScreen::class in caps,

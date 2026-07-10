@@ -48,6 +48,7 @@ class ReadStoryViewModel private constructor(
     val reachedEnd: StateFlow<Boolean> = _reachedEnd.asStateFlow()
 
     private var cachedSuggestions: List<StorySuggestion>? = null
+    private var lastReadingScreen = ReaderScreen.Reading(page = 0, total = 1)
     private var loaded = false
 
     fun loadIfNeeded() {
@@ -93,6 +94,7 @@ class ReadStoryViewModel private constructor(
 
     fun showSuggestions() {
         val current = _readerScreen.value as? ReaderScreen.Reading ?: return
+        lastReadingScreen = current
 
         _readerScreen.value = ReaderScreen.LoadingSuggestions
         viewModelScope.launch {
@@ -101,6 +103,14 @@ class ReadStoryViewModel private constructor(
             } catch (e: Exception) {
                 current
             }
+        }
+    }
+
+    // Lets the top bar's Back button step out of the suggestions view without
+    // popping the nav backstack, since suggestions aren't a separate route.
+    fun dismissSuggestions() {
+        if (_readerScreen.value is ReaderScreen.Finished) {
+            _readerScreen.value = lastReadingScreen
         }
     }
 }

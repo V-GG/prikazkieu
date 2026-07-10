@@ -1,6 +1,8 @@
 package com.prikazkieu.app
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionLayout
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -21,17 +23,28 @@ import com.prikazkieu.app.ui.navigation.*
 import com.prikazkieu.app.ui.screen.search.SearchScreen
 import com.prikazkieu.app.ui.screen.splash.SplashScreen
 
+@OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 @Preview
 fun App() {
     val navController = rememberNavController()
     val currentEntry by navController.currentBackStackEntryAsState()
     val currentDest = currentEntry?.destination
-    val navBarState = NavRegistry.resolve(currentDest)
 
     var showSplash by remember { mutableStateOf(true) }
     var showSearch by remember { mutableStateOf(false) }
     var showFilterSheet by remember { mutableStateOf(false) }
+    var showingSuggestions by remember { mutableStateOf(false) }
+    var dismissSuggestions by remember { mutableStateOf({}) }
+
+    val prevIsReadStory = navController.previousBackStackEntry?.destination?.hasRoute<ReadStoryRoute>() == true
+    val navBarState = NavRegistry.resolve(currentDest).let { base ->
+        if (currentDest?.hasRoute<ReadStoryRoute>() == true) {
+            base.copy(showBack = showingSuggestions || prevIsReadStory)
+        } else {
+            base
+        }
+    }
 
     LaunchedEffect(currentDest) { showFilterSheet = false }
 
@@ -49,73 +62,92 @@ fun App() {
         restoreState = true
     }
 
-    Box(modifier = Modifier.fillMaxSize()) {
-        Scaffold(
-            topBar = {
-                if (navBarState.showTopBar) {
-                    TopNavBar(
-                        state = navBarState,
-                        onBack = { navController.popBackStack() },
-                        onBlogClick = { navController.navigate(StoryRoute("$BASE_URL/blog/")) },
-                        onSearchClick = { showSearch = true },
-                    onFilterClick = { showFilterSheet = true },
-                    onLatestClick = { navController.navigate(LatestStoriesRoute) }
-                    )
-                }
-            },
-            bottomBar = {
-                if (navBarState.showBottomBar) {
-                    BottomNavBar(selectedItem) { newItem ->
-                        when (newItem) {
-                            BottomNavItem.Type.HOME.ordinal -> navController.navigate(HomeRoute, tabNavOptions)
-                            BottomNavItem.Type.KINGDOMS.ordinal -> navController.navigate(KingdomsRoute, tabNavOptions)
-                            BottomNavItem.Type.LIBRARY.ordinal -> navController.navigate(LibraryRoute, tabNavOptions)
-                            BottomNavItem.Type.AUTHORS.ordinal -> navController.navigate(AuthorsRoute, tabNavOptions)
+    SharedTransitionLayout {
+        CompositionLocalProvider(LocalSharedTransitionScope provides this) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                Scaffold(
+                    topBar = {
+                        if (navBarState.showTopBar) {
+                            TopNavBar(
+                                state = navBarState,
+                                onBack = {
+                                    if (showingSuggestions) dismissSuggestions() else navController.popBackStack()
+                                },
+                                onClose = {
+                                    while (navController.currentDestination?.hasRoute<ReadStoryRoute>() == true) {
+                                        navController.popBackStack()
+                                    }
+                                },
+                                onBlogClick = { navController.navigate(StoryRoute("$BASE_URL/blog/")) },
+                                onSearchClick = { showSearch = true },
+                            onFilterClick = { showFilterSheet = true },
+                            onLatestClick = { navController.navigate(LatestStoriesRoute) }
+                            )
+                        }
+                    },
+                    bottomBar = {
+                        if (navBarState.showBottomBar) {
+                            BottomNavBar(selectedItem) { newItem ->
+                                when (newItem) {
+                                    BottomNavItem.Type.HOME.ordinal -> navController.navigate(HomeRoute, tabNavOptions)
+                                    BottomNavItem.Type.KINGDOMS.ordinal -> navController.navigate(KingdomsRoute, tabNavOptions)
+                                    BottomNavItem.Type.LIBRARY.ordinal -> navController.navigate(LibraryRoute, tabNavOptions)
+                                    BottomNavItem.Type.AUTHORS.ordinal -> navController.navigate(AuthorsRoute, tabNavOptions)
+                                }
+                            }
                         }
                     }
+                ) { paddingValues ->
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(
+                                top = if (navBarState.showTopBar) 110.dp else 0.dp,
+                                bottom = paddingValues.calculateBottomPadding()
+                            )
+                    ) {
+                        Navigation(
+                            navController = navController,
+                            showFilterSheet = showFilterSheet,
+                            onFilterDismiss = { showFilterSheet = false },
+                            onReadingNavStateChanged = { isShowingSuggestions, onDismissSuggestions ->
+                                showingSuggestions = isShowingSuggestions
+                                dismissSuggestions = onDismissSuggestions
+                            }
+                        )
+                    }
                 }
-            }
-        ) { paddingValues ->
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(
-                        top = if (navBarState.showTopBar) 110.dp else 0.dp,
-                        bottom = paddingValues.calculateBottomPadding()
+
+                AnimatedVisibility(
+                    visible = showSearch,
+                    enter = fadeIn(animationSpec = tween(300)),
+                    exit = fadeOut(animationSpec = tween(300))
+                ) {
+                    SearchScreen(
+                        onClose = { showSearch = false },
+                        onStoryClick = { story ->
+                            showSearch = false
+                            navController.navigate(ReadStoryRoute(story))
+                        },
+                        onAuthorClick = { authorName ->
+                            showSearch = false
+                            navController.navigate(AuthorStoriesRoute(authorName))
+                        },
+                        onKingdomClick = { kingdom ->
+                            showSearch = false
+                            navController.navigate(KingdomStoriesRoute(kingdom.name))
+                        },
+                        onInfoClick = { url ->
+                            showSearch = false
+                            navController.navigate(StoryRoute(url))
+                        }
                     )
-            ) {
-                Navigation(navController, showFilterSheet, { showFilterSheet = false })
-            }
-        }
-
-        AnimatedVisibility(
-            visible = showSearch,
-            enter = fadeIn(animationSpec = tween(300)),
-            exit = fadeOut(animationSpec = tween(300))
-        ) {
-            SearchScreen(
-                onClose = { showSearch = false },
-                onStoryClick = { story ->
-                    showSearch = false
-                    navController.navigate(ReadStoryRoute(story))
-                },
-                onAuthorClick = { authorName ->
-                    showSearch = false
-                    navController.navigate(AuthorStoriesRoute(authorName))
-                },
-                onKingdomClick = { kingdom ->
-                    showSearch = false
-                    navController.navigate(KingdomStoriesRoute(kingdom.name))
-                },
-                onInfoClick = { url ->
-                    showSearch = false
-                    navController.navigate(StoryRoute(url))
                 }
-            )
-        }
 
-        if (showSplash) {
-            SplashScreen(onFinished = { showSplash = false })
+                if (showSplash) {
+                    SplashScreen(onFinished = { showSplash = false })
+                }
+            }
         }
     }
 }

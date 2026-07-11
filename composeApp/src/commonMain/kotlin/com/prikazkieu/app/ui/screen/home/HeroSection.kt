@@ -82,8 +82,6 @@ fun HeroSection(
         )
 
         Spacer(modifier = Modifier.height(24.dp))
-        AgeControl()
-        Spacer(modifier = Modifier.height(24.dp))
         Image(
             painter = painterResource(Res.drawable.joke_7),
             contentDescription = null,

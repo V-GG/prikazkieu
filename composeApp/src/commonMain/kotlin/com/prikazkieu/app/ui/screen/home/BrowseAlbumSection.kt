@@ -127,7 +127,7 @@ private fun OrnamentalHeader(count: Int?) {
             ),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 32.dp, vertical = 32.dp)
+                .padding(horizontal = 32.dp, vertical = 28.dp)
         )
     }
 }

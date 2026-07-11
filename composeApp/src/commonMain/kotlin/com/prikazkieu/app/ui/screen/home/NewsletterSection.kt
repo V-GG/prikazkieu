@@ -4,24 +4,24 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -94,56 +94,30 @@ private fun NewsletterTitle() {
 
 @Composable
 private fun NewsletterEmailField() {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp),
-        verticalAlignment = Alignment.CenterVertically
+    Box(
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.Center
     ) {
-        OutlinedTextField(
-            value = "",
-            onValueChange = { },
-            placeholder = {
-                Text(
-                    text = "E-mail адрес",
-                    style = TextStyle(
-                        fontStyle = FontStyle.Italic,
-                        fontSize = 18.sp,
-                        color = Color.Gray
-                    )
-                )
-            },
-            modifier = Modifier
-                .weight(1f)
-                .height(56.dp),
-            shape = RectangleShape,
-            colors = OutlinedTextFieldDefaults.colors(
-                unfocusedContainerColor = Color.White,
-                focusedContainerColor = Color.White,
-                unfocusedBorderColor = Color.White,
-                focusedBorderColor = Color.Black
-            ),
-            singleLine = true
-        )
-
         Button(
             onClick = { },
-            modifier = Modifier
-                .height(56.dp)
-                .width(72.dp)
-                .padding(start = 4.dp),
-            shape = RectangleShape,
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFFE8C84A)
-            ),
-            contentPadding = PaddingValues(0.dp)
+                containerColor = Color(0xFFA52A2A)
+            )
         ) {
+            Icon(
+                imageVector = Icons.Default.Notifications,
+                contentDescription = null,
+                tint = Color.White,
+                modifier = Modifier.size(18.dp)
+            )
+            Spacer(modifier = Modifier.width(8.dp))
             Text(
-                text = "ok",
+                text = "Абонирай се",
                 style = TextStyle(
-                    fontSize = 22.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF1A1A1A)
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Medium,
+                    fontFamily = FontFamily.Serif,
+                    color = Color.White
                 )
             )
         }
@@ -153,7 +127,7 @@ private fun NewsletterEmailField() {
 @Composable
 private fun NewsletterDisclaimer() {
     Text(
-        text = "С натискането на бутона \"OK\", се съгласявате с нашите условия.",
+        text = "С натискането на бутона \"Абонирай се\", се съгласявате с нашите условия.",
         style = TextStyle(
             fontSize = 12.sp,
             fontWeight = FontWeight.Normal,

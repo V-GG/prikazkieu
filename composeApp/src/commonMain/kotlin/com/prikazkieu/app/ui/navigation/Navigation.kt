@@ -1,5 +1,8 @@
 package com.prikazkieu.app.ui.navigation
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.NavHostController
@@ -42,7 +45,14 @@ fun Navigation(
     onFilterDismiss: () -> Unit = {},
     onReadingNavStateChanged: (showingSuggestions: Boolean, onDismissSuggestions: () -> Unit) -> Unit = { _, _ -> }
 ) {
-    NavHost(navController = navController, startDestination = HomeRoute) {
+    NavHost(
+        navController = navController,
+        startDestination = HomeRoute,
+        enterTransition = { fadeIn(animationSpec = tween(300)) },
+        exitTransition = { fadeOut(animationSpec = tween(300)) },
+        popEnterTransition = { fadeIn(animationSpec = tween(300)) },
+        popExitTransition = { fadeOut(animationSpec = tween(300)) }
+    ) {
         composable<HomeRoute> {
             CompositionLocalProvider(LocalNavAnimatedVisibilityScope provides this) {
                 HomeScreen(

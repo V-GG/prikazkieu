@@ -1,7 +1,9 @@
 package com.prikazkieu.app.ui.navigation
 
+import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
+import androidx.navigation.toRoute
 import kotlin.reflect.KClass
 
 object NavRegistry {
@@ -63,10 +65,27 @@ object NavRegistry {
         )
     )
 
-    fun resolve(destination: NavDestination?): NavBarState {
+    fun resolve(entry: NavBackStackEntry?): NavBarState {
+        val destination = entry?.destination
         val caps = destination
             ?.let { dest -> entries.firstOrNull { it.matches(dest) }?.capabilities }
             ?: emptySet()
+
+        // Author/kingdom story lists carry their subject's name + image +
+        // moreInfo url as route args — pull them out here so TopNavBar can
+        // show an avatar (instead of the search field) that opens the same
+        // "more info" page the removed AuthorCard/KingdomCard info button did.
+        val (subjectName, subjectImage, subjectMoreInfo) = when {
+            destination?.hasRoute<AuthorStoriesRoute>() == true -> {
+                val route = entry.toRoute<AuthorStoriesRoute>()
+                Triple(route.authorName, route.authorImage, route.authorMoreInfo)
+            }
+            destination?.hasRoute<KingdomStoriesRoute>() == true -> {
+                val route = entry.toRoute<KingdomStoriesRoute>()
+                Triple(route.kingdomName, route.kingdomImage, route.kingdomMoreInfo)
+            }
+            else -> Triple(null, null, null)
+        }
 
         return NavBarState(
             showTopBar = INoTopNavScreen::class !in caps,
@@ -76,7 +95,10 @@ object NavRegistry {
             showPrikazkiLogo = ITopPrikazkiLogoScreen::class in caps,
             showDefault = ITopDefaultToolsScreen::class in caps,
             showFilter = ITopFilterNavScreen::class in caps,
-            showBottomBar = INoBottomNavScreen::class !in caps
+            showBottomBar = INoBottomNavScreen::class !in caps,
+            subjectName = subjectName,
+            subjectImage = subjectImage,
+            subjectMoreInfo = subjectMoreInfo
         )
     }
 }

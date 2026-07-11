@@ -78,7 +78,7 @@ private fun NewsletterTitle() {
         )
 
         Text(
-            text = "по пощата в сряда",
+            text = "в сряда",
             style = TextStyle(
                 fontStyle = FontStyle.Italic,
                 fontSize = 18.sp,
@@ -101,13 +101,13 @@ private fun NewsletterEmailField() {
         Button(
             onClick = { },
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFFA52A2A)
+                containerColor = Color(0xFFEDD82A)
             )
         ) {
             Icon(
                 imageVector = Icons.Default.Notifications,
                 contentDescription = null,
-                tint = Color.White,
+                tint = Color.Black,
                 modifier = Modifier.size(18.dp)
             )
             Spacer(modifier = Modifier.width(8.dp))
@@ -117,7 +117,7 @@ private fun NewsletterEmailField() {
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Medium,
                     fontFamily = FontFamily.Serif,
-                    color = Color.White
+                    color = Color.Black
                 )
             )
         }

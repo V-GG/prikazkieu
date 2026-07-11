@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.prikazkieu.app.data.model.Author
 import com.prikazkieu.app.ui.components.AuthorCard
 import com.prikazkieu.app.ui.viewmodel.AuthorViewModel
 
@@ -50,8 +51,7 @@ private val BulgarianAlphabet = listOf(
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun AuthorsScreen(
-    onInfoClick: (String) -> Unit,
-    onAuthorClick: (String) -> Unit,
+    onAuthorClick: (Author) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: AuthorViewModel = viewModel(
         factory = viewModelFactory { initializer { AuthorViewModel() } }
@@ -133,7 +133,6 @@ fun AuthorsScreen(
                     items(filtered, key = { it.name }) { author ->
                         AuthorCard(
                             author = author,
-                            onInfoClick = onInfoClick,
                             onAuthorClick = onAuthorClick,
                             modifier = Modifier.fillMaxWidth()
                         )

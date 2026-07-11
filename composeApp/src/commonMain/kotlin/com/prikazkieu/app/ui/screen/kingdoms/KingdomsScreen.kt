@@ -31,7 +31,6 @@ import com.prikazkieu.app.ui.viewmodel.KingdomViewModel
 @Composable
 fun KingdomsScreen(
     onKingdomClick: (Kingdom) -> Unit = {},
-    onInfoClick: (String) -> Unit = {},
     modifier: Modifier = Modifier,
     viewModel: KingdomViewModel = remember { KingdomViewModel() }
 ) {
@@ -73,8 +72,7 @@ fun KingdomsScreen(
                 items(s.kingdoms, key = { it.name }) { kingdom ->
                     KingdomCard(
                         kingdom = kingdom,
-                        onClick = onKingdomClick,
-                        onInfoClick = onInfoClick
+                        onClick = onKingdomClick
                     )
                 }
                 if (s.isLoadingMore) {

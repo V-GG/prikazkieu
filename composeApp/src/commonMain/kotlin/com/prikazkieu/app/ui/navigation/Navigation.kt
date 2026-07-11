@@ -30,8 +30,8 @@ import kotlin.reflect.typeOf
 @Serializable object AuthorsRoute : ITopSearchNavScreen
 @Serializable object AllStoriesRoute : ITopSearchNavScreen
 @Serializable data class AlbumStoriesRoute(val albumName: String) : ITopBackNavScreen, ITopFilterNavScreen
-@Serializable data class AuthorStoriesRoute(val authorName: String) : ITopBackNavScreen, ITopFilterNavScreen
-@Serializable data class KingdomStoriesRoute(val kingdomName: String) : ITopBackNavScreen, ITopFilterNavScreen
+@Serializable data class AuthorStoriesRoute(val authorName: String, val authorImage: String? = null, val authorMoreInfo: String? = null) : ITopBackNavScreen, ITopFilterNavScreen
+@Serializable data class KingdomStoriesRoute(val kingdomName: String, val kingdomImage: String? = null, val kingdomMoreInfo: String? = null) : ITopBackNavScreen, ITopFilterNavScreen
 @Serializable data class StoryRoute(val url: String) : ITopBackNavScreen, INoBottomNavScreen
 @Serializable data class ReadStoryRoute(val story: Story) : ITopBackNavScreen, INoBottomNavScreen
 @Serializable object LatestStoriesRoute : ITopBackNavScreen
@@ -72,8 +72,9 @@ fun Navigation(
         }
         composable<KingdomsRoute> {
             KingdomsScreen(
-                onKingdomClick = { kingdom -> navController.navigate(KingdomStoriesRoute(kingdom.name)) },
-                onInfoClick = { url -> navController.navigate(StoryRoute(url)) }
+                onKingdomClick = { kingdom ->
+                    navController.navigate(KingdomStoriesRoute(kingdom.name, kingdom.image, kingdom.moreInfo))
+                }
             )
         }
         composable<LibraryRoute> {
@@ -87,8 +88,9 @@ fun Navigation(
         }
         composable<AuthorsRoute> {
             AuthorsScreen(
-                onInfoClick = { url -> navController.navigate(StoryRoute(url)) },
-                onAuthorClick = { authorName -> navController.navigate(AuthorStoriesRoute(authorName)) }
+                onAuthorClick = { author ->
+                    navController.navigate(AuthorStoriesRoute(author.name, author.image, author.moreInfo))
+                }
             )
         }
         composable<AuthorStoriesRoute> { backStackEntry ->

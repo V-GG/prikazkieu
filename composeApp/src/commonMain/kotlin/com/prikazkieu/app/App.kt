@@ -38,7 +38,7 @@ fun App() {
     var dismissSuggestions by remember { mutableStateOf({}) }
 
     val prevIsReadStory = navController.previousBackStackEntry?.destination?.hasRoute<ReadStoryRoute>() == true
-    val navBarState = NavRegistry.resolve(currentDest).let { base ->
+    val navBarState = NavRegistry.resolve(currentEntry).let { base ->
         if (currentDest?.hasRoute<ReadStoryRoute>() == true) {
             base.copy(showBack = showingSuggestions || prevIsReadStory)
         } else {
@@ -81,7 +81,8 @@ fun App() {
                                 onBlogClick = { navController.navigate(StoryRoute("$BASE_URL/blog/")) },
                                 onSearchClick = { showSearch = true },
                             onFilterClick = { showFilterSheet = true },
-                            onLatestClick = { navController.navigate(LatestStoriesRoute) }
+                            onLatestClick = { navController.navigate(LatestStoriesRoute) },
+                            onSubjectClick = { url -> navController.navigate(StoryRoute(url)) }
                             )
                         }
                     },
@@ -129,17 +130,13 @@ fun App() {
                             showSearch = false
                             navController.navigate(ReadStoryRoute(story))
                         },
-                        onAuthorClick = { authorName ->
+                        onAuthorClick = { author ->
                             showSearch = false
-                            navController.navigate(AuthorStoriesRoute(authorName))
+                            navController.navigate(AuthorStoriesRoute(author.name, author.image, author.moreInfo))
                         },
                         onKingdomClick = { kingdom ->
                             showSearch = false
-                            navController.navigate(KingdomStoriesRoute(kingdom.name))
-                        },
-                        onInfoClick = { url ->
-                            showSearch = false
-                            navController.navigate(StoryRoute(url))
+                            navController.navigate(KingdomStoriesRoute(kingdom.name, kingdom.image, kingdom.moreInfo))
                         }
                     )
                 }

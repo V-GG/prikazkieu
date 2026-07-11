@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,10 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -44,7 +39,6 @@ import prikazkieu.composeapp.generated.resources.bgr_region
 fun KingdomCard(
     kingdom: Kingdom,
     onClick: (Kingdom) -> Unit,
-    onInfoClick: (String) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val density = LocalDensity.current
@@ -55,29 +49,15 @@ fun KingdomCard(
         modifier = modifier
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = kingdom.name,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                    fontFamily = FontFamily.Serif,
-                    color = Color(0xFFA52A2A),
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.weight(1f).padding(start = 8.dp)
-                )
-                if (kingdom.moreInfo != null) {
-                    IconButton(onClick = { onInfoClick(kingdom.moreInfo) }) {
-                        Icon(
-                            imageVector = Icons.Default.Info,
-                            contentDescription = "More info",
-                            tint = Color(0xFFA52A2A)
-                        )
-                    }
-                }
-            }
+            Text(
+                text = kingdom.name,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.Serif,
+                color = Color(0xFFA52A2A),
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp)
+            )
 
             Box(
                 modifier = Modifier

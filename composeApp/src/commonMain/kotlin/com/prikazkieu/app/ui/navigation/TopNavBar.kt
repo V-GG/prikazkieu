@@ -13,6 +13,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.filled.NotificationImportant
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -28,9 +29,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
 import com.prikazkieu.app.ui.viewmodel.LatestStoriesViewModel
 import org.jetbrains.compose.resources.painterResource
 import prikazkieu.composeapp.generated.resources.Res
@@ -45,6 +49,7 @@ fun TopNavBar(
     onSearchClick: () -> Unit = {},
     onFilterClick: () -> Unit = {},
     onLatestClick: () -> Unit = {},
+    onSubjectClick: (String) -> Unit = {},
     latestStoriesViewModel: LatestStoriesViewModel = remember { LatestStoriesViewModel() }
 ) {
     LaunchedEffect(Unit) {
@@ -83,7 +88,51 @@ fun TopNavBar(
                 }
             }
 
-            if (state.showSearch) {
+            if (state.subjectName != null) {
+                Row(
+                    modifier = Modifier
+                        .weight(1f)
+                        .let { m ->
+                            val url = state.subjectMoreInfo
+                            if (url != null) m.clickable { onSubjectClick(url) } else m
+                        },
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(36.dp)
+                            .clip(CircleShape)
+                            .background(Color(0xFFF0EDD8)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        if (state.subjectImage != null) {
+                            AsyncImage(
+                                model = state.subjectImage,
+                                contentDescription = state.subjectName,
+                                contentScale = ContentScale.Crop,
+                                modifier = Modifier.fillMaxSize()
+                            )
+                        } else {
+                            Icon(
+                                imageVector = Icons.Default.Person,
+                                contentDescription = null,
+                                tint = Color(0xFFA52A2A),
+                                modifier = Modifier.size(20.dp)
+                            )
+                        }
+                    }
+                    Text(
+                        text = state.subjectName,
+                        fontFamily = FontFamily.Serif,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 16.sp,
+                        color = Color(0xFFA52A2A),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+            } else if (state.showSearch) {
                 Box(modifier = Modifier.weight(1f)) {
                     OutlinedTextField(
                         state = TextFieldState(),

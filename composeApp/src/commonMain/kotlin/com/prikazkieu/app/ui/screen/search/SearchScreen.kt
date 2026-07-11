@@ -49,6 +49,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.prikazkieu.app.data.model.Author
 import com.prikazkieu.app.data.model.Kingdom
 import com.prikazkieu.app.data.model.SearchResult
 import com.prikazkieu.app.data.model.Story
@@ -61,9 +62,8 @@ import com.prikazkieu.app.ui.viewmodel.SearchViewModel
 fun SearchScreen(
     onClose: () -> Unit,
     onStoryClick: (Story) -> Unit,
-    onAuthorClick: (String) -> Unit,
+    onAuthorClick: (Author) -> Unit,
     onKingdomClick: (Kingdom) -> Unit,
-    onInfoClick: (String) -> Unit,
     viewModel: SearchViewModel = remember { SearchViewModel() }
 ) {
     val state by viewModel.state.collectAsState()
@@ -215,14 +215,12 @@ fun SearchScreen(
                                             ) {
                                                 AuthorCard(
                                                     author = (pair[0] as SearchResult.AuthorResult).author,
-                                                    onInfoClick = onInfoClick,
                                                     onAuthorClick = onAuthorClick,
                                                     modifier = Modifier.weight(1f)
                                                 )
                                                 if (pair.size == 2) {
                                                     AuthorCard(
                                                         author = (pair[1] as SearchResult.AuthorResult).author,
-                                                        onInfoClick = onInfoClick,
                                                         onAuthorClick = onAuthorClick,
                                                         modifier = Modifier.weight(1f)
                                                     )
@@ -241,14 +239,12 @@ fun SearchScreen(
                                                 KingdomCard(
                                                     kingdom = (pair[0] as SearchResult.KingdomResult).kingdom,
                                                     onClick = onKingdomClick,
-                                                    onInfoClick = onInfoClick,
                                                     modifier = Modifier.weight(1f)
                                                 )
                                                 if (pair.size == 2) {
                                                     KingdomCard(
                                                         kingdom = (pair[1] as SearchResult.KingdomResult).kingdom,
                                                         onClick = onKingdomClick,
-                                                        onInfoClick = onInfoClick,
                                                         modifier = Modifier.weight(1f)
                                                     )
                                                 } else {
